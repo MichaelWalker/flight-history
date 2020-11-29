@@ -1,3 +1,9 @@
-﻿.idea
+﻿# IDE
+.idea
+
+# C#
 bin
 obj
+
+# JS
+node_modules
