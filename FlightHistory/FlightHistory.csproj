@@ -11,6 +11,11 @@
     <ItemGroup>
       <TypeScriptCompile Include="ClientApp\src\App.tsx" />
       <TypeScriptCompile Include="ClientApp\src\index.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\Aircraft.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\Airports.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\Dashboard.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\Flights.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\NotFound.tsx" />
     </ItemGroup>
 
 

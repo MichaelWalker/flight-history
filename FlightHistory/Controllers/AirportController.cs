@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace FlightHistory.Controllers
 {
     [ApiController]
-    [Route("airports")]
+    [Route("api/airports")]
     public class AirportController : ControllerBase
     {
         private readonly ILogger<AirportController> _logger;
