@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: "./index.js",
+    entry: "./index.ts",
     output: {
         filename: 'bundle.[fullhash].js',
         path: path.resolve(__dirname, 'dist'),
@@ -46,10 +46,6 @@ module.exports = {
                 exclude: /\.module\.scss/,
                 use: ['style-loader','css-loader', 'sass-loader']
             },
-            {
-                test: /\.png$/,
-                use: 'file-loader'
-            }
         ]
     },
-}
+};

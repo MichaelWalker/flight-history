@@ -55,7 +55,7 @@ namespace FlightHistory
                 if (env.IsDevelopment())
                 {
                     ;
-                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    spa.UseReactDevelopmentServer(npmScript: "start:with-asp");
                 }
             });
         }
