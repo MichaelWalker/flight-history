@@ -1,17 +1,23 @@
 {
   "name": "client-app",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "/src/index.tsx",
   "license": "MIT",
   "scripts": {
     "start:with-asp": "echo Starting the development server && webpack serve --hot --port %PORT%",
     "start:sample-data": "SET USE_SAMPLE_DATA=true && webpack serve --hot"
   },
   "dependencies": {
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-react": "7.12.7",
     "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
+    "babel-loader": "8.2.2",
     "css-loader": "5.0.1",
     "html-webpack-plugin": "5.0.0-alpha.14",
     "react": "17.0.1",
+    "react-dom": "17.0.1",
     "sass-loader": "10.1.0",
     "style-loader": "2.0.0",
     "ts-loader": "8.0.11",

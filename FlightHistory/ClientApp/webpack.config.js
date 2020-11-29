@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: "./index.ts",
+    entry: "./src/index.tsx",
     output: {
         filename: 'bundle.[fullhash].js',
         path: path.resolve(__dirname, 'dist'),
@@ -26,7 +26,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                use: 'ts-loader'
+                use: ['babel-loader', 'ts-loader']
             },
             {
                 test: /\.module\.scss/,
