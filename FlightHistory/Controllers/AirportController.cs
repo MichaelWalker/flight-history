@@ -20,6 +20,7 @@ namespace FlightHistory.Controllers
         [HttpGet("")]
         public IEnumerable<AirportModel> Search()
         {
+            _logger.LogInformation("Searching Airports");
             return Enumerable.Empty<AirportModel>();
         }
     }

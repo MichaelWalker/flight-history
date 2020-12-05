@@ -4,6 +4,7 @@
 # C#
 bin
 obj
+*.db
 
 # JS
 node_modules
