@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using FlightHistory.Data.SampleData;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -15,10 +16,12 @@ namespace FlightHistory
 
             using var scope = host.Services.CreateScope();
             var serviceProvider = scope.ServiceProvider;
+            var dbContext = serviceProvider.GetService<DatabaseContext>();
             
-            if (IsDevEnvironment(serviceProvider) && DatabaseIsEmpty(serviceProvider))
+            dbContext.Database.Migrate();
+            if (IsDevEnvironment(serviceProvider) && DatabaseIsEmpty(dbContext))
             {
-                PopulateWithSampleData(serviceProvider);
+                PopulateWithSampleData(dbContext);
             }
             
             host.Run();
@@ -30,19 +33,15 @@ namespace FlightHistory
             return env.IsDevelopment();
         }
         
-        private static bool DatabaseIsEmpty(IServiceProvider serviceProvider)
+        private static bool DatabaseIsEmpty(DatabaseContext databaseContext)
         {
-            var db = serviceProvider.GetRequiredService<DatabaseContext>();
-            return !db.Airports.Any();
+            return !databaseContext.Airports.Any();
         }
         
-        private static void PopulateWithSampleData(IServiceProvider serviceProvider)
+        private static void PopulateWithSampleData(DatabaseContext databaseContext)
         {
-            var db = serviceProvider.GetRequiredService<DatabaseContext>();
-            
-            db.Airports.AddRange(SampleAirports.Generate());
-
-            db.SaveChanges();
+            databaseContext.Airports.AddRange(SampleAirports.Generate());
+            databaseContext.SaveChanges();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

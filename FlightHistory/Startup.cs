@@ -40,8 +40,6 @@ namespace FlightHistory
             {
                 app.UseDeveloperExceptionPage();
             }
-            
-            databaseContext.Database.Migrate();
 
             app.UseHttpsRedirection();
 
