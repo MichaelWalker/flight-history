@@ -10,13 +10,13 @@ namespace FlightHistory.Data.SampleData
             return new[]
             {
                 new Airport
-                {
-                    Name = "Heathrow"
-                },
+                (
+                    "Heathrow"
+                ),
                 new Airport
-                {
-                    Name = "Gatwick"
-                },
+                (
+                    "Gatwick"
+                ),
             };
         }
     }

@@ -1,11 +1,15 @@
+using System;
+using FlightHistory.Models.Db;
 using FlightHistory.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace FlightHistory
 {
@@ -24,6 +28,15 @@ namespace FlightHistory
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            services.AddIdentity<User, Role>(options =>
+                {
+                    // Mostly use the default settings, as they are fairly sensible.
+                    // https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration?view=aspnetcore-3.1
+
+                    options.User.RequireUniqueEmail = true;
+                })
+                .AddEntityFrameworkStores<DatabaseContext>();
             
             services.AddControllers();
 

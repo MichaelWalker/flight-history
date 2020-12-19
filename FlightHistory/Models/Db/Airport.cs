@@ -10,5 +10,10 @@ namespace FlightHistory.Models.Db
         [DatabaseGenerated(Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        
+        public Airport(string name)
+        {
+            Name = name;
+        }
     }
 }
