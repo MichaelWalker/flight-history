@@ -1,7 +1,10 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using FlightHistory.Data.SampleData;
+using FlightHistory.Models.Db;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,11 +20,23 @@ namespace FlightHistory
             using var scope = host.Services.CreateScope();
             var serviceProvider = scope.ServiceProvider;
             var dbContext = serviceProvider.GetService<DatabaseContext>();
+            var userManager = serviceProvider.GetService<UserManager<User>>();
             
-            dbContext.Database.Migrate();
-            if (IsDevEnvironment(serviceProvider) && DatabaseIsEmpty(dbContext))
+            if (IsDevEnvironment(serviceProvider))
             {
-                PopulateWithSampleData(dbContext);
+                // SQLite doesn't support many of the migrations that are needed.
+                // So... instead we just create the Tables directly from the models.
+                // To 'migrate'... just delete the existing DB and re-run.
+                dbContext.Database.EnsureCreated();
+
+                if (DatabaseIsEmpty(dbContext))
+                {
+                    PopulateWithSampleData(dbContext, userManager).Wait();
+                }
+            }
+            else
+            {
+                dbContext.Database.Migrate();
             }
             
             host.Run();
@@ -38,10 +53,12 @@ namespace FlightHistory
             return !databaseContext.Airports.Any();
         }
         
-        private static void PopulateWithSampleData(DatabaseContext databaseContext)
+        private static async Task PopulateWithSampleData(DatabaseContext databaseContext, UserManager<User> userManager)
         {
-            databaseContext.Airports.AddRange(SampleAirports.Generate());
-            databaseContext.SaveChanges();
+            await databaseContext.Airports.AddRangeAsync(SampleAirports.Generate());
+            await databaseContext.SaveChangesAsync();
+            
+            await userManager.CreateAsync(new User {UserName = "user", Email = "user@sample.com"}, "Password_1");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

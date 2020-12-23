@@ -2,6 +2,7 @@
 using System.Linq;
 using FlightHistory.Models.Api;
 using FlightHistory.Repos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,6 +10,7 @@ namespace FlightHistory.Controllers
 {
     [ApiController]
     [Route("api/airports")]
+    [Authorize]
     public class AirportController : ControllerBase
     {
         private readonly ILogger<AirportController> _logger;

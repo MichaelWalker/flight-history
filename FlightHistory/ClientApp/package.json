@@ -4,7 +4,7 @@
   "main": "/src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "start:with-asp": "echo Starting the development server && webpack serve --hot --port %PORT%",
+    "start:with-asp": "echo Starting the development server && webpack serve --port %PORT%",
     "start:sample-data": "SET USE_SAMPLE_DATA=true && webpack serve --hot"
   },
   "dependencies": {
