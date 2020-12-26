@@ -9,6 +9,7 @@ namespace FlightHistory.Repos
     public interface IAirportRepo
     {
         Airport Create(CreateAirportRequest request);
+        IEnumerable<Airport> Search(string? search);
     }
     
     public class AirportRepo : IAirportRepo
@@ -22,9 +23,10 @@ namespace FlightHistory.Repos
             _db = db;
         }
 
-        public Airport? SingleOrDefaultByIata(string iata)
+        public IEnumerable<Airport> Search(string? search)
         {
-            return _airports.SingleOrDefault(a => a.Iata == iata);
+            return _airports
+                .Where(a => search == null || a.Iata == search);
         }
 
         public Airport Create(CreateAirportRequest request)

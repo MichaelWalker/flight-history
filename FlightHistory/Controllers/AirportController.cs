@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using FlightHistory.Models.Api;
 using FlightHistory.Models.Requests;
 using FlightHistory.Repos;
@@ -22,6 +20,14 @@ namespace FlightHistory.Controllers
         {
             _logger = logger;
             _airportRepo = airportRepo;
+        }
+
+        [HttpGet("")]
+        public IActionResult Search([FromQuery] string? search)
+        {
+            _logger.LogInformation("Searching for airports");
+            var airports = _airportRepo.Search(search);
+            return Ok(airports.Select(AirportModel.FromDbModel));
         }
 
         [HttpPost("")]
