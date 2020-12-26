@@ -1,4 +1,5 @@
-﻿using FlightHistory.Models.Api;
+﻿using System.Linq;
+using FlightHistory.Models.Api;
 using FlightHistory.Models.Requests;
 using FlightHistory.Repos;
 using Microsoft.AspNetCore.Authorization;
@@ -19,6 +20,14 @@ namespace FlightHistory.Controllers
         {
             _logger = logger;
             _airlineRepo = airlineRepo;
+        }
+
+        [HttpGet("")]
+        public IActionResult Search([FromQuery] string? search)
+        {
+            _logger.LogInformation("Searching airlines");
+            var airlines = _airlineRepo.Search(search);
+            return Ok(airlines.Select(AirlineModel.FromDbModel));
         }
 
         [HttpPost("")]

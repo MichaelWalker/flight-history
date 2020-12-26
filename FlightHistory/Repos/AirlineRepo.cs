@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using FlightHistory.Models.Db;
 using FlightHistory.Models.Requests;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace FlightHistory.Repos
     public interface IAirlineRepo
     {
         Airline Create(CreateAirlineRequest request);
+        IEnumerable<Airline> Search(string? search);
     }
     
     public class AirlineRepo : IAirlineRepo
@@ -19,6 +21,12 @@ namespace FlightHistory.Repos
         {
             _airlines = databaseContext.Airlines;
             _db = databaseContext;
+        }
+        
+        public IEnumerable<Airline> Search(string? search)
+        {
+            return _airlines
+                .Where(a => search == null || a.Name.ToLower().Contains(search.ToLower()));
         }
 
         public Airline Create(CreateAirlineRequest request)

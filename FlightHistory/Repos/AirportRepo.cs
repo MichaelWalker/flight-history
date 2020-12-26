@@ -19,6 +19,7 @@ namespace FlightHistory.Repos
         public AirportRepo(DatabaseContext db)
         {
             _airports = db.Airports;
+            _db = db;
         }
 
         public Airport? SingleOrDefaultByIata(string iata)
