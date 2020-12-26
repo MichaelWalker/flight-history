@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using FlightHistory.Models.Api;
+using FlightHistory.Models.Requests;
 using FlightHistory.Repos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace FlightHistory.Controllers
     [ApiController]
     [Route("api/airports")]
     [Authorize]
-    public class AirportController : ControllerBase
+    public class AirportController : ApiController
     {
         private readonly ILogger<AirportController> _logger;
         private readonly IAirportRepo _airportRepo;
@@ -23,12 +24,18 @@ namespace FlightHistory.Controllers
             _airportRepo = airportRepo;
         }
 
-        [HttpGet("")]
-        public IEnumerable<AirportModel> Search()
+        [HttpPost("")]
+        public IActionResult Create([FromBody] CreateAirportRequest request)
         {
-            _logger.LogInformation("Searching Airports");
-            return _airportRepo.Search()
-                .Select(AirportModel.FromDbModel);
+            _logger.LogInformation("Creating a new airport");
+
+            if (!ModelState.IsValid)
+            {
+                return InvalidModelRequest();
+            }
+
+            var airport = _airportRepo.Create(request);
+            return Ok(AirportModel.FromDbModel(airport));
         }
     }
 }
