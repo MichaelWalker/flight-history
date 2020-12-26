@@ -75,6 +75,7 @@ namespace FlightHistory
             services.AddControllers();
 
             services.AddTransient<IAircraftRepo, AircraftRepo>();
+            services.AddTransient<IAirlineRepo, AirlineRepo>();
             services.AddTransient<IAirportRepo, AirportRepo>();
             services.AddTransient<IFlightRepo, FlightRepo>();
 

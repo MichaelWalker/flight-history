@@ -3,20 +3,22 @@ using FlightHistory.Models.Db;
 
 namespace FlightHistory.Models.Api
 {
-    public struct FlightModel
+    public readonly struct FlightModel
     {
-        public FlightModel(AircraftSummary aircraft, AirportSummary source, AirportSummary desination, DateTime departureDate)
+        public FlightModel(AircraftSummary aircraft, AirportSummary source, AirportSummary desination, DateTime departureDate, AirlineSummary airline)
         {
             Aircraft = aircraft;
             Source = source;
             Desination = desination;
             DepartureDate = departureDate;
+            Airline = airline;
         }
 
         public AircraftSummary Aircraft { get; }
         public AirportSummary Source { get; }
         public AirportSummary Desination { get; }
         public DateTime DepartureDate { get; }
+        public AirlineSummary Airline { get; }
         
         public static FlightModel FromDbModel(Flight flight)
         {
@@ -24,12 +26,13 @@ namespace FlightHistory.Models.Api
                 aircraft: AircraftSummary.FromDbModel(flight.Aircraft),
                 source: AirportSummary.FromDbModel(flight.Source),
                 desination: AirportSummary.FromDbModel(flight.Desination),
-                departureDate: flight.DepartureDate
+                departureDate: flight.DepartureDate,
+                airline: AirlineSummary.FromDbModel(flight.Airline)
             );
         }
     }
 
-    public struct AirportSummary
+    public readonly struct AirportSummary
     {
         public AirportSummary(int id, string? iata)
         {
@@ -46,7 +49,7 @@ namespace FlightHistory.Models.Api
         }
     }
 
-    public struct AircraftSummary
+    public readonly struct AircraftSummary
     {
         public AircraftSummary(string reference)
         {
@@ -58,6 +61,21 @@ namespace FlightHistory.Models.Api
         public static AircraftSummary FromDbModel(Aircraft aircraft)
         {
             return new AircraftSummary(aircraft.Registration);
+        }
+    }
+    
+    public readonly struct AirlineSummary
+    {
+        public AirlineSummary(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; }
+
+        public static AirlineSummary FromDbModel(Airline airline)
+        {
+            return new AirlineSummary(airline.Name);
         }
     }
 }

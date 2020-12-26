@@ -14,5 +14,6 @@ namespace FlightHistory.Models.Db
         public Airport Source { get; set; } = null!;
         public Airport Desination { get; set; } = null!;
         public DateTime DepartureDate { get; set; }
+        public Airline Airline { get; set; } = null!;
     }
 }

@@ -7,6 +7,7 @@ namespace FlightHistory
     public class DatabaseContext : IdentityDbContext<User, Role, int>
     {
         public DbSet<Airport> Airports { get; set; } = null!;
+        public DbSet<Airline> Airlines { get; set; } = null!;
         public DbSet<Aircraft> Aircraft { get; set; } = null!;
         public DbSet<Flight> Flights { get; set; } = null!;
 
