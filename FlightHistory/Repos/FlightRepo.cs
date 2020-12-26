@@ -25,16 +25,13 @@ namespace FlightHistory.Repos
 
         public Flight SingleById(int id)
         {
-            return _flights
-                .Include(f => f.Aircraft)
-                .Include(f => f.Source)
-                .Include(f => f.Desination)
+            return All()
                 .Single(f => f.Id == id);
         }
 
         public IEnumerable<Flight> Search()
         {
-            return _flights;
+            return All();
         }
 
         public Flight Create(Flight flight)
@@ -43,6 +40,14 @@ namespace FlightHistory.Repos
             _db.SaveChanges();
 
             return SingleById(newFlight.Id);
+        }
+
+        private IEnumerable<Flight> All()
+        {
+            return _flights
+                .Include(f => f.Aircraft)
+                .Include(f => f.Source)
+                .Include(f => f.Desination);
         }
     }
 }

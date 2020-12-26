@@ -1,5 +1,7 @@
-﻿using FlightHistory.Models.Api;
+﻿using System.Linq;
+using FlightHistory.Models.Api;
 using FlightHistory.Models.Requests;
+using FlightHistory.Repos;
 using FlightHistory.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +16,22 @@ namespace FlightHistory.Controllers
     {
         private readonly ILogger<FlightController> _logger;
         private readonly IFlightService _flightService;
+        private readonly IFlightRepo _flightRepo;
 
-        public FlightController(IFlightService flightService, ILogger<FlightController> logger)
+        public FlightController(IFlightService flightService, ILogger<FlightController> logger, IFlightRepo flightRepo)
         {
             _flightService = flightService;
             _logger = logger;
+            _flightRepo = flightRepo;
+        }
+
+        [HttpGet("")]
+        public IActionResult Search()
+        {
+            _logger.LogInformation("Fetching flight records");
+            var flights = _flightRepo.Search();
+
+            return Ok(flights.Select(FlightModel.FromDbModel));
         }
 
         [HttpPost("")]
