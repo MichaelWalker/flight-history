@@ -2,18 +2,18 @@
 
 namespace FlightHistory.Models.Api
 {
-    public class AirportModel
+    public struct AirportModel
     {
-        public string Name { get; }
+        public string? Iata { get; }
 
-        private AirportModel(string name)
+        private AirportModel(string? iata)
         {
-            Name = name;
+            Iata = iata;
         }
 
         public static AirportModel FromDbModel(Airport airport)
         {
-            return new AirportModel(airport.Name);
+            return new AirportModel(iata: airport.Iata);
         }
     }
 }

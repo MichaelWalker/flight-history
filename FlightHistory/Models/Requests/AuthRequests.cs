@@ -4,11 +4,11 @@ namespace FlightHistory.Models.Requests
 {
     public class SignInRequest
     {
-        [Required]
-        [EmailAddress]
-        public string? Email { get; set; }
-        
-        [Required]
-        public string? Password { get; set; }
+        [Required] 
+        [EmailAddress] 
+        public string Email { get; set; } = null!;
+
+        [Required] 
+        public string Password { get; set; } = null!;
     }
 }

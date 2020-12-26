@@ -74,8 +74,14 @@ namespace FlightHistory
             
             services.AddControllers();
 
-            services.AddTransient<IAirports, Airports>();
+            services.AddTransient<IAircraftRepo, AircraftRepo>();
+            services.AddTransient<IAirportRepo, AirportRepo>();
+            services.AddTransient<IFlightRepo, FlightRepo>();
+
+            services.AddTransient<IAircraftService, AircraftService>();
+            services.AddTransient<IAirportService, AirportService>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IFlightService, FlightService>();
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddSingleton(jwtSettings);

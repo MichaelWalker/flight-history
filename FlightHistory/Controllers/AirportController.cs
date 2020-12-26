@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FlightHistory.Models.Api;
 using FlightHistory.Repos;
 using Microsoft.AspNetCore.Authorization;
@@ -14,19 +15,19 @@ namespace FlightHistory.Controllers
     public class AirportController : ControllerBase
     {
         private readonly ILogger<AirportController> _logger;
-        private readonly IAirports _airports;
+        private readonly IAirportRepo _airportRepo;
         
-        public AirportController(ILogger<AirportController> logger, IAirports airports)
+        public AirportController(ILogger<AirportController> logger, IAirportRepo airportRepo)
         {
             _logger = logger;
-            _airports = airports;
+            _airportRepo = airportRepo;
         }
 
         [HttpGet("")]
         public IEnumerable<AirportModel> Search()
         {
             _logger.LogInformation("Searching Airports");
-            return _airports.Search()
+            return _airportRepo.Search()
                 .Select(AirportModel.FromDbModel);
         }
     }

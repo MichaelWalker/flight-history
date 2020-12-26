@@ -13,7 +13,7 @@ namespace FlightHistory.Controllers
 {
     [ApiController]
     [Route("api/auth")]
-    public class AuthController : ControllerBase
+    public class AuthController : ApiController
     {
         private const string RefreshTokenCookie = "refresh-token"; 
         
@@ -36,11 +36,11 @@ namespace FlightHistory.Controllers
             _logger.LogDebug("Received Login Request");
             if (!ModelState.IsValid)
             {
-                _logger.LogInformation("Rejecting sign in request - invalid request model");
-                return BadRequest(ModelState.Values.SelectMany(v => v.Errors));
+                _logger.LogWarning("Rejecting sign in request - invalid request model");
+                return InvalidModelRequest();
             }
 
-            var user = await _authService.ValidateCredentials(signInRequest.Email!, signInRequest.Password!);
+            var user = await _authService.ValidateCredentials(signInRequest.Email, signInRequest.Password);
 
             if (user == null)
             {
