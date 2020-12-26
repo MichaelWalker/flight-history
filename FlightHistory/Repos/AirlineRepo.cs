@@ -13,15 +13,19 @@ namespace FlightHistory.Repos
     public class AirlineRepo : IAirlineRepo
     {
         private DbSet<Airline> _airlines;
+        private DatabaseContext _db;
 
         public AirlineRepo(DatabaseContext databaseContext)
         {
             _airlines = databaseContext.Airlines;
+            _db = databaseContext;
         }
 
         public Airline Create(CreateAirlineRequest request)
         {
-            return _airlines.Add(new Airline { Name = request.Name }).Entity;
+            var response = _airlines.Add(new Airline { Name = request.Name });
+            _db.SaveChanges();
+            return response.Entity;
         }
     }
 }

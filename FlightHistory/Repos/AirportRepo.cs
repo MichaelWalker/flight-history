@@ -8,13 +8,13 @@ namespace FlightHistory.Repos
 {
     public interface IAirportRepo
     {
-        Airport? SingleOrDefaultByIata(string iata);
         Airport Create(CreateAirportRequest request);
     }
     
     public class AirportRepo : IAirportRepo
     {
         private readonly DbSet<Airport> _airports;
+        private readonly DatabaseContext _db;
 
         public AirportRepo(DatabaseContext db)
         {
@@ -28,7 +28,9 @@ namespace FlightHistory.Repos
 
         public Airport Create(CreateAirportRequest request)
         {
-            return _airports.Add(new Airport {Iata = request.Iata}).Entity;
+            var response = _airports.Add(new Airport {Iata = request.Iata});
+            _db.SaveChanges();
+            return response.Entity;
         }
     }
 }

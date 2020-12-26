@@ -10,6 +10,7 @@ namespace FlightHistory.Models.Db
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        public string AircraftId { get; set; } = null!;
         public Aircraft Aircraft { get; set; } = null!;
         public int SourceId { get; set; }
         public Airport Source { get; set; } = null!;

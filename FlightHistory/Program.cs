@@ -55,8 +55,11 @@ namespace FlightHistory
         
         private static async Task PopulateWithSampleData(DatabaseContext databaseContext, UserManager<User> userManager)
         {
-            await databaseContext.Airports.AddRangeAsync(SampleAirports.Generate());
-            await databaseContext.SaveChangesAsync();
+            databaseContext.Airports.AddRange(SampleAirports.Generate());
+            databaseContext.Aircraft.AddRange(SampleAircraft.Generate());
+            databaseContext.Airlines.AddRange(SampleAirlines.Generate());
+            databaseContext.Flights.AddRange(SampleFlights.Generate());
+            databaseContext.SaveChanges();
             
             await userManager.CreateAsync(new User {UserName = "user", Email = "user@sample.com"}, "Password_1");
         }
