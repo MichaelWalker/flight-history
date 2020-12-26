@@ -5,18 +5,18 @@ namespace FlightHistory.Models.Api
 {
     public readonly struct FlightModel
     {
-        public FlightModel(AircraftSummary aircraft, AirportSummary source, AirportSummary desination, DateTime departureDate, AirlineSummary airline)
+        public FlightModel(AircraftSummary aircraft, AirportSummary source, AirportSummary destination, DateTime departureDate, AirlineSummary airline)
         {
             Aircraft = aircraft;
             Source = source;
-            Desination = desination;
+            Destination = destination;
             DepartureDate = departureDate;
             Airline = airline;
         }
 
         public AircraftSummary Aircraft { get; }
         public AirportSummary Source { get; }
-        public AirportSummary Desination { get; }
+        public AirportSummary Destination { get; }
         public DateTime DepartureDate { get; }
         public AirlineSummary Airline { get; }
         
@@ -25,7 +25,7 @@ namespace FlightHistory.Models.Api
             return new FlightModel(
                 aircraft: AircraftSummary.FromDbModel(flight.Aircraft),
                 source: AirportSummary.FromDbModel(flight.Source),
-                desination: AirportSummary.FromDbModel(flight.Desination),
+                destination: AirportSummary.FromDbModel(flight.Destination),
                 departureDate: flight.DepartureDate,
                 airline: AirlineSummary.FromDbModel(flight.Airline)
             );

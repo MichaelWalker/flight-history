@@ -6,19 +6,18 @@ namespace FlightHistory.Models.Requests
     public class RecordFlightRequest
     {
         [Required]
-        public string AircraftRegistration { get; set; } = null!;
+        public string Aircraft { get; set; } = null!;
         
         [Required]
-        [MaxLength(3)]
-        [MinLength(3)]
-        public string SourceIata { get; set; } = null!;
-        
+        public int Source { get; set; }
+
         [Required]
-        [MaxLength(3)]
-        [MinLength(3)]
-        public string DestinationIata { get; set; } = null!;
+        public int Destination { get; set; }
         
         [Required]
         public DateTime DepartureDate { get; set; }
+        
+        [Required]
+        public int Airline { get; set; }
     }
 }

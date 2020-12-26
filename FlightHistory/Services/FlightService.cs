@@ -6,7 +6,7 @@ namespace FlightHistory.Services
 {
     public interface IFlightService
     {
-        Flight RecordFlight(RecordFlightRequest request);
+        Flight Create(RecordFlightRequest request);
     }
     
     public class FlightService : IFlightService
@@ -22,18 +22,17 @@ namespace FlightHistory.Services
             _flightRepo = flightRepo;
         }
 
-        public Flight RecordFlight(RecordFlightRequest request)
+        public Flight Create(RecordFlightRequest request)
         {
-            var aircraft = _aircraftService.GetOrNew(request.AircraftRegistration);
-            var source = _airportService.GetOrNew(request.SourceIata);
-            var destination = _airportService.GetOrNew(request.DestinationIata);
+            var aircraft = _aircraftService.GetOrNew(request.Aircraft);
 
             return _flightRepo.Create(new Flight
             {
                 Aircraft = aircraft,
-                Source = source,
-                Desination = destination,
-                DepartureDate = request.DepartureDate
+                SourceId = request.Source,
+                DestinationId = request.Destination,
+                DepartureDate = request.DepartureDate,
+                AirlineId = request.Airline
             });
         }
     }

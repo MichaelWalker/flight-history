@@ -35,7 +35,7 @@ namespace FlightHistory.Controllers
         }
 
         [HttpPost("")]
-        public IActionResult RecordFlight([FromBody] RecordFlightRequest request)
+        public IActionResult Create([FromBody] RecordFlightRequest request)
         {
             _logger.LogInformation("Recording new flight");
             if (!ModelState.IsValid)
@@ -44,7 +44,7 @@ namespace FlightHistory.Controllers
                 return InvalidModelRequest();
             }
 
-            var newFlight = _flightService.RecordFlight(request);
+            var newFlight = _flightService.Create(request);
             return Ok(FlightModel.FromDbModel(newFlight));
         }
     }

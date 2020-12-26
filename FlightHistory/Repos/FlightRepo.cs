@@ -47,7 +47,8 @@ namespace FlightHistory.Repos
             return _flights
                 .Include(f => f.Aircraft)
                 .Include(f => f.Source)
-                .Include(f => f.Desination);
+                .Include(f => f.Destination)
+                .Include(f => f.Airline);
         }
     }
 }
