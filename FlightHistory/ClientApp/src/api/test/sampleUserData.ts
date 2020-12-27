@@ -14,8 +14,8 @@ const user = {
 }
 
 export const SampleUser: FakeUser = {
-    email: "new@sample.com",
-    password: "new-password",
+    email: "user@sample.com",
+    password: "password",
     token: generateTestAccessToken(user),
     details: user,
 };

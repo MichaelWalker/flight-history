@@ -22,6 +22,8 @@
       <TypeScriptCompile Include="ClientApp\src\api\test\sampleUserData.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\test\testApi.ts" />
       <TypeScriptCompile Include="ClientApp\src\App.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\SubmitButton.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\Loading.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
