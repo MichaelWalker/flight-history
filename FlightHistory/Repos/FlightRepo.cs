@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FlightHistory.Models.Db;
+using FlightHistory.Models.Requests;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlightHistory.Repos
 {
     public interface IFlightRepo
     {
-        Flight SingleById(int id);
         IEnumerable<Flight> Search();
-        Flight Create(Flight flight);
+        Flight Create(RecordFlightRequest flight);
     }
     
     public class FlightRepo : IFlightRepo
@@ -23,23 +23,24 @@ namespace FlightHistory.Repos
             _flights = db.Flights;
         }
 
-        public Flight SingleById(int id)
-        {
-            return All()
-                .Single(f => f.Id == id);
-        }
-
         public IEnumerable<Flight> Search()
         {
             return All();
         }
 
-        public Flight Create(Flight flight)
+        public Flight Create(RecordFlightRequest request)
         {
-            var newFlight = _flights.Add(flight).Entity;
+            var newFlight = _flights.Add(new Flight
+            {
+                AircraftId = request.Aircraft,
+                SourceId = request.Source,
+                DestinationId = request.Destination,
+                DepartureDate = request.DepartureDate,
+                AirlineId = request.Airline
+            });
             _db.SaveChanges();
 
-            return SingleById(newFlight.Id);
+            return SingleById(newFlight.Entity.Id);
         }
 
         private IEnumerable<Flight> All()

@@ -2,7 +2,6 @@
 using FlightHistory.Models.Api;
 using FlightHistory.Models.Requests;
 using FlightHistory.Repos;
-using FlightHistory.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,12 +14,10 @@ namespace FlightHistory.Controllers
     public class FlightController : ApiController
     {
         private readonly ILogger<FlightController> _logger;
-        private readonly IFlightService _flightService;
         private readonly IFlightRepo _flightRepo;
 
-        public FlightController(IFlightService flightService, ILogger<FlightController> logger, IFlightRepo flightRepo)
+        public FlightController(ILogger<FlightController> logger, IFlightRepo flightRepo)
         {
-            _flightService = flightService;
             _logger = logger;
             _flightRepo = flightRepo;
         }
@@ -44,7 +41,7 @@ namespace FlightHistory.Controllers
                 return InvalidModelRequest();
             }
 
-            var newFlight = _flightService.Create(request);
+            var newFlight = _flightRepo.Create(request);
             return Ok(FlightModel.FromDbModel(newFlight));
         }
     }

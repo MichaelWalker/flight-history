@@ -51,16 +51,18 @@ namespace FlightHistory.Models.Api
 
     public readonly struct AircraftSummary
     {
-        public AircraftSummary(string reference)
+        public AircraftSummary(string reference, string? model)
         {
             Reference = reference;
+            Model = model;
         }
 
         public string Reference { get; }
+        public string? Model { get; }
 
         public static AircraftSummary FromDbModel(Aircraft aircraft)
         {
-            return new AircraftSummary(aircraft.Registration);
+            return new AircraftSummary(aircraft.Registration, aircraft.Model);
         }
     }
     

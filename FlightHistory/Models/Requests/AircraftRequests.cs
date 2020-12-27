@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace FlightHistory.Models.Db
+namespace FlightHistory.Models.Requests
 {
-    public class Aircraft
+    public class CreateAircraftRequest
     {
-        [Key]
+        [Required]
         public string Registration { get; set; } = null!;
-        
-        // TODO - this should really be its own table.
         public string? Model { get; set; }
         public DateTime? RolloutDate { get; set; }
         public DateTime? FirstFlightDate { get; set; }
