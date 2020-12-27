@@ -22,6 +22,7 @@
       <TypeScriptCompile Include="ClientApp\src\api\test\sampleUserData.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\test\testApi.ts" />
       <TypeScriptCompile Include="ClientApp\src\App.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\Loading.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
@@ -35,6 +36,7 @@
       <TypeScriptCompile Include="ClientApp\src\pages\Dashboard.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\Flights.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\NotFound.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\SignInPage.tsx" />
     </ItemGroup>
 
 

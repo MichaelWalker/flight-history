@@ -9,7 +9,7 @@ interface UserContextProps {
     currentUser?: User; 
 }
 
-const UserContext = createContext<UserContextProps>({
+export const UserContext = createContext<UserContextProps>({
     loading: false,
     currentUser: undefined,
 })
