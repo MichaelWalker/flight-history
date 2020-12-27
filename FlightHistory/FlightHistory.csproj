@@ -16,8 +16,19 @@
     </ItemGroup>
 
     <ItemGroup>
+      <TypeScriptCompile Include="ClientApp\src\api\apiError.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\httpApi.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\apiClient.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\test\sampleUserData.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\test\testApi.ts" />
       <TypeScriptCompile Include="ClientApp\src\App.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\index.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\models\tokenModel.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\user.ts" />
       <TypeScriptCompile Include="ClientApp\src\pages\Aircraft.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\Airports.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\Dashboard.tsx" />

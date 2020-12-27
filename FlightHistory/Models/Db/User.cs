@@ -9,5 +9,7 @@ namespace FlightHistory.Models.Db
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+
+        public string Name { get; set; } = null!;
     }
 }

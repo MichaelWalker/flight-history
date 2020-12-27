@@ -49,6 +49,7 @@ namespace FlightHistory.Services
                 Subject = new ClaimsIdentity(new []
                 {
                     new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Name, user.Name),
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(expiryMinutes),
                 IssuedAt = DateTime.UtcNow,

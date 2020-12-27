@@ -61,7 +61,7 @@ namespace FlightHistory
             databaseContext.Flights.AddRange(SampleFlights.Generate());
             databaseContext.SaveChanges();
             
-            await userManager.CreateAsync(new User {UserName = "user", Email = "user@sample.com"}, "Password_1");
+            await userManager.CreateAsync(new User {UserName = "user", Email = "user@sample.com", Name = "User"}, "Password_1");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
