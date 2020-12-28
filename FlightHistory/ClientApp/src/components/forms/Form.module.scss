@@ -5,9 +5,22 @@
   @include dangerColors;
   padding: $spacing-s;
   position: absolute;
-  bottom: -$spacing-m;
-  right: -$spacing-m;
+  bottom: 0;
+  right: 0;
   background: var(--color-background);
   border-radius: 8px;
   border: 1px solid var(--color-accent);
+  opacity: 0;
+  transition: all ease $transition-quick;
+  transform: scale(0.7);
+  
+  &.messageEnter {
+    opacity: 1;
+    transform: scale(1) translate($spacing-m, $spacing-m);
+  }
+  
+  &.messageExit {
+    opacity: 0;
+    transform: scale(0.7) translate(0, 0);
+  }
 }

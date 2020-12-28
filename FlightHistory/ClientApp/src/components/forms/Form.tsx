@@ -2,12 +2,13 @@
 import {ApiError} from "../../api/apiError";
 import {SubmitButton} from "./SubmitButton";
 import styles from "./Form.module.scss";
+import {CSSTransition} from "react-transition-group";
 
 export type FormState<T> = 
     | { status: 'INCOMPLETE' }
     | { status: 'COMPLETE' }
     | { status: 'SUBMITTING' }
-    | { status: 'ERROR', errorMessage: string }
+    | { status: 'ERROR', error: ApiError }
     | { status: 'SUCCESS', data: T };
 
 
@@ -22,13 +23,17 @@ interface FormProps<T> {
 
 export function Form<T>({children, buttonText, apiRequest, errorMessage, validateCallback, renderOnSuccess}: FormProps<T>): ReactElement {
     const [state, setState] = useState<FormState<T>>({ status: 'INCOMPLETE'});
+    const [errorText, setErrorText] = useState("");
     
     function submit(event: FormEvent) {
         event.preventDefault();
         setState({ status: 'SUBMITTING' });
         apiRequest()
             .then(data => setState({ status: 'SUCCESS', data }))
-            .catch(error => setState({ status: 'ERROR', errorMessage: errorMessage(error) }));
+            .catch(error => {
+                setState({ status: 'ERROR', error });
+                setErrorText(errorMessage(error));
+            });
     }
     
     if (state.status === 'SUCCESS' && renderOnSuccess) {
@@ -44,23 +49,21 @@ export function Form<T>({children, buttonText, apiRequest, errorMessage, validat
         } else {
             setState({ status: 'INCOMPLETE' });
         }
-    }, [validateCallback])
+    }, [validateCallback]);
     
     return (
         <form onSubmit={submit}>
             {children}
             <SubmitButton state={state}>{buttonText}</SubmitButton>
-            { state.status === 'ERROR' && <ErrorMessage text={state.errorMessage}/> }
+            <CSSTransition in={state.status === 'ERROR'} 
+                           timeout={200} 
+                           classNames={{ 
+                               enterActive: styles.messageEnter, 
+                               enterDone: styles.messageEnter,
+                               exitActive: styles.messageExit,
+                           }}>
+                <div className={styles.errorMessage}>{errorText}</div>
+            </CSSTransition>
         </form>  
-    );
-}
-
-interface ErrorMessageProps {
-    text: string;
-}
-
-const ErrorMessage: FunctionComponent<ErrorMessageProps> = ({text}) => {
-    return (
-        <div className={styles.errorMessage}>{text}</div>
     );
 }
