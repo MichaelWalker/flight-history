@@ -1,0 +1,30 @@
+﻿@import "src/styles/common";
+
+.button {
+  @include primaryColors;
+  @include fontButton;
+  height: $button-height;
+  margin-top: $spacing-s;
+  background: var(--color-background);
+  border-radius: 8px;
+  width: 200px;;
+  border: none;
+  outline: none;
+  transition: all ease $transition-quick;
+  cursor: pointer;
+  --ripple-size: #{$button-height};
+  
+  &:hover:enabled {
+    background: var(--color-background-hover);
+    color: var(--color-foreground-hover);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 1px var(--color-accent);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+}

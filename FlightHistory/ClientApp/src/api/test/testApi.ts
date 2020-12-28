@@ -10,7 +10,7 @@ import {TokenModel} from "../../models/tokenModel";
 const FAILURE_RATE = 0;
 
 // The fake API can add delays to all requests. This setting represents the delay in milliseconds.
-let RESPONSE_TIME = 500;
+let RESPONSE_TIME = 2000;
 
 // When you first load the app, it tries to 'refresh' the access token.
 // The user set here is the person you will be 'logged in' as.

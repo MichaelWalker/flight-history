@@ -8,6 +8,7 @@ import {DashboardPage} from "./pages/Dashboard";
 import {UserContext, UserContextProvider} from "./contexts/UserContext";
 import {SignInPage} from "./pages/SignInPage";
 import {Loading} from "./components/Loading";
+import "./styles/reset.scss";
 
 export const App: FunctionComponent = () => {
     return (

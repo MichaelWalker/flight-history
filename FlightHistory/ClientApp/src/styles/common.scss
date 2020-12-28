@@ -1,0 +1,89 @@
+﻿// Colors
+$color-background-1: #0d1117;
+$color-background-2: #161b22;
+$color-foreground: #c9d1d5;
+$color-primary: #388fff;
+$color-accept: #238636;
+$color-warning: #e3b341;
+$color-danger: #bb0907;
+
+@mixin rootColors {
+  --color-foreground: #{$color-foreground};
+  --color-background: #{$color-background-1};
+  --color-accent: #{$color-primary};
+}
+
+@mixin sectionColors {
+  --color-foreground: #{$color-foreground};
+  --color-background: #{$color-background-2};
+  --color-accent: #{$color-primary};
+}
+
+@mixin primaryColors {
+  --color-foreground: #{$color-foreground};
+  --color-background: #{$color-primary};
+  --color-accent: #{$color-foreground};
+  --color-foreground-hover: #{lighten($color-foreground, 7%)};
+  --color-background-hover: #{lighten($color-primary, 7%)};
+}
+
+@mixin dangerColors {
+  --color-foreground: #{$color-foreground};
+  --color-background: #{darken($color-danger, 32%)};
+  --color-accent: #{$color-danger};
+}
+
+// Spacing
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-s: 16px;
+$spacing-m: 32px;
+$spacing-l: 48px;
+$spacing-xl: 64px;
+$spacing-xxl: 128px;
+
+$label-line-height: 12px;
+$button-height: 36px;
+
+// Animation
+$transition-quick: 0.2s;
+
+// Fonts
+@mixin fontSectionHeader {
+  @include _font(32px, 40px, 400);
+  padding-bottom: $spacing-l;
+}
+
+@mixin fontLabel {
+  @include _font(12px, $label-line-height, 500);
+  text-transform: uppercase;
+}
+
+@mixin fontInput {
+  @include _font(18px, 28px, 300);
+}
+
+@mixin fontButton {
+  @include _font(18px, $button-height, 400);
+  text-transform: uppercase;
+}
+
+@mixin fontBody {
+  @include _font(16px, 24px, 300);
+}
+
+@mixin _font($size, $line-height, $font-weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--color-foreground);
+}
+
+// Layouts
+@mixin section {
+  position: relative;
+  background: var(--color-background);
+  border-radius: 4px;
+  padding: $spacing-l;
+}

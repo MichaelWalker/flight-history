@@ -1,4 +1,5 @@
 ﻿import React, {FunctionComponent} from "react";
+import styles from "./Input.module.scss";
 
 interface TextInputProps {
     value: string;
@@ -23,9 +24,9 @@ export const EmailInput: FunctionComponent<TextInputProps> = ({children, value, 
 
 const Input: FunctionComponent<InputProps> = ({children, type, value, updateValue, required = false}) => {
     return (
-        <label>
-            {children}
-            <input type={type} value={value} onChange={event => updateValue(event.target.value)} required={required}/>
+        <label className={styles.field}>
+            <span className={styles.label}>{children}</span>
+            <input className={styles.input} type={type} value={value} onChange={event => updateValue(event.target.value)} required={required}/>
         </label>
     );
 }

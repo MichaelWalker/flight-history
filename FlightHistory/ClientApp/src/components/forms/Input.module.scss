@@ -1,0 +1,32 @@
+﻿@import "src/styles/common";
+
+.field {
+  display: block;
+  position: relative;
+  margin-bottom: $spacing-m;
+  border: 1px solid var(--color-foreground);
+  border-radius: 8px;
+  transition: border-color ease $transition-quick;
+  
+  &:focus-within {
+    border-color: var(--color-accent);
+  }
+}
+
+.label {
+  @include fontLabel;
+  position: absolute;
+  left: $spacing-s;
+  top: -$label-line-height/2;
+  background: var(--color-background);
+  padding: 0 $spacing-xxs;
+}
+
+.input {
+  @include fontInput;
+  background: none;
+  outline: none;
+  border: none;
+  width: 400px;
+  padding: $spacing-xs $spacing-s;
+}

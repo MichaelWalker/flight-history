@@ -1,7 +1,8 @@
-﻿import React, {FormEvent, FunctionComponent, useState} from "react";
+﻿import React, {FormEvent, FunctionComponent, useEffect, useState} from "react";
 import {EmailInput, PasswordInput} from "../components/forms/Input";
 import {SubmitButton, SubmitButtonState} from "../components/forms/SubmitButton";
 import {ApiClient} from "../api/apiClient";
+import styles from "./SignInPage.module.scss"; 
 
 export const SignInPage: FunctionComponent = () => {
     const [email, setEmail] = useState("");
@@ -26,17 +27,36 @@ export const SignInPage: FunctionComponent = () => {
             .finally(() => setState("READY"));
     }
     
+    function isValid(): boolean {
+        if (password === "") {
+            return false;
+        }
+        if (email === "") {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    useEffect(() => {
+        if (isValid()) {
+            setState("READY");
+        } else {
+            setState("DISABLED");
+        }
+    }, [email, password]);
+    
     return (
-        <main>
-            <div>
-                <h1>Sign In</h1>
+        <main className={styles.main}>
+            <section className={styles.section}>
+                <h1 className={styles.title}>Sign In</h1>
                 <form onSubmit={onSubmit}>
                     <EmailInput value={email} updateValue={setEmail} required={true}>Email</EmailInput>
                     <PasswordInput value={password} updateValue={setPassword} required={true}>Password</PasswordInput>
-                    <SubmitButton state={state}>Submit</SubmitButton>
-                    {error && <div>{error}</div>}
+                    <SubmitButton state={state}>Sign In</SubmitButton>
+                    {error && <div className={styles.errorMessage}>{error}</div>}
                 </form>
-            </div>
+            </section>
         </main>
     );
 };
