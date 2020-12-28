@@ -1,0 +1,13 @@
+﻿@import "src/styles/common";
+
+.errorMessage {
+  @include fontBody;
+  @include dangerColors;
+  padding: $spacing-s;
+  position: absolute;
+  bottom: -$spacing-m;
+  right: -$spacing-m;
+  background: var(--color-background);
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+}
