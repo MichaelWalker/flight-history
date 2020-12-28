@@ -1,12 +1,7 @@
 ﻿@import "src/styles/common";
 
 .main {
-  @include rootColors;
-  background: var(--color-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
+  @include page;
 }
 
 .section {

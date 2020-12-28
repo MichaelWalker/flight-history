@@ -1,13 +1,10 @@
 ﻿import React, {FunctionComponent} from "react";
-import {Link} from "react-router-dom";
+import {Page} from "./Page";
 
 export const DashboardPage: FunctionComponent = () => {
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <Link to={"/flights"}>Flights</Link>
-            <Link to={"/airports"}>Airports</Link>
-            <Link to={"/aircraft"}>Aircraft</Link>
-        </div>
+        <Page title={"Dashboard"}>
+            Hello!
+        </Page>
     );
 };

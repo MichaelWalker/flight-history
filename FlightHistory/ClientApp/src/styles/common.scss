@@ -81,6 +81,15 @@ $transition-quick: 0.2s;
 }
 
 // Layouts
+@mixin page {
+  @include rootColors;
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
 @mixin section {
   position: relative;
   background: var(--color-background);

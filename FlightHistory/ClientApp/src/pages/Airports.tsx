@@ -1,7 +1,10 @@
 ﻿import React, {FunctionComponent} from "react";
+import {Page} from "./Page";
 
 export const AirportsPage: FunctionComponent = () => {
     return (
-        <div>Airports</div>
+        <Page title={"Airports"}>
+            <div>Helo Airports</div>
+        </Page>
     );
 };
