@@ -1,0 +1,27 @@
+﻿@import "src/styles/common";
+
+.navItem {
+  @include fontNavItem;
+  position: relative;
+  padding: $spacing-s 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all ease $transition-quick;
+  outline: none;
+  background: var(--color-background);
+  
+  &:hover, &:focus {
+    --color-foreground: #{$color-primary};
+  }
+  
+  &.active {
+    --color-background: #{$color-background-2};
+    transform: scale(1.1);
+  }
+}
+
+.iconContainer {
+  height: $navIconWidth;
+  margin: 0 $navIconMargin;
+}

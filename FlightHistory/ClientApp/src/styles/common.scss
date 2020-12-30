@@ -1,6 +1,7 @@
 ﻿// Colors
 $color-background-1: #0d1117;
-$color-background-2: #161b22;
+$color-background-2: #101c2e;
+$color-background-3: #061121;
 $color-foreground: #c9d1d5;
 $color-primary: #388fff;
 $color-accept: #238636;
@@ -44,6 +45,9 @@ $spacing-xxl: 128px;
 
 $label-line-height: 12px;
 $button-height: 36px;
+$navIconWidth: $spacing-m;
+$navIconMargin: $spacing-s;
+$navWidth: $navIconWidth + 2*$navIconMargin;
 
 // Animation
 $transition-quick: 0.2s;
@@ -72,6 +76,15 @@ $transition-quick: 0.2s;
   @include _font(16px, 24px, 300);
 }
 
+@mixin fontNavItem {
+  @include _font(18px, 20px, 400);
+  text-decoration: none;
+}
+
+@mixin fontTitle {
+  @include _font(40px, 48px, 300);
+}
+
 @mixin _font($size, $line-height, $font-weight) {
   font-size: $size;
   line-height: $line-height;
@@ -83,7 +96,7 @@ $transition-quick: 0.2s;
 // Layouts
 @mixin page {
   @include rootColors;
-  background: var(--color-background);
+  background-image: linear-gradient(to right, $color-background-2, $color-background-3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +105,7 @@ $transition-quick: 0.2s;
 
 @mixin section {
   position: relative;
-  background: var(--color-background);
+  background: $color-background-1;
   border-radius: 4px;
   padding: $spacing-l;
 }

@@ -3,3 +3,37 @@
 .page {
   @include page;
 }
+
+.main {
+  position: fixed;
+  left: $navWidth;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding-left: $spacing-xxl;
+  padding-top: $spacing-xl;
+}
+
+.navContainer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: $navWidth;
+  background: var(--color-background);
+  transition: all ease $transition-quick;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+  
+  &:hover, &:focus-within {
+    width: 180px;
+  }
+}
+
+.title {
+  @include fontTitle;
+}
