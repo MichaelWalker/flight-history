@@ -19,7 +19,7 @@ let RESPONSE_TIME = 2000;
 //   - AdminMember
 //   - NewMember (without a full name set so will start on the update profile page)
 //   - null (you will start as signed out and need to sign in)
-let REFRESH_TOKEN_USER: FakeUser | null = null;
+let REFRESH_TOKEN_USER: FakeUser | null = SampleUser;
 
 interface ResponseOptions {
     skipTokenCheck?: boolean;
