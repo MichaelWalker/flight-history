@@ -1,24 +1,14 @@
-﻿import {ApiError} from "./apiError";
 import {accessToken} from "../helpers/tokenHelper";
-import {TokenModel} from "../models/tokenModel";
+import {stubFetch} from "./stub/stubApiResponse";
 
-export async function signIn(): Promise<TokenModel> {
-    return await post<TokenModel>("/api/auth/sign-in");
+export async function get<T>(url: string): Promise<T> {
+    return await makeRequest<T>(url, {
+        method: 'GET',
+        headers: getHeaders()
+    });
 }
 
-export async function refreshToken(): Promise<TokenModel> {
-    return await post<TokenModel>("/api/auth/refresh");
-}
-
-export async function signOut(): Promise<void> {
-    return await post<void>("/api/auth/sign-out");
-}
-
-async function get<T>(url: string): Promise<T> {
-    return await makeRequest<T>(url, { headers: getHeaders() });
-}
-
-async function post<T>(url: string, data?: unknown) {
+export async function post<T>(url: string, data?: unknown) {
     return await makeRequest<T>(url, {
         method: 'POST',
         headers: getHeaders(),
@@ -34,23 +24,32 @@ function getHeaders(): Headers {
         headers.append('Authorization', `Bearer ${token}`);
     }
     headers.append('Content-Type','application/json');
-    
+
     return headers;
 }
 
 async function makeRequest<T>(url: string, options: RequestInit): Promise<T> {
-    const response = await fetch(url, options);
-    
+    const response = USE_SAMPLE_DATA ? await stubFetch(url, options) : await fetch(url, options);
+
     let responseJson;
     try {
         responseJson = await response.json();
     } catch (e) {
         responseJson = {};
     }
-    
+
     if (response.ok) {
         return responseJson;
     }
-    
+
     throw new ApiError(responseJson, response.status);
+}
+
+export class ApiError extends Error {
+    status: number;
+
+    constructor(message: string, status: number) {
+        super(message);
+        this.status = status;
+    }
 }

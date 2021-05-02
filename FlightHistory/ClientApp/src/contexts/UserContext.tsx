@@ -2,7 +2,7 @@
 import {User} from "../models/user";
 import {createContext, FunctionComponent, useEffect, useState} from "react";
 import {accessToken, getCurrentUser} from "../helpers/tokenHelper";
-import {ApiClient} from "../api/apiClient";
+import {Api} from "../api/apiClient";
 
 interface UserContextProps {
     loading: boolean;
@@ -28,10 +28,10 @@ export const UserContextProvider: FunctionComponent = ({children}) => {
     }, []);
     
     useEffect(() => {
-        ApiClient.refreshToken()
+        Api.auth.refreshToken()
             .catch(() => { /* Do nothing - user will be shown the sign in page */ })
             .finally(() => setLoading(false));
-    });
+    }, []);
     
     return (
         <UserContext.Provider value={{ loading, currentUser }}>

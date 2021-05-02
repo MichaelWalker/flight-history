@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:with-asp": "echo Starting the development server && webpack serve --port %PORT%",
-    "start:sample-data": "SET USE_SAMPLE_DATA=true && webpack serve --hot"
+    "start:sample-data": "export USE_SAMPLE_DATA=true && webpack serve --hot"
   },
   "dependencies": {
     "@babel/core": "7.12.9",

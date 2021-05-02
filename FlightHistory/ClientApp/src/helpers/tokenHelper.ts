@@ -21,8 +21,8 @@ function parseToken(): ParsedToken | undefined {
     return {
         expiry: tryParseExpiry(data),
         user: {
-            name: data.name,
-            email: data.email,
+            name: data.user.name,
+            email: data.user.email,
         }
     }
 }

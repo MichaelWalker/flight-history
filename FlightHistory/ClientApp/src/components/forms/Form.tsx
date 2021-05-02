@@ -1,8 +1,8 @@
 ﻿import React, {FormEvent, FunctionComponent, ReactElement, ReactNode, useEffect, useState} from "react";
-import {ApiError} from "../../api/apiError";
 import {SubmitButton} from "./SubmitButton";
 import styles from "./Form.module.scss";
 import {CSSTransition} from "react-transition-group";
+import {ApiError} from "../../api/apiHelpers";
 
 export type FormState<T> = 
     | { status: 'INCOMPLETE' }

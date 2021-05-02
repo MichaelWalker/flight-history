@@ -1,9 +1,9 @@
 ﻿import React, {FunctionComponent, useCallback, useState} from "react";
 import {EmailInput, PasswordInput} from "../components/forms/Input";
-import {ApiClient} from "../api/apiClient";
 import styles from "./SignInPage.module.scss";
 import {Form} from "../components/forms/Form";
-import {ApiError} from "../api/apiError"; 
+import {ApiError} from "../api/apiHelpers";
+import {Api} from "../api/apiClient";
 
 export const SignInPage: FunctionComponent = () => {
     const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ export const SignInPage: FunctionComponent = () => {
     }
         
     function signIn() {
-        return ApiClient.signIn(email, password);
+        return Api.auth.signIn(email, password);
     }
     
     return (
