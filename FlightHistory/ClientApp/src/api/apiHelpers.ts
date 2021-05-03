@@ -1,31 +1,52 @@
-import {accessToken} from "../helpers/tokenHelper";
+import {accessToken, accessTokenAppearsValid} from "../helpers/tokenHelper";
 import {stubFetch} from "./stub/stubApiResponse";
+import {Api} from "./apiClient";
 
 export async function get<T>(url: string): Promise<T> {
-    return await makeRequest<T>(url, {
+    return await makeAuthenticatedRequest<T>(url, {
         method: 'GET',
         headers: getHeaders()
     });
 }
 
 export async function post<T>(url: string, data?: unknown) {
-    return await makeRequest<T>(url, {
+    return await makeAuthenticatedRequest<T>(url, {
         method: 'POST',
         headers: getHeaders(),
         body: JSON.stringify(data)
     });
 }
 
-function getHeaders(): Headers {
-    const headers: Headers = new Headers();
-    const token = accessToken.get();
+export async function anonymousPost<T>(url: string, data?: unknown) {
+    return await makeRequest<T>(url, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+}
 
-    if (token) {
-        headers.append('Authorization', `Bearer ${token}`);
+function getHeaders(): Record<string, string> {
+    return {
+        'Authorization': `Bearer ${accessToken.get()}`,
+        'Content-Type': 'application/json',
     }
-    headers.append('Content-Type','application/json');
+}
 
-    return headers;
+async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): Promise<T> {
+    if (!accessTokenAppearsValid()) {
+        await Api.auth.refreshToken();
+    }
+    
+    try {
+        return await makeRequest(url, options);
+    } catch (exception) {
+        if (exception.status === 401) {
+            await Api.auth.refreshToken();
+            return await makeRequest(url, options); 
+        }
+        
+        throw exception;
+    }
 }
 
 async function makeRequest<T>(url: string, options: RequestInit): Promise<T> {
