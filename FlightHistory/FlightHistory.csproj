@@ -29,6 +29,9 @@
       <TypeScriptCompile Include="ClientApp\src\components\navigation\Nav.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\NavItem.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\SuccessIcon.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\TableHeader.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\TableRow.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />

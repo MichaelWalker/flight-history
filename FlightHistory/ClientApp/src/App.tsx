@@ -17,7 +17,7 @@ export const App: FunctionComponent = () => {
                 <AppContent/>
             </Router>
         </UserContextProvider>
-    );  
+    );
 };
 
 const AppContent: FunctionComponent = () => {
