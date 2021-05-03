@@ -5,6 +5,9 @@ import {AuthStubs} from "./authStubs";
 import {accessToken} from "../../helpers/tokenHelper";
 import {Item, ItemListResponse, toURL} from "../apiHelpers";
 import {AirlineStubs} from "./airlineStubs";
+import {AircraftStubs} from "./aircraftStubs";
+import {AirportStubs} from "./airportStubs";
+import {FlightStubs} from "./flightStubs";
 
 const FAILURE_RATE = 0;
 
@@ -21,7 +24,10 @@ export interface StubApiResponse {
 
 const stubResponses: StubApiResponse[] = [
     ...AuthStubs,
+    ...AircraftStubs,
     ...AirlineStubs,
+    ...AirportStubs,
+    ...FlightStubs,
 ];
 
 export function stubItemList<T extends Item>(url: URL, items: T[]): ItemListResponse<T> {

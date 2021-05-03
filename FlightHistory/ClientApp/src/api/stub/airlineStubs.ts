@@ -2,7 +2,7 @@ import {StubApiResponse, stubItemList} from "./stubApiResponse";
 import {toURL} from "../apiHelpers";
 import {Airline} from "../../models/airline";
 
-const airlines: Airline[] = [
+export const airlines: Airline[] = [
     { id: 1, name: 'British Airways' },
     { id: 2, name: 'EasyJet' },
 ]

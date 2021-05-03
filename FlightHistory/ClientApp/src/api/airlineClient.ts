@@ -1,6 +1,7 @@
-import {getList, Pagination, Sort} from "./apiHelpers";
+import {getList, ItemListResponse, Pagination, Sort} from "./apiHelpers";
+import {Airline} from "../models/airline";
 
-async function list(pagination: Pagination, sort: Sort, search: string) {
+async function list(pagination: Pagination, sort: Sort, search: string): Promise<ItemListResponse<Airline>> {
     return getList('/api/airlines', pagination, sort, search);
 }
 
