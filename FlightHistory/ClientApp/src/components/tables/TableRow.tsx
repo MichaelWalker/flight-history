@@ -1,12 +1,12 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import {TableItem} from "./Table";
+import {Item} from "../../api/apiHelpers";
 
-interface TableRowProps<T extends TableItem> {
+interface TableRowProps<T extends Item> {
     item: T;
     renderRow: (item: T) => ReactElement;
 }
 
-export function TableRow<T extends TableItem>({item, renderRow}: TableRowProps<T>) {
+export function TableRow<T extends Item>({item, renderRow}: TableRowProps<T>) {
     return (
         <tr>
             {renderRow(item)}

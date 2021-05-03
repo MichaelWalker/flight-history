@@ -7,17 +7,16 @@ const TestUser = {
     email: "user@sample.com",
 }
 
-let SignedInUser: User | null = null;
+let SignedInUser: User | null = TestUser;
 
 export const AuthStubs: StubApiResponse[] = [
     {
         url: '/api/auth/sign-in',
         method: 'POST',
-        getResponseBody: (data) => {
+        getResponseBody: (url, data) => {
             const parsedData = JSON.parse(data) as { email: string, password: string }
             const { email, password } = parsedData;
             
-            console.log(data, email, password);
             if (email !== 'user@sample.com' || password !== 'password') {
                 return {
                     ...Response.error(),

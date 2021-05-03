@@ -1,19 +1,11 @@
-import React, {FunctionComponent, ReactElement, useState} from "react";
+import React, {FunctionComponent, ReactElement, useEffect, useState} from "react";
 import {TableHeader} from "./TableHeader";
 import {TableRow} from "./TableRow";
+import {Item, ItemListResponse, Pagination, Sort} from "../../api/apiHelpers";
 
-export interface TableItem {
-    id: number;
-}
-
-interface Header {
+export interface Header {
     displayName: string;
     sortName?: string;
-}
-
-interface Pagination {
-    page: number;
-    pageSize: number;
 }
 
 const defaultPagination: Pagination = {
@@ -21,23 +13,26 @@ const defaultPagination: Pagination = {
     pageSize: 20,
 }
 
-export type SortDirection = 'ASC' | 'DESC';
-
-export interface Sort {
-    sortBy: string;
-    sortDirection: SortDirection;
-}
-
-interface TableProps<T extends TableItem> {
-    fetchItems: () => T[];
+interface TableProps<T extends Item> {
+    fetchItems: (pagination: Pagination, sort?: Sort, search?: string) => Promise<ItemListResponse<T>>;
     renderRow: (data: T) => ReactElement;
     headers: Header[];
 }
 
-export function Table<T extends TableItem>({fetchItems, renderRow, headers}: TableProps<T>): ReactElement {
-    const [sort, setSort] = useState<Sort | null>(null);
+export function Table<T extends Item>({fetchItems, renderRow, headers}: TableProps<T>): ReactElement {
     const [pagination, setPagination] = useState<Pagination>(defaultPagination);
+    const [sort, setSort] = useState<Sort | undefined>();
+    const [search, setSearch] = useState<string | undefined>();
     const [items, setItems] = useState<T[]>([]);
+    const [count, setCount] = useState<number>(0);
+    
+    useEffect(() => {
+        fetchItems(pagination, sort, search)
+            .then(results => {
+                setItems(results.items);
+                setCount(results.count);
+            });
+    }, [sort, pagination, search]);
     
     return (
         <table>

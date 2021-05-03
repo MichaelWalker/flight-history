@@ -9,6 +9,7 @@ import {UserContext, UserContextProvider} from "./contexts/UserContext";
 import {SignInPage} from "./pages/SignInPage";
 import {Loading} from "./components/Loading";
 import "./styles/reset.scss";
+import {AirlinesPage} from "./pages/Airlines";
 
 export const App: FunctionComponent = () => {
     return (
@@ -37,6 +38,7 @@ const AppContent: FunctionComponent = () => {
             <Route path={"/flights"} exact={true} children={FlightsPage}/>
             <Route path={"/airports"} exact={true} children={AirportsPage}/>
             <Route path={"/aircraft"} exact={true} children={AircraftPage}/>
+            <Route path={"/airlines"} exact={true} children={AirlinesPage}/>
             <Route path={"/"} children={NotFoundPage}/>
         </Switch>
     );

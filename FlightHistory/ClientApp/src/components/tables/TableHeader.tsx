@@ -1,10 +1,10 @@
 import React, {FunctionComponent, useState} from "react";
-import {Sort, SortDirection} from "./Table";
+import {Sort, SortDirection} from "../../api/apiHelpers";
 
 interface TableHeaderProps {
     displayName: string;
     setSort: (sort: Sort) => void;
-    currentSort: Sort | null;
+    currentSort?: Sort;
     sortBy?: string;
 }
 

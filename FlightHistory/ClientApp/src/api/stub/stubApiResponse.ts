@@ -3,6 +3,8 @@
 // 1 => all calls will always fail
 import {AuthStubs} from "./authStubs";
 import {accessToken} from "../../helpers/tokenHelper";
+import {Item, ItemListResponse, toURL} from "../apiHelpers";
+import {AirlineStubs} from "./airlineStubs";
 
 const FAILURE_RATE = 0;
 
@@ -12,17 +14,36 @@ let RESPONSE_TIME = 2000;
 export interface StubApiResponse {
     method: 'GET' | 'POST' | 'DELETE';
     url: string;
-    getResponseBody: (requestBody: string) => Response;
+    getResponseBody: (url: string, requestBody: string) => Response;
     failureRateOverride?: number;
     allowUnauthorised?: boolean;
 }
 
 const stubResponses: StubApiResponse[] = [
     ...AuthStubs,
+    ...AirlineStubs,
 ];
 
-function getMockResponse(url: string, options: RequestInit): Response {
-    const stubResponse = stubResponses.find(stub => stub.url === url && stub.method === options.method);
+export function stubItemList<T extends Item>(url: URL, items: T[]): ItemListResponse<T> {
+    const pageString = url.searchParams.get('page');
+    const pageSizeString = url.searchParams.get('pageSize');
+    const page = pageString ? parseInt(pageString) : 1;
+    const pageSize = pageSizeString ? parseInt(pageSizeString) : 20;
+    
+    const start = (page - 1) * pageSize;
+    const end = page * pageSize;
+    return {
+        items: items.slice(start, end),
+        count: items.length,
+    }
+}
+
+function getMockResponse(urlString: string, options: RequestInit): Response {
+    const url = toURL(urlString);
+    const stubResponse = stubResponses.find(stub => 
+        stub.url === url.pathname && 
+        stub.method === options.method
+    );
     
     if (!stubResponse) {
         return {
@@ -49,7 +70,7 @@ function getMockResponse(url: string, options: RequestInit): Response {
         };
     }
     
-    return stubResponse.getResponseBody(options.body as string);
+    return stubResponse.getResponseBody(urlString, options.body as string);
 }
 
 export function stubFetch<T>(url: string, options: RequestInit): Promise<Response> {

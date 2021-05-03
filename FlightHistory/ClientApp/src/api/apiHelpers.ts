@@ -2,11 +2,57 @@ import {accessToken, accessTokenAppearsValid} from "../helpers/tokenHelper";
 import {stubFetch} from "./stub/stubApiResponse";
 import {Api} from "./apiClient";
 
+export interface Item {
+    id: number;
+}
+
+export interface ItemListResponse<T extends Item> {
+    items: T[];
+    count: number;
+}
+
+export type SortDirection = 'ASC' | 'DESC';
+
+export interface Sort {
+    sortBy: string;
+    sortDirection: SortDirection;
+}
+
+export interface Pagination {
+    page: number;
+    pageSize: number;
+}
+
 export async function get<T>(url: string): Promise<T> {
     return await makeAuthenticatedRequest<T>(url, {
         method: 'GET',
         headers: getHeaders()
     });
+}
+
+export async function getList<T extends Item>(urlString: string, pagination: Pagination, sort?: Sort, search?: string): Promise<ItemListResponse<T>> {
+    const url = toURL(urlString);
+    url.searchParams.append('page', pagination.page.toString());
+    url.searchParams.append('pageSize', pagination.pageSize.toString());
+    
+    if (sort) {
+        url.searchParams.append('sortBy', sort.sortBy);
+        url.searchParams.append('sortDirection', sort.sortDirection);
+    }
+    
+    if (search) {
+        url.searchParams.append('search', search);
+    }
+    
+    return await get(url.toString());
+}
+
+export function toURL(url: string): URL {
+    if (url.startsWith('http')) {
+        return new URL(url);
+    }
+    
+    return new URL(url, location.origin);
 }
 
 export async function post<T>(url: string, data?: unknown) {
@@ -51,7 +97,7 @@ async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): P
 
 async function makeRequest<T>(url: string, options: RequestInit): Promise<T> {
     const response = USE_SAMPLE_DATA ? await stubFetch(url, options) : await fetch(url, options);
-
+    
     let responseJson;
     try {
         responseJson = await response.json();
