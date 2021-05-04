@@ -1,53 +1,60 @@
 ﻿// Colors
-$color-background-1: #0d1117;
-$color-background-2: #101c2e;
-$color-background-3: #061121;
-$color-foreground: #c9d1d5;
+$color-light-1: #ffffff;
+$color-light-2: #e1e1e2;
+$color-light-3: #a9a9b3;
+$color-light-4: #9393a1;
+$color-dark-1: #0d1117;
+$color-dark-2: #101c2e;
+$color-text-light: $color-light-1;
+$color-text-dark: $color-dark-1;
 $color-primary: #388fff;
-$color-accept: #238636;
+$color-success: #238636;
 $color-warning: #e3b341;
 $color-danger: #bb0907;
 
 @mixin rootColors {
-  --color-foreground: #{$color-foreground};
-  --color-background: #{$color-background-1};
-  --color-accent: #{$color-primary};
+  --color-foreground: #{$color-text-dark};
+  --color-background: #{$color-light-2};
+  --color-background-accent: #{$color-light-3};
+  --color-shadow: #{$color-light-4};
+  --color-highlight: #{$color-primary};
 }
 
 @mixin sectionColors {
-  --color-foreground: #{$color-foreground};
-  --color-background: #{$color-background-2};
-  --color-accent: #{$color-primary};
+  --color-background: #{$color-light-1};
+}
+
+@mixin navColors {
+  --color-foreground: #{$color-text-light};
+  --color-background: #{$color-dark-1};
+  --color-background-accent: #{$color-dark-2};
 }
 
 @mixin primaryColors {
-  --color-foreground: #{$color-foreground};
+  --color-foreground: #{$color-text-light};
   --color-background: #{$color-primary};
-  --color-accent: #{$color-foreground};
-  --color-foreground-hover: #{lighten($color-foreground, 7%)};
-  --color-background-hover: #{lighten($color-primary, 7%)};
+  --color-background-accent: #{lighten($color-primary, 7%)};
 }
 
 @mixin dangerColors {
-  --color-foreground: #{$color-foreground};
-  --color-background: #{darken($color-danger, 32%)};
-  --color-accent: #{$color-danger};
+  --color-foreground: #{$color-text-light};
+  --color-background: #{$color-danger};
+  --color-background-accent: #{lighten($color-danger, 7%)};
 }
 
 // Spacing
-$spacing-xxs: 4px;
-$spacing-xs: 8px;
-$spacing-s: 16px;
-$spacing-m: 32px;
-$spacing-l: 48px;
-$spacing-xl: 64px;
-$spacing-xxl: 128px;
+$spacing-xxs: 0.25rem;
+$spacing-xs: 0.5rem;
+$spacing-s: 1rem;
+$spacing-m: 2rem;
+$spacing-l: 3rem;
+$spacing-xl: 4rem;
+$spacing-xxl: 8rem;
 
-$label-line-height: 12px;
-$button-height: 36px;
-$navIconWidth: $spacing-m;
-$navIconMargin: $spacing-s;
-$navWidth: $navIconWidth + 2*$navIconMargin;
+$label-line-height: 0.75rem;
+$button-height: 2.5rem;
+$nav-width: 30ch;
+$nav-gutters: $spacing-m;
 
 // Animation
 $transition-quick: 0.2s;
@@ -85,6 +92,12 @@ $transition-quick: 0.2s;
   @include _font(40px, 48px, 300);
 }
 
+@mixin fontAppName {
+  @include _font(1.125rem, 2rem, 300);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 @mixin _font($size, $line-height, $font-weight) {
   font-size: $size;
   line-height: $line-height;
@@ -96,7 +109,7 @@ $transition-quick: 0.2s;
 // Layouts
 @mixin page {
   @include rootColors;
-  background-image: linear-gradient(to right, $color-background-2, $color-background-3);
+  background: var(--color-background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,8 +117,9 @@ $transition-quick: 0.2s;
 }
 
 @mixin section {
+  @include sectionColors;
   position: relative;
-  background: $color-background-1;
+  background: var(--color-background);
   border-radius: 4px;
   padding: $spacing-l;
 }

@@ -6,34 +6,37 @@
 
 .main {
   position: fixed;
-  left: $navWidth;
+  left: $nav-width;
   top: 0;
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  padding-left: $spacing-xxl;
-  padding-top: $spacing-xl;
+  padding-left: $spacing-xl;
+  padding-top: $spacing-l;
 }
 
 .navContainer {
+  @include navColors;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-  width: $navWidth;
+  width: $nav-width;
   background: var(--color-background);
-  transition: all ease $transition-quick;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 1;
   overflow: hidden;
-  
-  &:hover, &:focus-within {
-    width: 180px;
-  }
 }
 
 .title {
   @include fontTitle;
+}
+
+.appName {
+  @include fontAppName;
+  margin: $spacing-l $nav-gutters $spacing-xl;
+  padding-bottom: $spacing-s;
+  border-bottom: 1px solid;
 }
