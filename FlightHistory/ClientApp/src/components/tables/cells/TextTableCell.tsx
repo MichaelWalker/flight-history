@@ -1,4 +1,5 @@
 import React, {FunctionComponent} from "react";
+import styles from "./TableCell.module.scss";
 
 interface TextTableCellProps {
     text: string;
@@ -6,7 +7,7 @@ interface TextTableCellProps {
 
 export const TextTableCell: FunctionComponent<TextTableCellProps> = ({text}) => {
     return (
-        <td>
+        <td className={styles.textCell}>
             {text}
         </td>
     );

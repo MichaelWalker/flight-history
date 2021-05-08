@@ -1,5 +1,6 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {Item} from "../../api/apiHelpers";
+import styles from "./TableRow.module.scss";
 
 interface TableRowProps<T extends Item> {
     item: T;
@@ -8,7 +9,7 @@ interface TableRowProps<T extends Item> {
 
 export function TableRow<T extends Item>({item, renderRow}: TableRowProps<T>) {
     return (
-        <tr>
+        <tr className={styles.tableRow}>
             {renderRow(item)}
         </tr>
     );

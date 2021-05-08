@@ -13,6 +13,7 @@ export const FlightsPage: FunctionComponent = () => {
                 <div className={styles.card}/>
             </section>
             <section className={styles.tableContainer}>
+                <h2 className={styles.sectionHeading}>Flights</h2>
                 <FlightsTable/>
             </section>
         </Page>

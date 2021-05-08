@@ -7,7 +7,7 @@ $color-dark-1: #1A181B;
 $color-dark-2: #101c2e;
 $color-text-light: $color-light-1;
 $color-text-dark: $color-dark-1;
-$color-primary: #388fff;
+$color-primary: #3E8989;
 $color-success: #238636;
 $color-warning: #e3b341;
 $color-danger: #bb0907;
@@ -69,8 +69,9 @@ $transition-quick: 0.2s;
 
 // Fonts
 @mixin fontSectionHeader {
-  @include _font(32px, 40px, 400);
-  padding-bottom: $spacing-l;
+  @include _font(1.5rem, 2rem, 300);
+  padding-bottom: $spacing-m;
+  text-transform: uppercase;
 }
 
 @mixin fontLabel {
@@ -107,6 +108,11 @@ $transition-quick: 0.2s;
   text-transform: uppercase;
 }
 
+@mixin tableHeaderFont {
+  @include _font(1.125rem, 2rem, 200);
+  text-transform: capitalize;
+}
+
 @mixin _font($size, $line-height, $font-weight) {
   font-size: $size;
   line-height: $line-height;
@@ -136,4 +142,15 @@ $transition-quick: 0.2s;
   background: var(--color-background);
   border-radius: 4px;
   padding: $spacing-l;
+}
+
+@mixin link {
+  @include fontBody;
+  font-weight: 500;
+  color: var(--color-highlight);
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }

@@ -1,0 +1,11 @@
+@import "src/styles/common";
+
+.tableHeader {
+  @include tableHeaderFont;
+  height: $spacing-l;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid transparentize($color-text-dark, 0.7);
+  padding-right: $spacing-m;
+  color: var(--color-highlight);
+}

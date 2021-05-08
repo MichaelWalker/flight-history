@@ -24,3 +24,7 @@ $grid-spacing: $spacing-m;
   @include card;
   margin-top: $spacing-m;
 }
+
+.sectionHeading {
+  @include fontSectionHeader;
+}

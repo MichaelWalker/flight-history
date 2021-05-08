@@ -2,6 +2,7 @@ import React, {FunctionComponent, ReactElement, useEffect, useState} from "react
 import {TableHeader} from "./TableHeader";
 import {TableRow} from "./TableRow";
 import {Item, ItemListResponse, Pagination, Sort} from "../../api/apiHelpers";
+import styles from "./Table.module.scss";
 
 export interface Header {
     displayName: string;
@@ -35,7 +36,7 @@ export function Table<T extends Item>({fetchItems, renderRow, headers}: TablePro
     }, [sort, pagination, search]);
     
     return (
-        <table>
+        <table className={styles.table}>
             <thead>
                 <tr>{headers.map(header => <TableHeader {...header} currentSort={sort} setSort={setSort}/>)}</tr>
             </thead>

@@ -1,0 +1,21 @@
+@import "src/styles/common";
+
+@mixin tableCell {
+  @include fontBody;
+  height: $spacing-l;
+  margin-right: $spacing-m;
+  border-bottom: 1px solid transparentize($color-text-dark, 0.8);
+  vertical-align: middle;
+}
+
+.textCell {
+  @include tableCell;
+}
+
+.linkCell {
+  @include tableCell;
+  
+  a {
+    @include link;
+  }
+}
