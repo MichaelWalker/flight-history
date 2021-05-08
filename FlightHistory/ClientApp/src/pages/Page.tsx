@@ -14,10 +14,14 @@ export const Page: FunctionComponent<PageProps> = ({ children , title}) => {
                 <Link to="/" className={styles.appName}>Flight History</Link>
                 <Nav/>
             </div>
-            <main className={styles.main}>
-                <h1 className={styles.title}>{title}</h1>
-                {children}
-            </main>
+            <div className={styles.pageContent}>
+                <header className={styles.header}>
+                    <h1 className={styles.title}>{title}</h1>
+                </header>
+                <main className={styles.main}>
+                    {children}
+                </main>
+            </div>
         </div>
     );
 }

@@ -3,7 +3,7 @@ $color-light-1: #ffffff;
 $color-light-2: #e1e1e2;
 $color-light-3: #a9a9b3;
 $color-light-4: #9393a1;
-$color-dark-1: #0d1117;
+$color-dark-1: #1A181B;
 $color-dark-2: #101c2e;
 $color-text-light: $color-light-1;
 $color-text-dark: $color-dark-1;
@@ -11,16 +11,18 @@ $color-primary: #388fff;
 $color-success: #238636;
 $color-warning: #e3b341;
 $color-danger: #bb0907;
+$color-header-background-1: #3E8989;
+$color-header-background-2: #2CDA9D;
 
 @mixin rootColors {
   --color-foreground: #{$color-text-dark};
   --color-background: #{$color-light-2};
   --color-background-accent: #{$color-light-3};
-  --color-shadow: #{$color-light-4};
+  --color-shadow: rgba(0,0,0,50%);
   --color-highlight: #{$color-primary};
 }
 
-@mixin sectionColors {
+@mixin cardColors {
   --color-background: #{$color-light-1};
 }
 
@@ -40,6 +42,12 @@ $color-danger: #bb0907;
   --color-foreground: #{$color-text-light};
   --color-background: #{$color-danger};
   --color-background-accent: #{lighten($color-danger, 7%)};
+}
+
+@mixin headerColors {
+  --color-foreground: #{$color-text-light};
+  --color-background: #{$color-header-background-1};
+  --color-background-accent: #{$color-header-background-2};
 }
 
 // Spacing
@@ -89,7 +97,8 @@ $transition-quick: 0.2s;
 }
 
 @mixin fontTitle {
-  @include _font(40px, 48px, 300);
+  @include _font(1.125rem, 2rem, 300);
+  text-transform: uppercase;
 }
 
 @mixin fontAppName {
@@ -116,8 +125,13 @@ $transition-quick: 0.2s;
   min-height: 100%;
 }
 
-@mixin section {
-  @include sectionColors;
+@mixin shadow {
+  box-shadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow) ;
+}
+
+@mixin card {
+  @include cardColors;
+  @include shadow;
   position: relative;
   background: var(--color-background);
   border-radius: 4px;

@@ -4,19 +4,32 @@
   @include page;
 }
 
-.main {
+.pageContent {
   position: fixed;
   left: $nav-width;
   top: 0;
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  padding-left: $spacing-xl;
-  padding-top: $spacing-l;
+}
+
+.main {
+  padding: 0 $spacing-l $spacing-xl;
+  margin-top: -$spacing-m;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  @include headerColors;
+  height: 8rem;
+  background: linear-gradient(to right, var(--color-background), var(--color-background-accent));
 }
 
 .navContainer {
   @include navColors;
+  @include shadow;
   position: fixed;
   left: 0;
   top: 0;
@@ -32,11 +45,15 @@
 
 .title {
   @include fontTitle;
+  margin-top: $spacing-s;
+  margin-left: $spacing-l;
+  display: inline-block;
+
 }
 
 .appName {
   @include fontAppName;
-  margin: $spacing-l $nav-gutters $spacing-xl;
+  margin: $spacing-s $nav-gutters $spacing-xl;
   padding-bottom: $spacing-s;
-  border-bottom: 1px solid;
+  text-align: center;
 }

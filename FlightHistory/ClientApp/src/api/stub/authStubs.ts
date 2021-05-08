@@ -7,7 +7,7 @@ const TestUser = {
     email: "user@sample.com",
 }
 
-let SignedInUser: User | null = null;
+let SignedInUser: User | null = TestUser;
 
 export const AuthStubs: StubApiResponse[] = [
     {

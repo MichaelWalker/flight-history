@@ -1,11 +1,20 @@
 ﻿import React, {FunctionComponent} from "react";
 import {Page} from "./Page";
 import {FlightsTable} from "../components/flights/FlightsTable";
+import styles from './Flights.module.scss';
 
 export const FlightsPage: FunctionComponent = () => {
     return (
         <Page title={"Flights"}>
-            <FlightsTable/>
+            <section className={styles.statsContainer}>
+                <div className={styles.card}/>
+                <div className={styles.card}/>
+                <div className={styles.card}/>
+                <div className={styles.card}/>
+            </section>
+            <section className={styles.tableContainer}>
+                <FlightsTable/>
+            </section>
         </Page>
     );
 };
