@@ -1,4 +1,5 @@
-﻿@import "src/styles/common";
+﻿@use 'sass:math';
+@import "src/styles/common";
 
 .field {
   display: block;
@@ -17,7 +18,7 @@
   @include fontLabel;
   position: absolute;
   left: $spacing-s;
-  top: -$label-line-height/2;
+  top: -1 * math.div($label-line-height, 2);
   background: var(--color-background);
   padding: 0 $spacing-xxs;
 }

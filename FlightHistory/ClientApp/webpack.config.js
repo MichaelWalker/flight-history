@@ -1,8 +1,11 @@
-﻿const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+﻿import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from'path';
+import webpack from 'webpack';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-module.exports = {
+export default {
     entry: "./src/index.tsx",
     output: {
         filename: 'bundle.[fullhash].js',
