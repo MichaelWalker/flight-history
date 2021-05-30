@@ -1,0 +1,10 @@
+@import "./src/styles/common";
+
+.cardSection {
+  @include card;
+  margin-bottom: $section-spacing;
+}
+
+.sectionTitle {
+  @include fontSectionHeader;
+}

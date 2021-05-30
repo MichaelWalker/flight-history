@@ -63,6 +63,7 @@ $label-line-height: 0.75rem;
 $button-height: 2.5rem;
 $nav-width: 30ch;
 $nav-gutters: $spacing-m;
+$section-spacing: $spacing-m;
 
 // Animation
 $transition-quick: 0.2s;
@@ -135,15 +136,6 @@ $transition-quick: 0.2s;
   box-shadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow) ;
 }
 
-@mixin card {
-  @include cardColors;
-  @include shadow;
-  position: relative;
-  background: var(--color-background);
-  border-radius: 4px;
-  padding: $spacing-l;
-}
-
 @mixin link {
   @include fontBody;
   font-weight: 500;
@@ -153,4 +145,13 @@ $transition-quick: 0.2s;
   &:hover {
     text-decoration: underline;
   }
+}
+
+@mixin card {
+  @include cardColors;
+  @include shadow;
+  position: relative;
+  background: var(--color-background);
+  border-radius: 4px;
+  padding: $spacing-l;
 }

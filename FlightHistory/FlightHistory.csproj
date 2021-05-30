@@ -37,15 +37,12 @@
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\SubmitButton.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\layouts\CardGridSection.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\layouts\CardSection.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\Loading.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\Nav.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\NavItem.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\SuccessIcon.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\cells\LinkTableCell.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\cells\TextTableCell.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\TableHeader.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\TableRow.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
@@ -72,6 +69,26 @@
       <TypeScriptCompile Include="ClientApp\src\pages\NotFound.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\Page.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\SignInPage.tsx" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ClientApp\src\components\tables\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ClientApp\src\components\tables\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ClientApp\src\components\tables\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="ClientApp\src\components\tables\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ClientApp\src\components\tables" />
     </ItemGroup>
 
 

@@ -1,11 +1,14 @@
 ﻿import React, {FunctionComponent} from "react";
 import {Page} from "./Page";
 import {AirportsTable} from "../components/airports/AirportsTable";
+import {CardSection} from "../components/layouts/CardSection";
 
 export const AirportsPage: FunctionComponent = () => {
     return (
         <Page title={"Airports"}>
-            <AirportsTable/>
+            <CardSection title="Airports">
+                <AirportsTable/>
+            </CardSection>
         </Page>
     );
 };
