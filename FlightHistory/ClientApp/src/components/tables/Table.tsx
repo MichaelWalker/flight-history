@@ -3,6 +3,7 @@ import {TableHeader} from "./TableHeader";
 import {TableRow} from "./TableRow";
 import {Item, ItemListResponse, Pagination, Sort} from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
+import {useFetchData} from "../../hooks/useFetchData";
 
 export interface Header {
     displayName: string;
@@ -24,24 +25,26 @@ export function Table<T extends Item>({fetchItems, renderRow, headers}: TablePro
     const [pagination, setPagination] = useState<Pagination>(defaultPagination);
     const [sort, setSort] = useState<Sort | undefined>();
     const [search, setSearch] = useState<string | undefined>();
-    const [items, setItems] = useState<T[]>([]);
-    const [count, setCount] = useState<number>(0);
-    
+    const [startFetchData, fetchState] = useFetchData(fetchItems);
+
     useEffect(() => {
-        fetchItems(pagination, sort, search)
-            .then(results => {
-                setItems(results.items);
-                setCount(results.count);
-            });
-    }, [sort, pagination, search]);
+        startFetchData(pagination, sort, search)
+    }, [pagination, sort, search]);
+    
+    function items() {
+        if (fetchState.status === 'RELOADING' || fetchState.status === 'SUCCESS') {
+            return fetchState.data.items
+        }
+        return [];
+    }
     
     return (
         <table className={styles.table}>
             <thead>
-                <tr>{headers.map(header => <TableHeader {...header} currentSort={sort} setSort={setSort}/>)}</tr>
+                <tr>{headers.map(header => <TableHeader key={header.displayName} {...header} currentSort={sort} setSort={setSort}/>)}</tr>
             </thead>
             <tbody>
-                {items.map(item => <TableRow item={item} renderRow={renderRow}/>)}
+                {items().map(item => <TableRow key={item.id} item={item} renderRow={renderRow}/>)}
             </tbody>
         </table>
     );

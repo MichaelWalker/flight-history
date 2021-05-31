@@ -49,6 +49,9 @@
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useIsMounted.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AircraftIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AirlineIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AirportIcon.tsx" />
