@@ -1,7 +1,7 @@
 import {Reducer, useCallback, useReducer} from "react";
 import {useLatestOnlyAsyncCall} from "./useLatestOnlyAsyncCall";
 
-type FetchDataState<TData> = 
+export type FetchDataState<TData> = 
     | { status: 'LOADING' }
     | { status: 'RELOADING', data: TData }
     | { status: 'SUCCESS', data: TData }

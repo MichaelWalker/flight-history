@@ -11,8 +11,8 @@ $color-primary: #3E8989;
 $color-success: #238636;
 $color-warning: #e3b341;
 $color-danger: #bb0907;
-$color-header-background-1: #3E8989;
-$color-header-background-2: #2CDA9D;
+$color-background-gradient-1: $color-primary;
+$color-background-gradient-2: #2CDA9D;
 
 @mixin rootColors {
   --color-foreground: #{$color-text-dark};
@@ -34,20 +34,14 @@ $color-header-background-2: #2CDA9D;
 
 @mixin primaryColors {
   --color-foreground: #{$color-text-light};
-  --color-background: #{$color-primary};
-  --color-background-accent: #{lighten($color-primary, 7%)};
+  --color-background: #{$color-background-gradient-1};
+  --color-background-accent: #{$color-background-gradient-2};
 }
 
 @mixin dangerColors {
   --color-foreground: #{$color-text-light};
   --color-background: #{$color-danger};
   --color-background-accent: #{lighten($color-danger, 7%)};
-}
-
-@mixin headerColors {
-  --color-foreground: #{$color-text-light};
-  --color-background: #{$color-header-background-1};
-  --color-background-accent: #{$color-header-background-2};
 }
 
 // Spacing
@@ -59,14 +53,32 @@ $spacing-l: 3rem;
 $spacing-xl: 4rem;
 $spacing-xxl: 8rem;
 
+// Sizes
+$size-m: 6rem;
+$size-l: 12rem;
+
 $label-line-height: 0.75rem;
 $button-height: 2.5rem;
+$button-width: $size-m;
 $nav-width: 30ch;
 $nav-gutters: $spacing-m;
 $section-spacing: $spacing-m;
+$table-header-height: $spacing-l;
+$table-row-height: $spacing-l;
 
 // Animation
 $transition-quick: 0.2s;
+
+@mixin focusable {
+  &:focus {
+    outline: none;
+    border-radius: 4px;
+    box-shadow:
+            0 0 0 #{$spacing-xxs / 2} white,
+            0 0 0 $spacing-xxs var(--color-highlight);
+  }
+}
+
 
 // Fonts
 @mixin fontSectionHeader {
@@ -138,6 +150,7 @@ $transition-quick: 0.2s;
 
 @mixin link {
   @include fontBody;
+  @include focusable;
   font-weight: 500;
   color: var(--color-highlight);
   text-decoration: none;
@@ -154,4 +167,29 @@ $transition-quick: 0.2s;
   background: var(--color-background);
   border-radius: 4px;
   padding: $spacing-l;
+}
+
+@mixin gradientBackground {
+  background: linear-gradient(45deg, var(--color-background), var(--color-background-accent));
+}
+
+@mixin primaryButton {
+  @include primaryColors;
+  @include fontButton;
+  @include gradientBackground;
+  @include focusable;
+  height: $button-height;
+  margin-top: $spacing-s;
+  border-radius: 4px;
+  width: $button-width;
+  background-size: 140% 100%;
+  background-position-x: 0;
+  border: none;
+  outline: none;
+  transition: all ease $transition-quick;
+  cursor: pointer;
+
+  &:hover {
+    background-position-x: 90%;
+  }
 }

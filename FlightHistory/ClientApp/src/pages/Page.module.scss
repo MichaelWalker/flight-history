@@ -22,9 +22,9 @@
 }
 
 .header {
-  @include headerColors;
+  @include primaryColors;
+  @include gradientBackground;
   height: 8rem;
-  background: linear-gradient(to right, var(--color-background), var(--color-background-accent));
 }
 
 .navContainer {

@@ -1,8 +1,8 @@
 ﻿import React, {FunctionComponent} from "react";
 import styles from "./SubmitButton.module.scss";
-import {Loading} from "../Loading";
 import {FormState} from "./Form";
 import {SuccessIcon} from "../SuccessIcon";
+import {LoadingAnimation} from "../../icons/loadingAnimation/LoadingAnimation";
 
 interface SubmitButtonProps {
     state: FormState<unknown>;
@@ -11,7 +11,7 @@ interface SubmitButtonProps {
 export const SubmitButton: FunctionComponent<SubmitButtonProps> = ({state, children}) => {
     function content() {
         if (state.status === 'SUBMITTING') {
-            return <Loading/>;
+            return <LoadingAnimation size={'SMALL'}/>;
         }
         
         if (state.status === 'SUCCESS') {

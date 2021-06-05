@@ -1,9 +1,10 @@
-import React, {FunctionComponent, ReactElement, useEffect, useState} from "react";
+import React, {FunctionComponent, ReactElement, useCallback, useEffect, useState} from "react";
 import {TableHeader} from "./TableHeader";
 import {TableRow} from "./TableRow";
 import {Item, ItemListResponse, Pagination, Sort} from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
 import {useFetchData} from "../../hooks/useFetchData";
+import {TableOverlay} from "./tableOverlay/TableOverlay";
 
 export interface Header {
     displayName: string;
@@ -26,10 +27,12 @@ export function Table<T extends Item>({fetchItems, renderRow, headers}: TablePro
     const [sort, setSort] = useState<Sort | undefined>();
     const [search, setSearch] = useState<string | undefined>();
     const [startFetchData, fetchState] = useFetchData(fetchItems);
-
-    useEffect(() => {
-        startFetchData(pagination, sort, search)
+    
+    const fetchData = useCallback(() => {
+        startFetchData(pagination, sort, search);
     }, [pagination, sort, search]);
+
+    useEffect(fetchData, [fetchData]);
     
     function items() {
         if (fetchState.status === 'RELOADING' || fetchState.status === 'SUCCESS') {
@@ -39,13 +42,23 @@ export function Table<T extends Item>({fetchItems, renderRow, headers}: TablePro
     }
     
     return (
-        <table className={styles.table}>
-            <thead>
-                <tr>{headers.map(header => <TableHeader key={header.displayName} {...header} currentSort={sort} setSort={setSort}/>)}</tr>
-            </thead>
-            <tbody>
-                {items().map(item => <TableRow key={item.id} item={item} renderRow={renderRow}/>)}
-            </tbody>
-        </table>
+        <div className={styles.tableContainer}>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        {headers.map(header => 
+                            <TableHeader {...header} 
+                                         key={header.displayName} 
+                                         currentSort={sort} 
+                                         setSort={setSort}/>
+                        )}
+                    </tr>
+                </thead>
+                <tbody>
+                    {items().map(item => <TableRow key={item.id} item={item} renderRow={renderRow}/>)}
+                </tbody>
+            </table>
+            <TableOverlay state={fetchState} reload={fetchData}/>
+        </div>
     );
 }

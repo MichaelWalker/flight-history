@@ -1,0 +1,32 @@
+@import 'src/styles/common';
+
+.loadingAnimation {
+  margin: auto;
+  display: block;
+  shape-rendering: auto;
+  
+  &.small {
+    width: $spacing-m;
+    height: $spacing-m;
+  }
+  
+  &.large {
+    width: $size-m;
+    height: $size-m;
+  }
+}
+
+@mixin circle($color) {
+  stroke-width: 5;
+  stroke: $color;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.outerCircle {
+  @include circle($color-background-gradient-1);
+}
+
+.innerCircle {
+  @include circle($color-background-gradient-2);
+}

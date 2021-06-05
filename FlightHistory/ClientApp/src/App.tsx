@@ -7,9 +7,9 @@ import {NotFoundPage} from "./pages/NotFound";
 import {DashboardPage} from "./pages/Dashboard";
 import {UserContext, UserContextProvider} from "./contexts/UserContext";
 import {SignInPage} from "./pages/SignInPage";
-import {Loading} from "./components/Loading";
 import "./styles/reset.scss";
 import {AirlinesPage} from "./pages/Airlines";
+import {LoadingAnimation} from "./icons/loadingAnimation/LoadingAnimation";
 
 export const App: FunctionComponent = () => {
     return (
@@ -25,7 +25,7 @@ const AppContent: FunctionComponent = () => {
     const { loading, currentUser } = useContext(UserContext);
     
     if (loading) {
-        return <Loading/>
+        return <LoadingAnimation size={'LARGE'}/>
     }
     
     if (!currentUser) {

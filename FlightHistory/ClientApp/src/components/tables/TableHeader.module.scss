@@ -2,7 +2,7 @@
 
 .tableHeader {
   @include tableHeaderFont;
-  height: $spacing-l;
+  height: $table-header-height;
   text-align: left;
   vertical-align: middle;
   border-bottom: 1px solid transparentize($color-text-dark, 0.7);

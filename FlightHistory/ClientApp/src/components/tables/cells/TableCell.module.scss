@@ -2,7 +2,7 @@
 
 @mixin tableCell {
   @include fontBody;
-  height: $spacing-l;
+  height: $table-row-height;
   margin-right: $spacing-m;
   border-bottom: 1px solid transparentize($color-text-dark, 0.8);
   vertical-align: middle;
