@@ -1,13 +1,13 @@
 ﻿@import "src/styles/common";
 
 .main {
-  @include page;
+    @include page;
 }
 
 .section {
-  @include card;
+    @include card;
 }
 
 .title {
-  @include fontSectionHeader;
+    @include fontSectionHeader;
 }

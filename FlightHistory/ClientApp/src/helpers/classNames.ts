@@ -7,9 +7,10 @@ function toConditionalClass(item: string | Record<string, boolean>): Conditional
     if (typeof item === "string") {
         return [{ name: item, isActive: true }];
     }
-    
-    return Object.entries(item)
-        .map(([name, isActive]) => { return { name, isActive } });
+
+    return Object.entries(item).map(([name, isActive]) => {
+        return { name, isActive };
+    });
 }
 
 function isActive(conditionalClass: ConditionalClass): boolean {
@@ -20,6 +21,6 @@ export function classNames(...classes: (string | Record<string, boolean>)[]) {
     return classes
         .flatMap(toConditionalClass)
         .filter(isActive)
-        .map(c => c.name)
-        .join(' ');
+        .map((c) => c.name)
+        .join(" ");
 }

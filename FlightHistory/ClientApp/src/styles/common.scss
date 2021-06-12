@@ -5,46 +5,46 @@ $color-light-1: #ffffff;
 $color-light-2: #e1e1e2;
 $color-light-3: #a9a9b3;
 $color-light-4: #9393a1;
-$color-dark-1: #1A181B;
+$color-dark-1: #1a181b;
 $color-dark-2: #101c2e;
 $color-text-light: $color-light-1;
 $color-text-dark: $color-dark-1;
-$color-primary: #3E8989;
+$color-primary: #3e8989;
 $color-success: #238636;
 $color-warning: #e3b341;
 $color-danger: #bb0907;
 $color-background-gradient-1: $color-primary;
-$color-background-gradient-2: #2CDA9D;
+$color-background-gradient-2: #2cda9d;
 
 @mixin rootColors {
-  --color-foreground: #{$color-text-dark};
-  --color-background: #{$color-light-2};
-  --color-background-accent: #{$color-light-3};
-  --color-shadow: rgba(0,0,0,50%);
-  --color-highlight: #{$color-primary};
+    --color-foreground: #{$color-text-dark};
+    --color-background: #{$color-light-2};
+    --color-background-accent: #{$color-light-3};
+    --color-shadow: rgba(0, 0, 0, 50%);
+    --color-highlight: #{$color-primary};
 }
 
 @mixin cardColors {
-  --color-background: #{$color-light-1};
-  --color-background-accent: #{$color-light-2};
+    --color-background: #{$color-light-1};
+    --color-background-accent: #{$color-light-2};
 }
 
 @mixin navColors {
-  --color-foreground: #{$color-text-light};
-  --color-background: #{$color-dark-1};
-  --color-background-accent: #{$color-dark-2};
+    --color-foreground: #{$color-text-light};
+    --color-background: #{$color-dark-1};
+    --color-background-accent: #{$color-dark-2};
 }
 
 @mixin primaryColors {
-  --color-foreground: #{$color-text-light};
-  --color-background: #{$color-background-gradient-1};
-  --color-background-accent: #{$color-background-gradient-2};
+    --color-foreground: #{$color-text-light};
+    --color-background: #{$color-background-gradient-1};
+    --color-background-accent: #{$color-background-gradient-2};
 }
 
 @mixin dangerColors {
-  --color-foreground: #{$color-text-light};
-  --color-background: #{$color-danger};
-  --color-background-accent: #{lighten($color-danger, 7%)};
+    --color-foreground: #{$color-text-light};
+    --color-background: #{$color-danger};
+    --color-background-accent: #{lighten($color-danger, 7%)};
 }
 
 // Spacing
@@ -78,152 +78,152 @@ $outlineHighlightBand: 0 0 0 $spacing-xxs var(--color-highlight);
 $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
 
 @mixin focusable {
-  border-radius: 4px;
-  
-  &:focus {
-    outline: none;
-    box-shadow: $outlineBackgroundBand, $outlineHighlightBand;
-  }
+    border-radius: 4px;
+
+    &:focus {
+        outline: none;
+        box-shadow: $outlineBackgroundBand, $outlineHighlightBand;
+    }
 }
 
 @mixin shadow {
-  box-shadow: $outlineShadow;
+    box-shadow: $outlineShadow;
 }
 
 @mixin shadowAndOutline {
-  box-shadow: $outlineBackgroundBand, $outlineHighlightBand, $outlineShadow;
+    box-shadow: $outlineBackgroundBand, $outlineHighlightBand, $outlineShadow;
 }
 
 // Fonts
 @mixin fontSectionHeader {
-  @include _font(1.5rem, 2rem, 300);
-  padding-bottom: $spacing-m;
-  text-transform: uppercase;
+    @include _font(1.5rem, 2rem, 300);
+    padding-bottom: $spacing-m;
+    text-transform: uppercase;
 }
 
 @mixin fontLabel {
-  @include _font(12px, $label-line-height, 500);
-  text-transform: uppercase;
+    @include _font(12px, $label-line-height, 500);
+    text-transform: uppercase;
 }
 
 @mixin fontInput {
-  @include _font(18px, 28px, 300);
+    @include _font(18px, 28px, 300);
 }
 
 @mixin fontButton {
-  @include _font(18px, $button-height, 400);
-  text-transform: uppercase;
+    @include _font(18px, $button-height, 400);
+    text-transform: uppercase;
 }
 
 @mixin fontBody {
-  @include _font(16px, 24px, 300);
+    @include _font(16px, 24px, 300);
 }
 
 @mixin fontNavItem {
-  @include _font(18px, 20px, 400);
-  text-decoration: none;
+    @include _font(18px, 20px, 400);
+    text-decoration: none;
 }
 
 @mixin fontTitle {
-  @include _font(1.125rem, 2rem, 300);
-  text-transform: uppercase;
+    @include _font(1.125rem, 2rem, 300);
+    text-transform: uppercase;
 }
 
 @mixin fontAppName {
-  @include _font(1.125rem, 2rem, 300);
-  text-decoration: none;
-  text-transform: uppercase;
+    @include _font(1.125rem, 2rem, 300);
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 @mixin tableHeaderFont {
-  @include _font(1.125rem, 2rem, 200);
-  text-transform: capitalize;
+    @include _font(1.125rem, 2rem, 200);
+    text-transform: capitalize;
 }
 
 @mixin _font($size, $line-height, $font-weight) {
-  font-size: $size;
-  line-height: $line-height;
-  font-weight: $font-weight;
-  font-family: "Ubuntu", sans-serif;
-  color: var(--color-foreground);
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+    font-family: "Ubuntu", sans-serif;
+    color: var(--color-foreground);
 }
 
 // Layouts
 @mixin page {
-  @include rootColors;
-  background: var(--color-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
+    @include rootColors;
+    background: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
 }
 
 @mixin link {
-  @include fontBody;
-  @include focusable;
-  font-weight: 500;
-  color: var(--color-highlight);
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
+    @include fontBody;
+    @include focusable;
+    font-weight: 500;
+    color: var(--color-highlight);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 @mixin card {
-  @include cardColors;
-  @include shadow;
-  position: relative;
-  background: var(--color-background);
-  border-radius: 4px;
-  padding: $spacing-l;
+    @include cardColors;
+    @include shadow;
+    position: relative;
+    background: var(--color-background);
+    border-radius: 4px;
+    padding: $spacing-l;
 }
 
 @mixin gradientBackground {
-  background: linear-gradient(45deg, var(--color-background), var(--color-background-accent));
+    background: linear-gradient(45deg, var(--color-background), var(--color-background-accent));
 }
 
 @mixin primaryButton {
-  @include primaryColors;
-  @include fontButton;
-  @include gradientBackground;
-  @include focusable;
-  height: $button-height;
-  margin-top: $spacing-s;
-  border-radius: 4px;
-  width: $button-width;
-  background-size: 140% 100%;
-  background-position-x: 0;
-  border: none;
-  transition: all ease $transition-quick;
-  cursor: pointer;
+    @include primaryColors;
+    @include fontButton;
+    @include gradientBackground;
+    @include focusable;
+    height: $button-height;
+    margin-top: $spacing-s;
+    border-radius: 4px;
+    width: $button-width;
+    background-size: 140% 100%;
+    background-position-x: 0;
+    border: none;
+    transition: all ease $transition-quick;
+    cursor: pointer;
 
-  &:hover {
-    background-position-x: 90%;
-  }
+    &:hover {
+        background-position-x: 90%;
+    }
 }
 
 @mixin minorButton {
-  @include fontButton;
-  @include focusable;
-  width: $button-height;
-  height: $button-height;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  transition: all ease $transition-quick;
-  background: none;
-  color: var(--color-highlight);
-  
-  &:hover:not(:disabled) {
-    @include shadow;
-    
-    &:focus {
-      @include shadowAndOutline;
+    @include fontButton;
+    @include focusable;
+    width: $button-height;
+    height: $button-height;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all ease $transition-quick;
+    background: none;
+    color: var(--color-highlight);
+
+    &:hover:not(:disabled) {
+        @include shadow;
+
+        &:focus {
+            @include shadowAndOutline;
+        }
     }
-  }
-  
-  &:active {
-    background: var(--color-highlight);
-  }
+
+    &:active {
+        background: var(--color-highlight);
+    }
 }

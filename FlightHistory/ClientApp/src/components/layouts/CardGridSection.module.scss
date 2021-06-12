@@ -3,15 +3,15 @@
 $grid-spacing: $spacing-m;
 
 .cardGrid {
-  display: flex;
-  flex-direction: row;
-  margin-top: -$grid-spacing;
-  margin-left: -$grid-spacing;
-  margin-bottom: $spacing-m;
+    display: flex;
+    flex-direction: row;
+    margin-top: -$grid-spacing;
+    margin-left: -$grid-spacing;
+    margin-bottom: $spacing-m;
 
-  > * {
-    flex-grow: 1;
-    margin-left: $grid-spacing;
-    margin-top: $grid-spacing;
-  }
+    > * {
+        flex-grow: 1;
+        margin-left: $grid-spacing;
+        margin-top: $grid-spacing;
+    }
 }

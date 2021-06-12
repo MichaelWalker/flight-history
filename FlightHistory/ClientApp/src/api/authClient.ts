@@ -1,13 +1,13 @@
-import {accessToken} from "../helpers/tokenHelper";
-import {Token} from "../models/token";
-import {anonymousPost, post} from "./apiHelpers";
+import { accessToken } from "../helpers/tokenHelper";
+import { Token } from "../models/token";
+import { anonymousPost, post } from "./apiHelpers";
 
 async function signIn(email: string, password: string): Promise<void> {
     try {
-        const response = await anonymousPost<Token>(
-            "/api/auth/sign-in",
-            { email, password }
-        );
+        const response = await anonymousPost<Token>("/api/auth/sign-in", {
+            email,
+            password,
+        });
         accessToken.set(response?.token || null);
     } catch (error) {
         accessToken.set(null);
@@ -23,7 +23,7 @@ async function refreshToken(): Promise<void> {
         accessToken.set(null);
         throw error;
     }
-}   
+}
 
 async function signOut(): Promise<void> {
     await post<void>("/api/auth/sign-out");
@@ -34,4 +34,4 @@ export const AuthClient = {
     signIn,
     refreshToken,
     signOut,
-}
+};

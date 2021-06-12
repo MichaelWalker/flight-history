@@ -1,5 +1,5 @@
-import React, {FunctionComponent} from "react";
-import { Link } from 'react-router-dom';
+import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import styles from "./TableCell.module.scss";
 
 interface LinkTableCellProps {
@@ -7,12 +7,10 @@ interface LinkTableCellProps {
     to: string;
 }
 
-export const LinkTableCell: FunctionComponent<LinkTableCellProps> = ({text, to}) => {
+export const LinkTableCell: FunctionComponent<LinkTableCellProps> = ({ text, to }) => {
     return (
         <td className={styles.linkCell}>
-            <Link to={to}>
-                {text}
-            </Link>
+            <Link to={to}>{text}</Link>
         </td>
     );
-}
+};

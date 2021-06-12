@@ -15,12 +15,12 @@
     }
 
     unsubscribe(callback: (newValue: TValue) => void): void {
-        this.observers = this.observers.filter(item => item !== callback);
+        this.observers = this.observers.filter((item) => item !== callback);
     }
 
     set(newValue: TValue): void {
         this.value = newValue;
-        this.observers.forEach(callback => callback(newValue));
+        this.observers.forEach((callback) => callback(newValue));
     }
 
     get(): TValue {

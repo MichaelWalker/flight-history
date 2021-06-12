@@ -1,5 +1,5 @@
-﻿declare module '*.module.scss' {
-    const content: {[className: string]: string};
+﻿declare module "*.module.scss" {
+    const content: { [className: string]: string };
     export default content;
 }
 

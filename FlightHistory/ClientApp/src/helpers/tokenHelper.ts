@@ -1,5 +1,5 @@
-﻿import {Observable} from "./observable";
-import {User} from "../models/user";
+﻿import { Observable } from "./observable";
+import { User } from "../models/user";
 
 interface ParsedToken {
     expiry?: number;
@@ -14,7 +14,7 @@ function parseToken(): ParsedToken | undefined {
         return;
     }
 
-    const encodedPayload = token.split('.')[1];
+    const encodedPayload = token.split(".")[1];
     const decodedPayload = atob(encodedPayload);
     const data = JSON.parse(decodedPayload);
 
@@ -23,8 +23,8 @@ function parseToken(): ParsedToken | undefined {
         user: {
             name: data.user.name,
             email: data.user.email,
-        }
-    }
+        },
+    };
 }
 
 function tryParseExpiry(data: { exp?: number }): number | undefined {
