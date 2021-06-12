@@ -1,4 +1,6 @@
-﻿// Colors
+﻿@use "sass:math";
+
+// Colors
 $color-light-1: #ffffff;
 $color-light-2: #e1e1e2;
 $color-light-3: #a9a9b3;
@@ -24,6 +26,7 @@ $color-background-gradient-2: #2CDA9D;
 
 @mixin cardColors {
   --color-background: #{$color-light-1};
+  --color-background-accent: #{$color-light-2};
 }
 
 @mixin navColors {
@@ -69,16 +72,27 @@ $table-row-height: $spacing-l;
 // Animation
 $transition-quick: 0.2s;
 
+// Shadows:
+$outlineBackgroundBand: 0 0 0 #{math.div($spacing-xxs, 2)} var(--color-background);
+$outlineHighlightBand: 0 0 0 $spacing-xxs var(--color-highlight);
+$outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
+
 @mixin focusable {
+  border-radius: 4px;
+  
   &:focus {
     outline: none;
-    border-radius: 4px;
-    box-shadow:
-            0 0 0 #{$spacing-xxs / 2} white,
-            0 0 0 $spacing-xxs var(--color-highlight);
+    box-shadow: $outlineBackgroundBand, $outlineHighlightBand;
   }
 }
 
+@mixin shadow {
+  box-shadow: $outlineShadow;
+}
+
+@mixin shadowAndOutline {
+  box-shadow: $outlineBackgroundBand, $outlineHighlightBand, $outlineShadow;
+}
 
 // Fonts
 @mixin fontSectionHeader {
@@ -144,10 +158,6 @@ $transition-quick: 0.2s;
   min-height: 100%;
 }
 
-@mixin shadow {
-  box-shadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow) ;
-}
-
 @mixin link {
   @include fontBody;
   @include focusable;
@@ -185,11 +195,35 @@ $transition-quick: 0.2s;
   background-size: 140% 100%;
   background-position-x: 0;
   border: none;
-  outline: none;
   transition: all ease $transition-quick;
   cursor: pointer;
 
   &:hover {
     background-position-x: 90%;
+  }
+}
+
+@mixin minorButton {
+  @include fontButton;
+  @include focusable;
+  width: $button-height;
+  height: $button-height;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all ease $transition-quick;
+  background: none;
+  color: var(--color-highlight);
+  
+  &:hover:not(:disabled) {
+    @include shadow;
+    
+    &:focus {
+      @include shadowAndOutline;
+    }
+  }
+  
+  &:active {
+    background: var(--color-highlight);
   }
 }

@@ -5,6 +5,7 @@ import {Item, ItemListResponse, Pagination, Sort} from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
 import {useFetchData} from "../../hooks/useFetchData";
 import {TableOverlay} from "./tableOverlay/TableOverlay";
+import {PageControls} from "./pageControls/PageControls";
 
 export interface Header {
     displayName: string;
@@ -34,31 +35,41 @@ export function Table<T extends Item>({fetchItems, renderRow, headers}: TablePro
 
     useEffect(fetchData, [fetchData]);
     
-    function items() {
+    function items(): T[] {
         if (fetchState.status === 'RELOADING' || fetchState.status === 'SUCCESS') {
             return fetchState.data.items
         }
         return [];
     }
     
+    function itemCount(): number {
+        if (fetchState.status === 'RELOADING' || fetchState.status === 'SUCCESS') {
+            return fetchState.data.count;
+        }
+        return 0;
+    }
+    
     return (
-        <div className={styles.tableContainer}>
-            <table className={styles.table}>
-                <thead>
+        <>
+            <div className={styles.tableContainer}>
+                <table className={styles.table}>
+                    <thead>
                     <tr>
-                        {headers.map(header => 
-                            <TableHeader {...header} 
-                                         key={header.displayName} 
-                                         currentSort={sort} 
+                        {headers.map(header =>
+                            <TableHeader {...header}
+                                         key={header.displayName}
+                                         currentSort={sort}
                                          setSort={setSort}/>
                         )}
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {items().map(item => <TableRow key={item.id} item={item} renderRow={renderRow}/>)}
-                </tbody>
-            </table>
-            <TableOverlay state={fetchState} reload={fetchData}/>
-        </div>
+                    </tbody>
+                </table>
+                <TableOverlay state={fetchState} reload={fetchData}/>
+            </div>
+            <PageControls pagination={pagination} setPagination={setPagination} totalCount={itemCount()}/>
+        </>
     );
 }

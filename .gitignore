@@ -9,3 +9,4 @@ obj
 # JS
 node_modules
 dist
+**/jest/coverage

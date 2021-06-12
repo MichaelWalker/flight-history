@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <TypeScriptCompile Include="ClientApp\jest\setupFilesAfterEnv.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\aircraftClient.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\airlineClient.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\airportsClient.ts" />
@@ -44,6 +45,8 @@
       <TypeScriptCompile Include="ClientApp\src\components\SuccessIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\cells\LinkTableCell.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\cells\TextTableCell.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageControls\PageControls.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageControls\PageControls.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\TableHeader.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
@@ -51,6 +54,8 @@
       <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\classNames.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\classNames.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
@@ -95,6 +100,7 @@
     <ItemGroup>
       <Content Remove="ClientApp\src\components\tables\**" />
       <Content Include="ClientApp\src\components\tables\cells\TableCell.module.scss" />
+      <Content Include="ClientApp\src\components\tables\pageControls\PageControls.module.scss" />
       <Content Include="ClientApp\src\components\tables\Table.module.scss" />
       <Content Include="ClientApp\src\components\tables\TableHeader.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.module.scss" />
