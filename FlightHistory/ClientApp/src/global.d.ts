@@ -1,4 +1,6 @@
-﻿declare module "*.module.scss" {
+﻿/* eslint-disable no-var, @typescript-eslint/naming-convention */
+
+declare module "*.module.scss" {
     const content: { [className: string]: string };
     export default content;
 }

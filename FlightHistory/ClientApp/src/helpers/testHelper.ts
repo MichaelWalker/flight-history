@@ -1,4 +1,4 @@
-﻿import { User } from "../models/user";
+﻿import type { User } from "../models/user";
 
 export function generateTestAccessToken(user: User, expiresInMinutes = 5): string {
     const expiryDate = new Date().getTime() + expiresInMinutes * 60000;

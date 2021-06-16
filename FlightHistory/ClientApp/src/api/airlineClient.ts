@@ -1,5 +1,6 @@
-import { getList, ItemListResponse, Pagination, Sort } from "./apiHelpers";
-import { Airline } from "../models/airline";
+import type { ItemListResponse, Pagination, Sort } from "./apiHelpers";
+import { getList } from "./apiHelpers";
+import type { Airline } from "../models/airline";
 
 async function list(
     pagination: Pagination,

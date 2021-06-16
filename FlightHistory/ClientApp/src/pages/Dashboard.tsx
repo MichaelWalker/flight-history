@@ -1,4 +1,5 @@
-﻿import React, { FunctionComponent } from "react";
+﻿import type { FunctionComponent } from "react";
+import React from "react";
 import { Page } from "./Page";
 
 export const DashboardPage: FunctionComponent = () => {

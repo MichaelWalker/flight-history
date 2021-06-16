@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useCallback } from "react";
-import { Pagination } from "../../../api/apiHelpers";
+import type { FunctionComponent } from "react";
+import React, { useCallback } from "react";
+import type { Pagination } from "../../../api/apiHelpers";
 import styles from "./PageControls.module.scss";
 
 interface PageControlProps {
@@ -13,7 +14,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
     totalCount,
     setPagination,
 }) => {
-    const page = pagination.page;
+    const currentPage = pagination.page;
     const numberOfPages = Math.ceil(totalCount / pagination.pageSize);
 
     const setPage = useCallback(
@@ -30,30 +31,38 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
     // TODO Look up accessibility best practices. aria-controls?
     return (
         <div className={styles.pageControlsContainer} data-testid={"page-controls"}>
-            <button className={styles.button} onClick={() => setPage(1)} disabled={page === 1}>
+            <button
+                type="button"
+                className={styles.button}
+                onClick={() => setPage(1)}
+                disabled={currentPage === 1}
+            >
                 «
             </button>
             <button
+                type="button"
                 className={styles.button}
-                onClick={() => setPage(page - 1)}
-                disabled={page === 1}
+                onClick={() => setPage(currentPage - 1)}
+                disabled={currentPage === 1}
             >
                 ‹
             </button>
             <span className={styles.currentPage}>
-                Page {page} of {numberOfPages}
+                Page {currentPage} of {numberOfPages}
             </span>
             <button
+                type="button"
                 className={styles.button}
-                onClick={() => setPage(page + 1)}
-                disabled={page === numberOfPages}
+                onClick={() => setPage(currentPage + 1)}
+                disabled={currentPage === numberOfPages}
             >
                 ›
             </button>
             <button
+                type="button"
                 className={styles.button}
                 onClick={() => setPage(numberOfPages)}
-                disabled={page === numberOfPages}
+                disabled={currentPage === numberOfPages}
             >
                 »
             </button>

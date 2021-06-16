@@ -24,7 +24,7 @@ export interface Pagination {
 }
 
 export async function get<T>(url: string): Promise<T> {
-    return await makeAuthenticatedRequest<T>(url, {
+    return makeAuthenticatedRequest<T>(url, {
         method: "GET",
         headers: getHeaders(),
     });
@@ -49,7 +49,7 @@ export async function getList<T extends Item>(
         url.searchParams.append("search", search);
     }
 
-    return await get(url.toString());
+    return get(url.toString());
 }
 
 export function toURL(url: string): URL {
@@ -60,16 +60,16 @@ export function toURL(url: string): URL {
     return new URL(url, location.origin);
 }
 
-export async function post<T>(url: string, data?: unknown) {
-    return await makeAuthenticatedRequest<T>(url, {
+export async function post<T>(url: string, data?: unknown): Promise<T> {
+    return makeAuthenticatedRequest<T>(url, {
         method: "POST",
         headers: getHeaders(),
         body: JSON.stringify(data),
     });
 }
 
-export async function anonymousPost<T>(url: string, data?: unknown) {
-    return await makeRequest<T>(url, {
+export async function anonymousPost<T>(url: string, data?: unknown): Promise<T> {
+    return makeRequest<T>(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -93,7 +93,7 @@ async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): P
     } catch (exception) {
         if (exception.status === 401) {
             await Api.auth.refreshToken();
-            return await makeRequest(url, options);
+            return makeRequest(url, options);
         }
 
         throw exception;

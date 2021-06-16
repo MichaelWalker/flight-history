@@ -1,9 +1,11 @@
-import React, { FunctionComponent } from "react";
-import { Header, Table } from "../tables/Table";
+import type { FunctionComponent } from "react";
+import React from "react";
+import type { Header} from "../tables/Table";
+import { Table } from "../tables/Table";
 import { Api } from "../../api/apiClient";
 import { LinkTableCell } from "../tables/cells/LinkTableCell";
 import { TextTableCell } from "../tables/cells/TextTableCell";
-import { Flight } from "../../models/flight";
+import type { Flight } from "../../models/flight";
 
 const headers: Header[] = [
     { displayName: "date", sortName: "date" },

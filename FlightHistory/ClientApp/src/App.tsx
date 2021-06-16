@@ -1,4 +1,5 @@
-﻿import React, { FunctionComponent, useContext } from "react";
+﻿import type { FunctionComponent} from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FlightsPage } from "./pages/Flights";
 import { AirportsPage } from "./pages/Airports";
@@ -34,12 +35,24 @@ const AppContent: FunctionComponent = () => {
 
     return (
         <Switch>
-            <Route path={"/"} exact={true} children={DashboardPage} />
-            <Route path={"/flights"} exact={true} children={FlightsPage} />
-            <Route path={"/airports"} exact={true} children={AirportsPage} />
-            <Route path={"/aircraft"} exact={true} children={AircraftPage} />
-            <Route path={"/airlines"} exact={true} children={AirlinesPage} />
-            <Route path={"/"} children={NotFoundPage} />
+            <Route path={"/"} exact={true}>
+                <DashboardPage />
+            </Route>
+            <Route path={"/flights"} exact={true}>
+                <FlightsPage />
+            </Route>
+            <Route path={"/airports"} exact={true}>
+                <AirportsPage />
+            </Route>
+            <Route path={"/aircraft"} exact={true}>
+                <AircraftPage />
+            </Route>
+            <Route path={"/airlines"} exact={true}>
+                <AirlinesPage />
+            </Route>
+            <Route path={"/"}>
+                <NotFoundPage />
+            </Route>
         </Switch>
     );
 };

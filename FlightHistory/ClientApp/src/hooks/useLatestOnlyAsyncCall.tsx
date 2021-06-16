@@ -10,7 +10,7 @@ export function useLatestOnlyAsyncCall<TArgs extends unknown[], TResponse>(
     const isMounted = useIsMounted();
 
     return useCallback(
-        (...args: TArgs): Promise<TResponse> => {
+        async (...args: TArgs): Promise<TResponse> => {
             const thisCallNumber = callCount.current + 1;
             callCount.current = thisCallNumber;
 

@@ -1,8 +1,9 @@
-﻿import React, { FunctionComponent, useCallback, useState } from "react";
+﻿import type { FunctionComponent} from "react";
+import React, { useCallback, useState } from "react";
 import { EmailInput, PasswordInput } from "../components/forms/Input";
 import styles from "./SignInPage.module.scss";
 import { Form } from "../components/forms/Form";
-import { ApiError } from "../api/apiHelpers";
+import type { ApiError } from "../api/apiHelpers";
 import { Api } from "../api/apiClient";
 
 export const SignInPage: FunctionComponent = () => {
@@ -13,14 +14,14 @@ export const SignInPage: FunctionComponent = () => {
         return !(password === "" || email === "");
     }, [password, email]);
 
-    function errorMessage(error: ApiError) {
+    function errorMessage(error: ApiError): string {
         if (error.status === 401) {
             return "Incorrect email or password";
         }
         return "Sorry - something went wrong. Please try again.";
     }
 
-    function signIn() {
+    async function signIn(): Promise<void> {
         return Api.auth.signIn(email, password);
     }
 

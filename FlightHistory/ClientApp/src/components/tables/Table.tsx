@@ -1,7 +1,8 @@
-import React, { FunctionComponent, ReactElement, useCallback, useEffect, useState } from "react";
+import type { ReactElement } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { TableHeader } from "./TableHeader";
 import { TableRow } from "./TableRow";
-import { Item, ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
+import type { Item, ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
 import { useFetchData } from "../../hooks/useFetchData";
 import { TableOverlay } from "./tableOverlay/TableOverlay";
@@ -34,12 +35,12 @@ export function Table<T extends Item>({
 }: TableProps<T>): ReactElement {
     const [pagination, setPagination] = useState<Pagination>(defaultPagination);
     const [sort, setSort] = useState<Sort | undefined>();
-    const [search, setSearch] = useState<string | undefined>();
+    const [search] = useState<string | undefined>();
     const [startFetchData, fetchState] = useFetchData(fetchItems);
 
     const fetchData = useCallback(() => {
         startFetchData(pagination, sort, search);
-    }, [pagination, sort, search]);
+    }, [startFetchData, pagination, sort, search]);
 
     useEffect(fetchData, [fetchData]);
 

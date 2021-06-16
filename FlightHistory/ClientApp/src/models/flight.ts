@@ -1,6 +1,6 @@
-import { Airport } from "./airport";
-import { Aircraft } from "./aircraft";
-import { Airline } from "./airline";
+import type { Airport } from "./airport";
+import type { Aircraft } from "./aircraft";
+import type { Airline } from "./airline";
 
 export interface Flight {
     id: number;

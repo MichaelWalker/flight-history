@@ -3,7 +3,8 @@
 // 1 => all calls will always fail
 import { AuthStubs } from "./authStubs";
 import { accessToken } from "../../helpers/tokenHelper";
-import { Item, ItemListResponse, toURL } from "../apiHelpers";
+import type { Item, ItemListResponse} from "../apiHelpers";
+import { toURL } from "../apiHelpers";
 import { AirlineStubs } from "./airlineStubs";
 import { AircraftStubs } from "./aircraftStubs";
 import { AirportStubs } from "./airportStubs";
@@ -12,7 +13,7 @@ import { FlightStubs } from "./flightStubs";
 const FAILURE_RATE = 0;
 
 // The fake API can add delays to all requests. This setting represents the delay in milliseconds.
-let RESPONSE_TIME = 2000;
+const RESPONSE_TIME = 200;
 
 export interface StubApiResponse {
     method: "GET" | "POST" | "DELETE";
@@ -78,7 +79,7 @@ function getMockResponse(urlString: string, options: RequestInit): Response {
     return stubResponse.getResponseBody(urlString, options.body as string);
 }
 
-export function stubFetch<T>(url: string, options: RequestInit): Promise<Response> {
+export async function stubFetch(url: string, options: RequestInit): Promise<Response> {
     console.info(`${options.method} request to ${url}`);
     const response = getMockResponse(url, options);
     return new Promise((resolve) => {

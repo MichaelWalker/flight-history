@@ -1,6 +1,6 @@
-﻿import React from "react";
-import { User } from "../models/user";
-import { createContext, FunctionComponent, useEffect, useState } from "react";
+﻿import type { User } from "../models/user";
+import type { FunctionComponent} from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { accessToken, getCurrentUser } from "../helpers/tokenHelper";
 import { Api } from "../api/apiClient";
 

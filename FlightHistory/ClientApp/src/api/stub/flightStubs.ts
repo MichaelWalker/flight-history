@@ -1,6 +1,7 @@
-import { StubApiResponse, stubItemList } from "./stubApiResponse";
+import type { StubApiResponse} from "./stubApiResponse";
+import { stubItemList } from "./stubApiResponse";
 import { toURL } from "../apiHelpers";
-import { Flight } from "../../models/flight";
+import type { Flight } from "../../models/flight";
 import { aircraft } from "./aircraftStubs";
 import { airlines } from "./airlineStubs";
 import { airports } from "./airportStubs";
@@ -13,8 +14,8 @@ function random<T>(items: T[]): T {
 
 function randomDate(): string {
     const today = new Date();
-    const random = addDays(today, -1 * Math.floor(Math.random() * 3000));
-    return format(random, "yyyy-MM-dd");
+    const randomPastDate = addDays(today, -1 * Math.floor(Math.random() * 3000));
+    return format(randomPastDate, "yyyy-MM-dd");
 }
 
 function getFlights(): Flight[] {
@@ -38,7 +39,7 @@ export const FlightStubs: StubApiResponse[] = [
     {
         url: "/api/flights",
         method: "GET",
-        getResponseBody: (urlString) => {
+        getResponseBody: (urlString: string): Response => {
             const url = toURL(urlString);
             const page = stubItemList(url, getFlights());
             return new Response(JSON.stringify(page));

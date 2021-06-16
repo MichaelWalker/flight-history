@@ -1,4 +1,5 @@
-import { Reducer, useCallback, useReducer } from "react";
+import type { Reducer} from "react";
+import { useCallback, useReducer } from "react";
 import { useLatestOnlyAsyncCall } from "./useLatestOnlyAsyncCall";
 
 export type FetchDataState<TData> =
@@ -45,13 +46,13 @@ export function useFetchData<TArgs extends unknown[], TData>(
         { status: "LOADING" },
     );
 
-    const latestOnlyFetch = useLatestOnlyAsyncCall((...args: TArgs) => {
+    const latestOnlyFetch = useLatestOnlyAsyncCall(async (...args: TArgs) => {
         dispatch({ type: "LOAD" });
         return fetchFunction(...args);
     });
 
     const startFetchFunction = useCallback(
-        (...args: TArgs) => {
+        async (...args: TArgs) => {
             return latestOnlyFetch(...args)
                 .then((result) => dispatch({ type: "SUCCESS", result }))
                 .catch((error) => dispatch({ type: "FAILURE", error }));

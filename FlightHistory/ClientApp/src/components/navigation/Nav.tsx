@@ -1,4 +1,5 @@
-﻿import React, { FunctionComponent } from "react";
+﻿import type { FunctionComponent } from "react";
+import React from "react";
 import styles from "./Nav.module.scss";
 import { DashboardIcon } from "../../icons/DashboardIcon";
 import { NavItem } from "./NavItem";

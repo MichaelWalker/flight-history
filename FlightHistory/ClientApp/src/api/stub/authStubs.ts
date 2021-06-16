@@ -1,19 +1,19 @@
-import { StubApiResponse } from "./stubApiResponse";
+import type { StubApiResponse } from "./stubApiResponse";
 import { generateTestAccessToken } from "../../helpers/testHelper";
-import { User } from "../../models/user";
+import type { User } from "../../models/user";
 
 const TestUser = {
     name: "User",
     email: "user@sample.com",
 };
 
-let SignedInUser: User | null = TestUser;
+let signedInUser: User | null = TestUser;
 
 export const AuthStubs: StubApiResponse[] = [
     {
         url: "/api/auth/sign-in",
         method: "POST",
-        getResponseBody: (url, data) => {
+        getResponseBody: (url: string, data: string): Response => {
             const parsedData = JSON.parse(data) as {
                 email: string;
                 password: string;
@@ -27,7 +27,7 @@ export const AuthStubs: StubApiResponse[] = [
                 };
             }
 
-            SignedInUser = TestUser;
+            signedInUser = TestUser;
             return new Response(
                 JSON.stringify({
                     token: generateTestAccessToken(TestUser),
@@ -39,8 +39,8 @@ export const AuthStubs: StubApiResponse[] = [
     {
         url: "/api/auth/refresh",
         method: "POST",
-        getResponseBody: () => {
-            if (!SignedInUser) {
+        getResponseBody: (): Response => {
+            if (!signedInUser) {
                 return {
                     ...Response.error(),
                     status: 401,
@@ -48,7 +48,7 @@ export const AuthStubs: StubApiResponse[] = [
             }
             return new Response(
                 JSON.stringify({
-                    token: generateTestAccessToken(SignedInUser),
+                    token: generateTestAccessToken(signedInUser),
                 }),
             );
         },
@@ -57,8 +57,8 @@ export const AuthStubs: StubApiResponse[] = [
     {
         url: "/api/auth/sign-out",
         method: "POST",
-        getResponseBody: () => {
-            SignedInUser = null;
+        getResponseBody: (): Response => {
+            signedInUser = null;
             return new Response("");
         },
     },

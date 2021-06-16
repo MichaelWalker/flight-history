@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from "react";
+import type { FunctionComponent } from "react";
+import React from "react";
 import { Page } from "./Page";
 import { AirlinesTable } from "../components/airlines/AirlinesTable";
 import { CardSection } from "../components/layouts/CardSection";

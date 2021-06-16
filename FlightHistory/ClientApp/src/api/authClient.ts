@@ -1,5 +1,5 @@
 import { accessToken } from "../helpers/tokenHelper";
-import { Token } from "../models/token";
+import type { Token } from "../models/token";
 import { anonymousPost, post } from "./apiHelpers";
 
 async function signIn(email: string, password: string): Promise<void> {

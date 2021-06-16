@@ -1,5 +1,6 @@
-import React, { FunctionComponent, ReactElement } from "react";
-import { FetchDataState } from "../../../hooks/useFetchData";
+import type { ReactElement } from "react";
+import React from "react";
+import type { FetchDataState } from "../../../hooks/useFetchData";
 import { LoadingAnimation } from "../../../icons/loadingAnimation/LoadingAnimation";
 import styles from "./TableOverlay.module.scss";
 
@@ -16,7 +17,7 @@ export function ErrorOverlay({ reload }: ErrorOverlayProps): ReactElement {
     return (
         <div className={styles.errorOverlay}>
             Sorry, something went went wrong.
-            <button className={styles.retryButton} onClick={reload}>
+            <button type="button" className={styles.retryButton} onClick={reload}>
                 Retry
             </button>
         </div>

@@ -1,4 +1,5 @@
-﻿import React, { FunctionComponent, ReactNode } from "react";
+﻿import type { FunctionComponent, ReactNode } from "react";
+import React from "react";
 import styles from "./NavItem.module.scss";
 import { NavLink } from "react-router-dom";
 

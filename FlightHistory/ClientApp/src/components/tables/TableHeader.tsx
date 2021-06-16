@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useState } from "react";
-import { Sort, SortDirection } from "../../api/apiHelpers";
+import type { FunctionComponent } from "react";
+import React, { useState } from "react";
+import type { Sort, SortDirection } from "../../api/apiHelpers";
 import styles from "./TableHeader.module.scss";
 
 interface TableHeaderProps {
@@ -36,7 +37,9 @@ export const TableHeader: FunctionComponent<TableHeaderProps> = ({
     if (isSortEnabled) {
         return (
             <th className={styles.tableHeader}>
-                <button onClick={onClick}>{displayName}</button>
+                <button type="button" onClick={onClick}>
+                    {displayName}
+                </button>
             </th>
         );
     }

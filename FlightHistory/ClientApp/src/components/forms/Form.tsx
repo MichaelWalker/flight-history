@@ -1,15 +1,9 @@
-﻿import React, {
-    FormEvent,
-    FunctionComponent,
-    ReactElement,
-    ReactNode,
-    useEffect,
-    useState,
-} from "react";
+﻿import type { FormEvent, ReactElement, ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import { SubmitButton } from "./SubmitButton";
 import styles from "./Form.module.scss";
 import { CSSTransition } from "react-transition-group";
-import { ApiError } from "../../api/apiHelpers";
+import type { ApiError } from "../../api/apiHelpers";
 
 export type FormState<T> =
     | { status: "INCOMPLETE" }
@@ -51,10 +45,6 @@ export function Form<T>({
             });
     }
 
-    if (state.status === "SUCCESS" && renderOnSuccess) {
-        return renderOnSuccess(state.data);
-    }
-
     useEffect(() => {
         if (state.status === "SUCCESS") {
             return;
@@ -64,7 +54,11 @@ export function Form<T>({
         } else {
             setState({ status: "INCOMPLETE" });
         }
-    }, [validateCallback]);
+    }, [state.status, validateCallback]);
+
+    if (state.status === "SUCCESS" && renderOnSuccess) {
+        return renderOnSuccess(state.data);
+    }
 
     return (
         <form onSubmit={submit}>

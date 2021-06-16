@@ -13,14 +13,14 @@ function toConditionalClass(item: string | Record<string, boolean>): Conditional
     });
 }
 
-function isActive(conditionalClass: ConditionalClass): boolean {
+function getIsActive(conditionalClass: ConditionalClass): boolean {
     return conditionalClass.isActive;
 }
 
-export function classNames(...classes: (string | Record<string, boolean>)[]) {
+export function classNames(...classes: (string | Record<string, boolean>)[]): string {
     return classes
         .flatMap(toConditionalClass)
-        .filter(isActive)
+        .filter(getIsActive)
         .map((c) => c.name)
         .join(" ");
 }

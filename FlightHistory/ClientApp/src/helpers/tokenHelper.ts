@@ -1,5 +1,5 @@
 ﻿import { Observable } from "./observable";
-import { User } from "../models/user";
+import type { User } from "../models/user";
 
 interface ParsedToken {
     expiry?: number;

@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { PageControls } from "./PageControls";
-import { get, Pagination } from "../../../api/apiHelpers";
+import type { Pagination } from "../../../api/apiHelpers";
 
 describe("PageControls", () => {
     const pageControlsTestId = "page-controls";

@@ -1,6 +1,7 @@
-﻿import React, { FunctionComponent } from "react";
+﻿import type { FunctionComponent } from "react";
+import React from "react";
 import styles from "./SubmitButton.module.scss";
-import { FormState } from "./Form";
+import type { FormState } from "./Form";
 import { SuccessIcon } from "../SuccessIcon";
 import { LoadingAnimation } from "../../icons/loadingAnimation/LoadingAnimation";
 
