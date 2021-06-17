@@ -39,8 +39,9 @@ export function Table<T extends Item>({
     const [startFetchData, fetchState] = useFetchData(fetchItems);
 
     const fetchData = useCallback(() => {
+        console.log("recalculating fetch data");
         startFetchData(pagination, sort, search);
-    }, [startFetchData, pagination, sort, search]);
+    }, [pagination, sort, search]);
 
     useEffect(fetchData, [fetchData]);
 
