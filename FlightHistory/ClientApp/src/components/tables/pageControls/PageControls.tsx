@@ -2,6 +2,10 @@ import type { FunctionComponent } from "react";
 import React, { useCallback } from "react";
 import type { Pagination } from "../../../api/apiHelpers";
 import styles from "./PageControls.module.scss";
+import { FirstPageIcon } from "../../../icons/FirstPageIcon";
+import { PreviousPageIcon } from "../../../icons/PreviousPageIcon";
+import { NextPageIcon } from "../../../icons/NextPageIcon";
+import { LastPageIcon } from "../../../icons/LastPageIcon";
 
 interface PageControlProps {
     pagination: Pagination;
@@ -37,7 +41,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 onClick={() => setPage(1)}
                 disabled={currentPage === 1}
             >
-                «
+                <FirstPageIcon />
             </button>
             <button
                 type="button"
@@ -45,7 +49,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 onClick={() => setPage(currentPage - 1)}
                 disabled={currentPage === 1}
             >
-                ‹
+                <PreviousPageIcon />
             </button>
             <span className={styles.currentPage}>
                 Page {currentPage} of {numberOfPages}
@@ -56,7 +60,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 onClick={() => setPage(currentPage + 1)}
                 disabled={currentPage === numberOfPages}
             >
-                ›
+                <NextPageIcon />
             </button>
             <button
                 type="button"
@@ -64,7 +68,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 onClick={() => setPage(numberOfPages)}
                 disabled={currentPage === numberOfPages}
             >
-                »
+                <LastPageIcon aria-hidden={true} />
             </button>
         </div>
     );

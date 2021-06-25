@@ -204,6 +204,8 @@ $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
 }
 
 @mixin minorButton {
+    --color-foreground: #{$color-primary};
+    
     @include fontButton;
     @include focusable;
     width: $button-height;
@@ -213,7 +215,6 @@ $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
     border: none;
     transition: all ease $transition-quick;
     background: none;
-    color: var(--color-highlight);
 
     &:hover:not(:disabled) {
         @include shadow;

@@ -39,8 +39,8 @@ export function Table<T extends Item>({
     const [startFetchData, fetchState] = useFetchData(fetchItems);
 
     const fetchData = useCallback(() => {
-        console.log("recalculating fetch data");
         startFetchData(pagination, sort, search);
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [pagination, sort, search]);
 
     useEffect(fetchData, [fetchData]);
