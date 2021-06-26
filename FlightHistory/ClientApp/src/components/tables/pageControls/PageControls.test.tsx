@@ -71,7 +71,7 @@ describe("PageControls", () => {
 
         it("should disable next and last buttons when on last page", () => {
             const pagination = { page: 5, pageSize: 20 };
-            const { getByTestId, getByText, getByTitle } = render(
+            const { getByTestId, getByText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}

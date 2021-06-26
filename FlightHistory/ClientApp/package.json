@@ -4,15 +4,16 @@
     "main": "/src/index.tsx",
     "license": "MIT",
     "scripts": {
-        "start:with-asp": "echo Starting the development server && webpack serve --port %PORT% --mode production",
-        "start:sample-data": "export USE_SAMPLE_DATA=true && webpack serve --hot --mode development",
+        "start:prod:asp": "echo Starting the development server && webpack serve --port %PORT% --config webpack/dev.config.js",
+        "start:prod:sample": "export USE_SAMPLE_DATA=true && webpack serve --config webpack/prod.config.js",
+        "start:dev:sample": "export USE_SAMPLE_DATA=true && webpack serve --config webpack/dev.config.js --hot",
         "test": "jest",
         "test:coverage": "jest --coverage",
         "prettier:write": "prettier --write .",
         "prettier:check": "prettier --check .",
         "lint": "eslint ./src",
         "lint:fix": "eslint --fix ./src",
-        "profile": "webpack --profile --json > dist/profile.json && webpack-bundle-analyzer dist/profile.json"
+        "profile": "webpack  --config webpack/prod.config.js --profile --json > dist/profile.json && webpack-bundle-analyzer dist/profile.json"
     },
     "dependencies": {
         "date-fns": "2.22.1",

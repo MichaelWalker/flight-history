@@ -9,11 +9,10 @@ export default {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.[fullhash].js",
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "../dist"),
         publicPath: "/",
     },
     cache: true,
-    devtool: "eval-cheap-source-map",
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html",
@@ -23,19 +22,19 @@ export default {
         }),
     ],
     resolve: {
-        modules: [__dirname, "src", "node_modules"],
+        // modules: [__dirname, "src", "node_modules"],
         extensions: [".js", ".jsx", ".tsx", ".ts"],
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                include: path.resolve(__dirname, "src"),
+                include: path.resolve(__dirname, "../src"),
                 use: ["babel-loader", "ts-loader"],
             },
             {
                 test: /\.module\.scss/,
-                include: path.resolve(__dirname, "src"),
+                include: path.resolve(__dirname, "../src"),
                 use: [
                     "style-loader",
                     {
@@ -52,12 +51,9 @@ export default {
             {
                 test: /\.scss$/,
                 exclude: /\.module\.scss/,
-                include: path.resolve(__dirname, "src"),
+                include: path.resolve(__dirname, "../src"),
                 use: ["style-loader", "css-loader", "sass-loader"],
             },
         ],
-    },
-    devServer: {
-        historyApiFallback: true,
     },
 };

@@ -110,5 +110,9 @@
       <Content Include="ClientApp\src\components\tables\TableRow.module.scss" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ClientApp\dist" />
+    </ItemGroup>
+
 
 </Project>
