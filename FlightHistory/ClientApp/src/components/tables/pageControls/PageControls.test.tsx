@@ -42,10 +42,10 @@ describe("PageControls", () => {
             );
 
             expect(getByTestId(pageControlsTestId)).toBeInTheDocument();
-            expect((getByText("«") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("‹") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("›") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("»") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("first-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("previous-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("next-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("last-page-button") as HTMLButtonElement).disabled).toBeFalsy();
             expect(getByText("Page 2 of 5")).toBeInTheDocument();
         });
 
@@ -60,16 +60,18 @@ describe("PageControls", () => {
             );
 
             expect(getByTestId(pageControlsTestId)).toBeInTheDocument();
-            expect((getByText("«") as HTMLButtonElement).disabled).toBeTruthy();
-            expect((getByText("‹") as HTMLButtonElement).disabled).toBeTruthy();
-            expect((getByText("›") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("»") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("first-page-button") as HTMLButtonElement).disabled).toBeTruthy();
+            expect(
+                (getByTestId("previous-page-button") as HTMLButtonElement).disabled,
+            ).toBeTruthy();
+            expect((getByTestId("next-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("last-page-button") as HTMLButtonElement).disabled).toBeFalsy();
             expect(getByText("Page 1 of 5")).toBeInTheDocument();
         });
 
         it("should disable next and last buttons when on last page", () => {
             const pagination = { page: 5, pageSize: 20 };
-            const { getByTestId, getByText } = render(
+            const { getByTestId, getByText, getByTitle } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -78,16 +80,16 @@ describe("PageControls", () => {
             );
 
             expect(getByTestId(pageControlsTestId)).toBeInTheDocument();
-            expect((getByText("«") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("‹") as HTMLButtonElement).disabled).toBeFalsy();
-            expect((getByText("›") as HTMLButtonElement).disabled).toBeTruthy();
-            expect((getByText("»") as HTMLButtonElement).disabled).toBeTruthy();
+            expect((getByTestId("first-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("previous-page-button") as HTMLButtonElement).disabled).toBeFalsy();
+            expect((getByTestId("next-page-button") as HTMLButtonElement).disabled).toBeTruthy();
+            expect((getByTestId("last-page-button") as HTMLButtonElement).disabled).toBeTruthy();
             expect(getByText("Page 5 of 5")).toBeInTheDocument();
         });
 
         it("should move you to first page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText } = render(
+            const { getByText, getByTitle } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -96,7 +98,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByText("«"));
+            fireEvent.click(getByTitle("First Page"));
 
             waitFor(() => {
                 expect(getByText("Page 1 of 5")).toBeInTheDocument();
@@ -105,7 +107,7 @@ describe("PageControls", () => {
 
         it("should move you to previous page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText } = render(
+            const { getByText, getByTitle } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -114,7 +116,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByText("‹"));
+            fireEvent.click(getByTitle("Previous Page"));
 
             waitFor(() => {
                 expect(getByText("Page 2 of 5")).toBeInTheDocument();
@@ -123,7 +125,7 @@ describe("PageControls", () => {
 
         it("should move you to next page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText } = render(
+            const { getByText, getByTitle } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -132,7 +134,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByText("›"));
+            fireEvent.click(getByTitle("Next Page"));
 
             waitFor(() => {
                 expect(getByText("Page 4 of 5")).toBeInTheDocument();
@@ -141,7 +143,7 @@ describe("PageControls", () => {
 
         it("should move you to last page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText } = render(
+            const { getByText, getByTitle } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -150,7 +152,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByText("»"));
+            fireEvent.click(getByTitle("Last Page"));
 
             waitFor(() => {
                 expect(getByText("Page 5 of 5")).toBeInTheDocument();

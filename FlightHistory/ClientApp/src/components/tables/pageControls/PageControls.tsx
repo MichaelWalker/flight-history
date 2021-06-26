@@ -40,6 +40,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 className={styles.button}
                 onClick={() => setPage(1)}
                 disabled={currentPage === 1}
+                data-testid={"first-page-button"}
             >
                 <FirstPageIcon />
             </button>
@@ -48,6 +49,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 className={styles.button}
                 onClick={() => setPage(currentPage - 1)}
                 disabled={currentPage === 1}
+                data-testid={"previous-page-button"}
             >
                 <PreviousPageIcon />
             </button>
@@ -59,6 +61,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 className={styles.button}
                 onClick={() => setPage(currentPage + 1)}
                 disabled={currentPage === numberOfPages}
+                data-testid={"next-page-button"}
             >
                 <NextPageIcon />
             </button>
@@ -67,6 +70,7 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
                 className={styles.button}
                 onClick={() => setPage(numberOfPages)}
                 disabled={currentPage === numberOfPages}
+                data-testid={"last-page-button"}
             >
                 <LastPageIcon aria-hidden={true} />
             </button>
