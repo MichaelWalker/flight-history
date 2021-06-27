@@ -1,6 +1,14 @@
 import { accessToken, accessTokenAppearsValid } from "../helpers/tokenHelper";
-import { stubFetch } from "./stub/stubApiResponse";
 import { Api } from "./apiClient";
+
+async function stubAwareFetch(url: string, options: RequestInit): Promise<Response> {
+    if (USE_SAMPLE_DATA) {
+        const { stubFetch } = await import("./stub/stubApiResponse");
+        return stubFetch(url, options);
+    }
+
+    return fetch(url, options);
+}
 
 export interface Item {
     id: number;
@@ -101,7 +109,7 @@ async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): P
 }
 
 async function makeRequest<T>(url: string, options: RequestInit): Promise<T> {
-    const response = USE_SAMPLE_DATA ? await stubFetch(url, options) : await fetch(url, options);
+    const response = await stubAwareFetch(url, options);
 
     let responseJson;
     try {

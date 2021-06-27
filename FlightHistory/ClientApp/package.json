@@ -13,7 +13,7 @@
         "prettier:check": "prettier --check .",
         "lint": "eslint ./src",
         "lint:fix": "eslint --fix ./src",
-        "profile": "webpack  --config webpack/prod.config.js --profile --json > dist/profile.json && webpack-bundle-analyzer dist/profile.json"
+        "profile": "webpack --config webpack/prod.config.js --profile --json > dist/profile.json && webpack-bundle-analyzer dist/profile.json"
     },
     "dependencies": {
         "date-fns": "2.22.1",
