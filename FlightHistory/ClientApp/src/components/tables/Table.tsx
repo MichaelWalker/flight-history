@@ -83,11 +83,13 @@ export function Table<T extends Item>({
                 </table>
                 <TableOverlay state={fetchState} reload={fetchData} />
             </div>
-            <PageControls
-                pagination={pagination}
-                setPagination={setPagination}
-                totalCount={itemCount()}
-            />
+            <div className={styles.pagination}>
+                <PageControls
+                    pagination={pagination}
+                    setPagination={setPagination}
+                    totalCount={itemCount()}
+                />
+            </div>
         </>
     );
 }

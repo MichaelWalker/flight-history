@@ -1,3 +1,5 @@
+@import "src/styles/common";
+
 .tableContainer {
     position: relative;
     min-height: 16rem;
@@ -5,4 +7,11 @@
 
 .table {
     width: 100%;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: $spacing-s;
 }
