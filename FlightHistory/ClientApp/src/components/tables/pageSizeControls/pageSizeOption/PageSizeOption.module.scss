@@ -1,0 +1,30 @@
+@import 'src/styles/common';
+
+.label {
+  display: block;
+  @include fontBody;
+  line-height: $button-height;
+  width: $spacing-m;
+  text-align: center;
+  transition: $transition-quick ease;
+  background: var(--color-background);
+  
+  &:hover {
+    --color-background: #{transparentize($color-background-gradient-1, 0.8)};
+  }
+}
+
+.input {
+  appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  
+  &:checked + .label {
+    @include primaryColors;
+  }
+}
+
+.visuallyHidden {
+  @include visuallyHidden;
+}

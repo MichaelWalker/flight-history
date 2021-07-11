@@ -7,6 +7,7 @@ import styles from "./Table.module.scss";
 import { useFetchData } from "../../hooks/useFetchData";
 import { TableOverlay } from "./tableOverlay/TableOverlay";
 import { PageControls } from "./pageControls/PageControls";
+import { PageSizeControls } from "./pageSizeControls/PageSizeControls";
 
 export interface Header {
     displayName: string;
@@ -15,7 +16,7 @@ export interface Header {
 
 const defaultPagination: Pagination = {
     page: 1,
-    pageSize: 20,
+    pageSize: 10,
 };
 
 interface TableProps<T extends Item> {
@@ -84,6 +85,7 @@ export function Table<T extends Item>({
                 <TableOverlay state={fetchState} reload={fetchData} />
             </div>
             <div className={styles.pagination}>
+                <PageSizeControls pagination={pagination} setPagination={setPagination} />
                 <PageControls
                     pagination={pagination}
                     setPagination={setPagination}

@@ -1,0 +1,22 @@
+@import 'src/styles/common';
+
+.fieldset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.legend {
+  display: block;
+  @include fontBody;
+}
+
+.inputsContainer {
+  @include focusable;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 $spacing-xs;
+  overflow: hidden;
+}

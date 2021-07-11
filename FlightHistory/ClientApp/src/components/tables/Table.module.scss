@@ -12,6 +12,15 @@
 .pagination {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: $spacing-s;
+    flex-wrap: wrap;
+    
+    > * {
+        margin-right: $spacing-l;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 }

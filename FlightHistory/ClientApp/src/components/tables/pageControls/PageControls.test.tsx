@@ -16,9 +16,9 @@ describe("PageControls", () => {
     });
 
     describe("for a single page", () => {
-        it("should not render", () => {
+        it("should disable all buttons", () => {
             const pagination = { page: 1, pageSize: 20 };
-            const { queryByTestId } = render(
+            const { getByTestId, getByText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -26,7 +26,14 @@ describe("PageControls", () => {
                 />,
             );
 
-            expect(queryByTestId(pageControlsTestId)).not.toBeInTheDocument();
+            expect(getByTestId(pageControlsTestId)).toBeInTheDocument();
+            expect((getByTestId("first-page-button") as HTMLButtonElement).disabled).toBeTruthy();
+            expect(
+                (getByTestId("previous-page-button") as HTMLButtonElement).disabled,
+            ).toBeTruthy();
+            expect((getByTestId("next-page-button") as HTMLButtonElement).disabled).toBeTruthy();
+            expect((getByTestId("last-page-button") as HTMLButtonElement).disabled).toBeTruthy();
+            expect(getByText("Page 1 of 1")).toBeInTheDocument();
         });
     });
 

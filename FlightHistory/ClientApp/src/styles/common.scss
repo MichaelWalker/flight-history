@@ -80,7 +80,7 @@ $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
 @mixin focusable {
     border-radius: 4px;
 
-    &:focus {
+    &:focus, &:focus-within {
         outline: none;
         box-shadow: $outlineBackgroundBand, $outlineHighlightBand;
     }
@@ -227,4 +227,12 @@ $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
     &:active {
         background: var(--color-highlight);
     }
+}
+
+@mixin visuallyHidden {
+    position: absolute;
+    left: -1000px;
+    font-size: 0;
+    width: 0;
+    height: 0;
 }

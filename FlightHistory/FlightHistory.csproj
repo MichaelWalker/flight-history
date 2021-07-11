@@ -46,6 +46,10 @@
       <TypeScriptCompile Include="ClientApp\src\components\tables\cells\TextTableCell.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageControls\PageControls.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageControls\PageControls.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\PageSizeControls.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeHelper.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\TableHeader.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
@@ -55,12 +59,15 @@
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\classNames.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\classNames.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\globals.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useIsMounted.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.ts" />
       <TypeScriptCompile Include="ClientApp\src\icons\AircraftIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AirlineIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AirportIcon.tsx" />
@@ -104,6 +111,8 @@
       <Content Remove="ClientApp\src\components\tables\**" />
       <Content Include="ClientApp\src\components\tables\cells\TableCell.module.scss" />
       <Content Include="ClientApp\src\components\tables\pageControls\PageControls.module.scss" />
+      <Content Include="ClientApp\src\components\tables\pageSizeControls\PageSizeControls.module.scss" />
+      <Content Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.module.scss" />
       <Content Include="ClientApp\src\components\tables\Table.module.scss" />
       <Content Include="ClientApp\src\components\tables\TableHeader.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.module.scss" />

@@ -1,4 +1,4 @@
-import type { StubApiResponse} from "./stubApiResponse";
+import type { StubApiResponse } from "./stubApiResponse";
 import { stubItemList } from "./stubApiResponse";
 import { toURL } from "../apiHelpers";
 import type { Flight } from "../../models/flight";
@@ -18,18 +18,20 @@ function randomDate(): string {
     return format(randomPastDate, "yyyy-MM-dd");
 }
 
-function getFlights(): Flight[] {
-    const flights: Flight[] = [];
+let flights: Flight[] = [];
 
-    for (let counter = 0; counter < 92; counter++) {
-        flights.push({
-            id: counter,
-            aircraft: random(aircraft),
-            airline: random(airlines),
-            source: random(airports),
-            destination: random(airports),
-            date: randomDate(),
-        });
+function getFlights(): Flight[] {
+    if (flights.length === 0) {
+        for (let counter = 0; counter < 92; counter++) {
+            flights.push({
+                id: counter,
+                aircraft: random(aircraft),
+                airline: random(airlines),
+                source: random(airports),
+                destination: random(airports),
+                date: randomDate(),
+            });
+        }
     }
 
     return flights;

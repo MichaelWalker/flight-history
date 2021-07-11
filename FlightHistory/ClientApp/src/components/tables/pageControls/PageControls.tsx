@@ -28,10 +28,6 @@ export const PageControls: FunctionComponent<PageControlProps> = ({
         [pagination, setPagination],
     );
 
-    if (numberOfPages <= 1) {
-        return null;
-    }
-
     // TODO Look up accessibility best practices. aria-controls?
     return (
         <div className={styles.pageControlsContainer} data-testid={"page-controls"}>
