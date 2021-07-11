@@ -51,9 +51,9 @@
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\TableHeader.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\TableHeader.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\TableRow.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableRow\TableRow.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
@@ -114,9 +114,9 @@
       <Content Include="ClientApp\src\components\tables\pageSizeControls\PageSizeControls.module.scss" />
       <Content Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.module.scss" />
       <Content Include="ClientApp\src\components\tables\Table.module.scss" />
-      <Content Include="ClientApp\src\components\tables\TableHeader.module.scss" />
+      <Content Include="ClientApp\src\components\tables\tableHeader\TableHeader.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.module.scss" />
-      <Content Include="ClientApp\src\components\tables\TableRow.module.scss" />
+      <Content Include="ClientApp\src\components\tables\tableRow\TableRow.module.scss" />
     </ItemGroup>
 
     <ItemGroup>
