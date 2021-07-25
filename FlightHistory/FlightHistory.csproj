@@ -62,6 +62,7 @@
       <TypeScriptCompile Include="ClientApp\src\helpers\classNames.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\classNames.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\globals.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\observable.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
