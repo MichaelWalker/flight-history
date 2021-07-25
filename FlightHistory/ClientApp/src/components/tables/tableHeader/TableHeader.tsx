@@ -1,6 +1,6 @@
 import type { FunctionComponent } from "react";
 import React, { useState } from "react";
-import type { Sort, SortDirection } from "../../api/apiHelpers";
+import type { Sort, SortDirection } from "../../../api/apiHelpers";
 import styles from "./TableHeader.module.scss";
 
 interface TableHeaderProps {

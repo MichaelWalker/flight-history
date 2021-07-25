@@ -29,6 +29,7 @@ export const PageSizeControls: FunctionComponent<PageSizeControlsProps> = ({
             <div className={styles.inputsContainer}>
                 {OPTIONS.map((option) => (
                     <PageSizeOption
+                        key={option}
                         option={option}
                         pageSize={pageSize}
                         updatePageSize={updatePageSize}

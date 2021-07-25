@@ -50,8 +50,10 @@
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeHelper.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\Table.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\TableHeader.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableRow\TableRow.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />

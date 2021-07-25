@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import React, { useCallback, useEffect, useState } from "react";
-import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
+import { TableHeader } from "./tableHeader/TableHeader";
+import { TableRow } from "./tableRow/TableRow";
 import type { Item, ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
 import { useFetchData } from "../../hooks/useFetchData";

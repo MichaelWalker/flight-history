@@ -15,8 +15,8 @@ interface ErrorOverlayProps {
 
 export function ErrorOverlay({ reload }: ErrorOverlayProps): ReactElement {
     return (
-        <div className={styles.errorOverlay}>
-            Sorry, something went went wrong.
+        <div className={styles.errorOverlay} data-testid={"table-error-overlay"}>
+            Sorry, something went wrong.
             <button type="button" className={styles.retryButton} onClick={reload}>
                 Retry
             </button>
@@ -29,7 +29,7 @@ export function TableOverlay<T>({ state, reload }: TableOverlayProps<T>): ReactE
         case "RELOADING":
         case "LOADING":
             return (
-                <div className={styles.loadingOverlay}>
+                <div className={styles.loadingOverlay} data-testid={"table-loading-overlay"}>
                     <LoadingAnimation size={"LARGE"} />
                 </div>
             );

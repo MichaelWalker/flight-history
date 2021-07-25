@@ -1,4 +1,4 @@
-import type { Reducer} from "react";
+import type { Reducer } from "react";
 import { useCallback, useReducer } from "react";
 import { useLatestOnlyAsyncCall } from "./useLatestOnlyAsyncCall";
 

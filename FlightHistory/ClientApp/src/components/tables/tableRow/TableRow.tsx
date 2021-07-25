@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import React from "react";
-import type { Item } from "../../api/apiHelpers";
+import type { Item } from "../../../api/apiHelpers";
 import styles from "./TableRow.module.scss";
 
 interface TableRowProps<T extends Item> {
