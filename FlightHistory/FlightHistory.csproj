@@ -64,7 +64,9 @@
       <TypeScriptCompile Include="ClientApp\src\helpers\globals.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\observable.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useIsMounted.tsx" />

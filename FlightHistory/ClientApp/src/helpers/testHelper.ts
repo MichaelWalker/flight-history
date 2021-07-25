@@ -1,13 +1,12 @@
 ﻿import type { User } from "../models/user";
 
-export function generateTestAccessToken(user: User, expiresInMinutes = 5): string {
-    const expiryDate = new Date().getTime() + expiresInMinutes * 60000;
+export function generateTestAccessToken(user: User, expiresInMinutes?: number): string {
     const header = btoa(JSON.stringify({ typ: "JWT", alg: "HS512" }));
     const payload = btoa(
         JSON.stringify({
-            token_type: "access",
-            jti: "abcd1234",
-            exp: Math.round(expiryDate / 1000),
+            expiryTimestamp: expiresInMinutes
+                ? new Date().getTime() + expiresInMinutes * 60000
+                : undefined,
             user: user,
         }),
     );

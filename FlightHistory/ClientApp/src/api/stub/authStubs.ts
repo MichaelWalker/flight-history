@@ -30,7 +30,7 @@ export const AuthStubs: StubApiResponse[] = [
             signedInUser = TestUser;
             return new Response(
                 JSON.stringify({
-                    token: generateTestAccessToken(TestUser),
+                    token: generateTestAccessToken(TestUser, 5),
                 }),
             );
         },
@@ -48,7 +48,7 @@ export const AuthStubs: StubApiResponse[] = [
             }
             return new Response(
                 JSON.stringify({
-                    token: generateTestAccessToken(signedInUser),
+                    token: generateTestAccessToken(signedInUser, 5),
                 }),
             );
         },

@@ -6,6 +6,14 @@ interface ParsedToken {
     user: User;
 }
 
+interface TokenBody {
+    expiryTimestamp?: number;
+    user?: {
+        name?: string;
+        email?: string;
+    };
+}
+
 export const accessToken = Observable.of<string | null>(null);
 
 function parseToken(): ParsedToken | undefined {
@@ -16,25 +24,15 @@ function parseToken(): ParsedToken | undefined {
 
     const encodedPayload = token.split(".")[1];
     const decodedPayload = atob(encodedPayload);
-    const data = JSON.parse(decodedPayload);
+    const data = JSON.parse(decodedPayload) as TokenBody;
 
     return {
-        expiry: tryParseExpiry(data),
+        expiry: data.expiryTimestamp,
         user: {
-            name: data.user.name,
-            email: data.user.email,
+            name: data?.user?.name ?? "",
+            email: data?.user?.email ?? "",
         },
     };
-}
-
-function tryParseExpiry(data: { exp?: number }): number | undefined {
-    const expiry = data.exp;
-
-    if (!expiry) {
-        return;
-    }
-
-    return expiry * 1000;
 }
 
 export function accessTokenAppearsValid(): boolean {
@@ -44,7 +42,11 @@ export function accessTokenAppearsValid(): boolean {
         return false;
     }
 
-    if (payload.expiry && payload.expiry < new Date().getTime()) {
+    if (!payload.expiry || payload.expiry < new Date().getTime()) {
+        return false;
+    }
+
+    if (payload.user.name.trim() === "" || payload.user.email.trim() === "") {
         return false;
     }
 
