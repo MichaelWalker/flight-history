@@ -2,7 +2,7 @@
 // 0 => no calls will ever fail
 // 1 => all calls will always fail
 import { AuthStubs } from "./authStubs";
-import { accessToken } from "../../helpers/tokenHelper";
+import { getAccessToken } from "../../helpers/tokenHelper";
 import type { Item, ItemListResponse} from "../apiHelpers";
 import { toURL } from "../apiHelpers";
 import { AirlineStubs } from "./airlineStubs";
@@ -59,7 +59,7 @@ function getMockResponse(urlString: string, options: RequestInit): Response {
         };
     }
 
-    if (!stubResponse.allowUnauthorised && !accessToken) {
+    if (!stubResponse.allowUnauthorised && !getAccessToken()) {
         return {
             ...Response.error(),
             status: 401,

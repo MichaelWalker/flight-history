@@ -1,8 +1,9 @@
 ﻿import type { User } from "../models/user";
-import type { FunctionComponent} from "react";
+import type { FunctionComponent } from "react";
 import React, { createContext, useEffect, useState } from "react";
-import { accessToken, getCurrentUser } from "../helpers/tokenHelper";
+import { getAccessToken, getCurrentUser } from "../helpers/tokenHelper";
 import { Api } from "../api/apiClient";
+import { get } from "../api/apiHelpers";
 
 interface UserContextProps {
     loading: boolean;
@@ -23,8 +24,8 @@ export const UserContextProvider: FunctionComponent = ({ children }) => {
     }
 
     useEffect(() => {
-        accessToken.subscribe(updateUser);
-        return () => accessToken.unsubscribe(updateUser);
+        getAccessToken().subscribe(updateUser);
+        return () => getAccessToken().unsubscribe(updateUser);
     }, []);
 
     useEffect(() => {
@@ -33,7 +34,9 @@ export const UserContextProvider: FunctionComponent = ({ children }) => {
             .catch(() => {
                 /* Do nothing - user will be shown the sign in page */
             })
-            .finally(() => setLoading(false));
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
 
     return <UserContext.Provider value={{ loading, currentUser }}>{children}</UserContext.Provider>;

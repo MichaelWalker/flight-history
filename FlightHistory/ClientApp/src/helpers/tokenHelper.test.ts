@@ -1,11 +1,10 @@
-import { accessToken, accessTokenAppearsValid, getCurrentUser } from "./tokenHelper";
+import { getAccessToken, accessTokenAppearsValid, getCurrentUser } from "./tokenHelper";
 import { generateTestAccessToken } from "./testHelper";
-import { User } from "../models/user";
 
 describe("token helper", () => {
     describe("getCurrentUser", () => {
         it("should parse token", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken({
                     name: "Mike Walker",
                     email: "mike.walker@test.com",
@@ -19,7 +18,7 @@ describe("token helper", () => {
         });
 
         it("should handle missing name and email", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken({
                     name: "",
                     email: "",
@@ -33,7 +32,7 @@ describe("token helper", () => {
         });
 
         it("should handle null token", () => {
-            accessToken.set(null);
+            getAccessToken().set(null);
 
             const user = getCurrentUser();
 
@@ -43,7 +42,7 @@ describe("token helper", () => {
 
     describe("accessTokenAppearsValid", () => {
         it("should return true for valid token", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken(
                     {
                         name: "Mike Walker",
@@ -57,7 +56,7 @@ describe("token helper", () => {
         });
 
         it("should return false if expiryTimestamp is missing", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken(
                     {
                         name: "Mike Walker",
@@ -71,7 +70,7 @@ describe("token helper", () => {
         });
 
         it("should return false if expiryTimestamp is in the past", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken(
                     {
                         name: "Mike Walker",
@@ -85,7 +84,7 @@ describe("token helper", () => {
         });
 
         it("should return false if the email is missing", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken(
                     {
                         name: "Mike Walker",
@@ -99,7 +98,7 @@ describe("token helper", () => {
         });
 
         it("should return false if the name is missing", () => {
-            accessToken.set(
+            getAccessToken().set(
                 generateTestAccessToken(
                     {
                         name: "",
@@ -113,7 +112,7 @@ describe("token helper", () => {
         });
 
         it("should return false if there is no token", () => {
-            accessToken.set(null);
+            getAccessToken().set(null);
             expect(accessTokenAppearsValid()).toBeFalsy();
         });
     });

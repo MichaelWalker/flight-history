@@ -1,4 +1,4 @@
-import { accessToken, accessTokenAppearsValid } from "../helpers/tokenHelper";
+import { getAccessToken, accessTokenAppearsValid } from "../helpers/tokenHelper";
 import { Api } from "./apiClient";
 
 async function stubAwareFetch(url: string, options: RequestInit): Promise<Response> {
@@ -86,7 +86,7 @@ export async function anonymousPost<T>(url: string, data?: unknown): Promise<T> 
 
 function getHeaders(): Record<string, string> {
     return {
-        Authorization: `Bearer ${accessToken.get()}`,
+        Authorization: `Bearer ${getAccessToken().get()}`,
         "Content-Type": "application/json",
     };
 }

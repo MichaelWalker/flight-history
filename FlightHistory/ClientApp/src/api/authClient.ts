@@ -1,4 +1,4 @@
-import { accessToken } from "../helpers/tokenHelper";
+import { getAccessToken } from "../helpers/tokenHelper";
 import type { Token } from "../models/token";
 import { anonymousPost, post } from "./apiHelpers";
 
@@ -8,9 +8,9 @@ async function signIn(email: string, password: string): Promise<void> {
             email,
             password,
         });
-        accessToken.set(response?.token || null);
+        getAccessToken().set(response?.token || null);
     } catch (error) {
-        accessToken.set(null);
+        getAccessToken().set(null);
         throw error;
     }
 }
@@ -18,16 +18,16 @@ async function signIn(email: string, password: string): Promise<void> {
 async function refreshToken(): Promise<void> {
     try {
         const response = await anonymousPost<Token>("/api/auth/refresh");
-        accessToken.set(response.token);
+        getAccessToken().set(response.token);
     } catch (error) {
-        accessToken.set(null);
+        getAccessToken().set(null);
         throw error;
     }
 }
 
 async function signOut(): Promise<void> {
     await post<void>("/api/auth/sign-out");
-    accessToken.set(null);
+    getAccessToken().set(null);
 }
 
 export const AuthClient = {

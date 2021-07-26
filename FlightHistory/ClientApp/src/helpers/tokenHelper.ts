@@ -14,7 +14,10 @@ interface TokenBody {
     };
 }
 
-export const accessToken = Observable.of<string | null>(null);
+const accessToken = Observable.of<string | null>(null);
+export function getAccessToken() {
+    return accessToken;
+}
 
 function parseToken(): ParsedToken | undefined {
     const token = accessToken.get();
