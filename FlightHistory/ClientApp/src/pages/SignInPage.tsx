@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 import { EmailInput, PasswordInput } from "../components/forms/Input";
 import styles from "./SignInPage.module.scss";
 import { Form } from "../components/forms/Form";
-import type { ApiError } from "../api/apiHelpers";
+import type { ApiError } from "../api/requests";
 import { Api } from "../api/apiClient";
 
 export const SignInPage: FunctionComponent = () => {

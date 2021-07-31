@@ -1,15 +1,15 @@
-// Sets the proportion of calls to the fake API that will be simulated to fail.
-// 0 => no calls will ever fail
-// 1 => all calls will always fail
 import { AuthStubs } from "./authStubs";
 import { getAccessToken } from "../../helpers/tokenHelper";
-import type { Item, ItemListResponse} from "../apiHelpers";
+import type { Item, ItemListResponse } from "../apiHelpers";
 import { toURL } from "../apiHelpers";
 import { AirlineStubs } from "./airlineStubs";
 import { AircraftStubs } from "./aircraftStubs";
 import { AirportStubs } from "./airportStubs";
 import { FlightStubs } from "./flightStubs";
 
+// Sets the proportion of calls to the fake API that will be simulated to fail.
+// 0 => no calls will ever fail
+// 1 => all calls will always fail
 const FAILURE_RATE = 0;
 
 // The fake API can add delays to all requests. This setting represents the delay in milliseconds.

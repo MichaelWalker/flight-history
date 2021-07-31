@@ -1,14 +1,5 @@
-import { getAccessToken, accessTokenAppearsValid } from "../helpers/tokenHelper";
-import { Api } from "./apiClient";
-
-async function stubAwareFetch(url: string, options: RequestInit): Promise<Response> {
-    if (USE_SAMPLE_DATA) {
-        const { stubFetch } = await import("./stub/stubApiResponse");
-        return stubFetch(url, options);
-    }
-
-    return fetch(url, options);
-}
+import { getAccessToken } from "../helpers/tokenHelper";
+import { makeAuthenticatedRequest, makeRequest } from "./requests";
 
 export interface Item {
     id: number;
@@ -89,47 +80,4 @@ function getHeaders(): Record<string, string> {
         Authorization: `Bearer ${getAccessToken().get()}`,
         "Content-Type": "application/json",
     };
-}
-
-async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): Promise<T> {
-    if (!accessTokenAppearsValid()) {
-        await Api.auth.refreshToken();
-    }
-
-    try {
-        return await makeRequest(url, options);
-    } catch (exception) {
-        if (exception.status === 401) {
-            await Api.auth.refreshToken();
-            return makeRequest(url, options);
-        }
-
-        throw exception;
-    }
-}
-
-async function makeRequest<T>(url: string, options: RequestInit): Promise<T> {
-    const response = await stubAwareFetch(url, options);
-
-    let responseJson;
-    try {
-        responseJson = await response.json();
-    } catch (e) {
-        responseJson = {};
-    }
-
-    if (response.ok) {
-        return responseJson;
-    }
-
-    throw new ApiError(responseJson, response.status);
-}
-
-export class ApiError extends Error {
-    status: number;
-
-    constructor(message: string, status: number) {
-        super(message);
-        this.status = status;
-    }
 }

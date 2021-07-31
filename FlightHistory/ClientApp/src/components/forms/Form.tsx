@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SubmitButton } from "./SubmitButton";
 import styles from "./Form.module.scss";
 import { CSSTransition } from "react-transition-group";
-import type { ApiError } from "../../api/apiHelpers";
+import type { ApiError } from "../../api/requests";
 
 export type FormState<T> =
     | { status: "INCOMPLETE" }

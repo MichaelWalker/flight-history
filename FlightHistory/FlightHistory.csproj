@@ -20,9 +20,13 @@
       <TypeScriptCompile Include="ClientApp\src\api\aircraftClient.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\airlineClient.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\airportsClient.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\apiHelpers.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\apiHelpers.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\apiClient.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\fetch.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\flightsClient.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\requests.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\requests.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\stub\aircraftStubs.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\stub\airlineStubs.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\stub\airportStubs.ts" />
@@ -103,14 +107,23 @@
 
     <ItemGroup>
       <Compile Remove="ClientApp\src\components\tables\**" />
+      <Compile Remove="ClientApp\jest\coverage\**" />
+      <Compile Remove="ClientApp\dist\**" />
+      <Compile Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="ClientApp\src\components\tables\**" />
+      <EmbeddedResource Remove="ClientApp\jest\coverage\**" />
+      <EmbeddedResource Remove="ClientApp\dist\**" />
+      <EmbeddedResource Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="ClientApp\src\components\tables\**" />
+      <None Remove="ClientApp\jest\coverage\**" />
+      <None Remove="ClientApp\dist\**" />
+      <None Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -123,10 +136,14 @@
       <Content Include="ClientApp\src\components\tables\tableHeader\TableHeader.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableRow\TableRow.module.scss" />
+      <Content Remove="ClientApp\jest\coverage\**" />
+      <Content Remove="ClientApp\dist\**" />
+      <Content Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ClientApp\dist" />
+      <_ContentIncludedByDefault Remove="ClientApp\jest\coverage\coverage-final.json" />
+      <_ContentIncludedByDefault Remove="ClientApp\dist\profile.json" />
     </ItemGroup>
 
 

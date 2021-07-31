@@ -2,4 +2,8 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\micky\.nuget\packages\identity.entityframeworkcore\1.2.7\lib\netstandard2.0\Identity.EntityFrameworkCore.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\micky\.nuget\packages\identity.core\1.2.7\lib\netstandard2.0\Identity.Core.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/michaelw/Library/Caches/JetBrains/Rider2021.1/resharper-host/temp/Rider/vAny/CoverageData/_FlightHistory.181722092/Snapshot/snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=34cc52cd_002D17ae_002D45d3_002D8c56_002D7168813e30e1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
