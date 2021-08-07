@@ -30,9 +30,7 @@ describe("TableOverlay", () => {
             data: {},
         } as const;
 
-        const { getByTestId, getByText } = render(
-            <TableOverlay state={state} reload={jest.fn()} />,
-        );
+        const { getByTestId } = render(<TableOverlay state={state} reload={jest.fn()} />);
 
         expect(getByTestId("table-loading-overlay")).toBeInTheDocument();
     });
@@ -58,9 +56,7 @@ describe("TableOverlay", () => {
         } as const;
         const retryFunction = jest.fn();
 
-        const { getByTestId, getByText } = render(
-            <TableOverlay state={state} reload={retryFunction} />,
-        );
+        const { getByText } = render(<TableOverlay state={state} reload={retryFunction} />);
 
         fireEvent.click(getByText("Retry"));
 

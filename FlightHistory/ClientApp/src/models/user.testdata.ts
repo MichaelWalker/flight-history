@@ -1,4 +1,4 @@
-import { User } from "./user";
+import type { User } from "./user";
 
 export const stubUser: User = {
     name: "Mike Walker",

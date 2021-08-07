@@ -1,7 +1,8 @@
-import { useConsoleLogging } from "./globals";
+import { enableConsoleLogging } from "./globals";
 
-function info(message: string) {
-    if (useConsoleLogging()) {
+function info(message: string): void {
+    if (enableConsoleLogging()) {
+        /* eslint-disable-next-line no-console */
         console.log(message);
     }
 }

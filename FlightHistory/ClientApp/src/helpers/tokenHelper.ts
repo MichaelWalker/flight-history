@@ -15,7 +15,7 @@ interface TokenBody {
 }
 
 const accessToken = Observable.of<string | null>(null);
-export function getAccessToken() {
+export function getAccessToken(): Observable<string | null> {
     return accessToken;
 }
 

@@ -6,7 +6,6 @@ import {
     mockSuccessfulRefreshToken,
     mockUnsuccessfulRefreshToken,
 } from "../helpers/testHelpers/mockHelpers";
-import { App } from "../app/App";
 
 const TestComponent = () => {
     const { loading, currentUser } = useContext(UserContext);

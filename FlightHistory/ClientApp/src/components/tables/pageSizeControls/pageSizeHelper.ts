@@ -1,4 +1,4 @@
-import { Pagination } from "../../../api/apiHelpers";
+import type { Pagination } from "../../../api/apiHelpers";
 
 export function getNewPagination(oldPagination: Pagination, newPageSize: number): Pagination {
     const firstItemIndex = (oldPagination.page - 1) * oldPagination.pageSize;

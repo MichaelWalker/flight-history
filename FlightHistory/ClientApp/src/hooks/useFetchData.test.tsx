@@ -7,7 +7,7 @@ describe("useFetchData", () => {
         const neverReturningPromise = new Promise(() => {
             return;
         });
-        const { result } = renderHook(() => useFetchData(() => neverReturningPromise));
+        const { result } = renderHook(() => useFetchData(async () => neverReturningPromise));
         const [, state] = result.current;
         expect(state.status).toBe("LOADING");
     });
@@ -16,7 +16,7 @@ describe("useFetchData", () => {
         const neverReturningPromise = new Promise(() => {
             return;
         });
-        const { result } = renderHook(() => useFetchData(() => neverReturningPromise));
+        const { result } = renderHook(() => useFetchData(async () => neverReturningPromise));
         const [startResultLoading] = result.current;
         await runActionAndWaitForAsyncActionsToComplete(() => {
             startResultLoading();
@@ -27,7 +27,7 @@ describe("useFetchData", () => {
 
     it("moves to the success state if promise is already resolved", async () => {
         const resolvedPromise = Promise.resolve();
-        const { result } = renderHook(() => useFetchData(() => resolvedPromise));
+        const { result } = renderHook(() => useFetchData(async () => resolvedPromise));
         const [startResultLoading] = result.current;
         await runActionAndWaitForAsyncActionsToComplete(() => {
             startResultLoading();
@@ -38,7 +38,7 @@ describe("useFetchData", () => {
 
     it("moves to the error state if promise is already rejected", async () => {
         const rejectedPromise = Promise.reject();
-        const { result } = renderHook(() => useFetchData(() => rejectedPromise));
+        const { result } = renderHook(() => useFetchData(async () => rejectedPromise));
         const [startResultLoading] = result.current;
         await runActionAndWaitForAsyncActionsToComplete(() => {
             startResultLoading();
@@ -52,7 +52,7 @@ describe("useFetchData", () => {
         const promise = new Promise((resolve) => {
             resolvePromise = resolve;
         });
-        const { result } = renderHook(() => useFetchData(() => promise));
+        const { result } = renderHook(() => useFetchData(async () => promise));
         const [startResultLoading] = result.current;
         await runActionAndWaitForAsyncActionsToComplete(() => {
             startResultLoading();
@@ -76,7 +76,7 @@ describe("useFetchData", () => {
             resolvePromise2 = resolve;
         });
         let currPromise = promise1;
-        const { result } = renderHook(() => useFetchData(() => currPromise));
+        const { result } = renderHook(() => useFetchData(async () => currPromise));
         const [startResultLoading] = result.current;
         await runActionAndWaitForAsyncActionsToComplete(() => {
             startResultLoading();

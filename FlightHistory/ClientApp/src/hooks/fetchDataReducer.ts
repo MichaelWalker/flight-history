@@ -1,4 +1,4 @@
-import { FetchDataState } from "./useFetchData";
+import type { FetchDataState } from "./useFetchData";
 
 export type FetchDataMessage<TData> =
     | { type: "LOAD" }

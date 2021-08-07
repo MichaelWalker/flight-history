@@ -1,7 +1,7 @@
-import { useSampleData } from "../helpers/globals";
+import { enableSampleData } from "../helpers/globals";
 
-export async function fetch<T>(url: string, options: RequestInit): Promise<Response> {
-    if (useSampleData()) {
+export async function fetch(url: string, options: RequestInit): Promise<Response> {
+    if (enableSampleData()) {
         const { stubFetch } = await import("./stub/stubApiResponse");
         return stubFetch(url, options);
     }

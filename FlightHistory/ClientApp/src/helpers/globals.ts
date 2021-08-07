@@ -1,14 +1,14 @@
 let idCounter = 0;
 
-export function getNextIdCounter() {
+export function getNextIdCounter(): number {
     idCounter++;
     return idCounter;
 }
 
-export function useSampleData() {
+export function enableSampleData(): boolean {
     return USE_SAMPLE_DATA;
 }
 
-export function useConsoleLogging() {
+export function enableConsoleLogging(): boolean {
     return USE_CONSOLE_LOGGING;
 }

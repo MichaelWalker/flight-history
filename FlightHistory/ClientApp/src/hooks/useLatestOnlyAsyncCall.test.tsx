@@ -22,7 +22,7 @@ describe("useLatestOnlyAsyncCall", () => {
             mockIsMounted(true);
 
             const { result } = renderHook(() =>
-                useLatestOnlyAsyncCall(() => Promise.resolve(item)),
+                useLatestOnlyAsyncCall(async () => Promise.resolve(item)),
             );
             const startAsyncCall = result.current;
 
@@ -31,19 +31,23 @@ describe("useLatestOnlyAsyncCall", () => {
 
         it("is ignored if there is a more recent promise", async () => {
             mockIsMounted(true);
-            let resolvePromise1: (value: unknown) => void = () => {};
-            let resolvePromise2: (value: unknown) => void = () => {};
+            let resolvePromise1: (value: unknown) => void = () => {
+                /* Do nothing */
+            };
+            let resolvePromise2: (value: unknown) => void = () => {
+                /* Do nothing */
+            };
 
             const callback = jest
                 .fn()
                 .mockImplementationOnce(
-                    () =>
+                    async () =>
                         new Promise((resolve) => {
                             resolvePromise1 = resolve;
                         }),
                 )
                 .mockImplementationOnce(
-                    () =>
+                    async () =>
                         new Promise((resolve) => {
                             resolvePromise2 = resolve;
                         }),
@@ -77,7 +81,7 @@ describe("useLatestOnlyAsyncCall", () => {
             mockIsMounted(true);
 
             const { result } = renderHook(() =>
-                useLatestOnlyAsyncCall(() => Promise.reject("Oh no")),
+                useLatestOnlyAsyncCall(async () => Promise.reject("Oh no")),
             );
             const startAsyncCall = result.current;
 
@@ -86,19 +90,23 @@ describe("useLatestOnlyAsyncCall", () => {
 
         it("is ignored if there is a more recent promise", async () => {
             mockIsMounted(true);
-            let rejectPromise1: (value: unknown) => void = () => {};
-            let resolvePromise2: (value: unknown) => void = () => {};
+            let rejectPromise1: (value: unknown) => void = () => {
+                /* Do nothing */
+            };
+            let resolvePromise2: (value: unknown) => void = () => {
+                /* Do nothing */
+            };
 
             const callback = jest
                 .fn()
                 .mockImplementationOnce(
-                    () =>
-                        new Promise((_, reject) => {
+                    async () =>
+                        new Promise((resolve, reject) => {
                             rejectPromise1 = reject;
                         }),
                 )
                 .mockImplementationOnce(
-                    () =>
+                    async () =>
                         new Promise((resolve) => {
                             resolvePromise2 = resolve;
                         }),

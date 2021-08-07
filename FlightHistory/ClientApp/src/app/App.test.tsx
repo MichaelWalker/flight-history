@@ -7,7 +7,7 @@ import { stubUser } from "../models/user.testdata";
 import { App } from "./App";
 
 describe("App", () => {
-    let originalSignedInUser = signedInUser;
+    const originalSignedInUser = signedInUser;
 
     beforeEach(() => {
         mockUseSampleData(true);

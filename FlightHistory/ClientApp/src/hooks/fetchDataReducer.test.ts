@@ -1,14 +1,14 @@
 import { fetchDataReducer } from "./fetchDataReducer";
 
 describe("fetchDataReducer", () => {
-    const previousState = {
+    const previousStates = {
         loading: { status: "LOADING" },
         reloading: { status: "RELOADING", data: { name: "Mike" } },
         success: { status: "SUCCESS", data: { name: "Mike" } },
         failed: { status: "FAILED", error: { name: "Error", message: "Oh No!" } },
     };
 
-    const message = {
+    const messages = {
         load: { type: "LOAD" },
         success: { type: "SUCCESS", result: { name: "New Name" } },
         failure: {
@@ -17,7 +17,7 @@ describe("fetchDataReducer", () => {
         },
     };
 
-    const nextState = {
+    const nextStates = {
         loading: { status: "LOADING" },
         reloading: { status: "RELOADING", data: { name: "Mike" } },
         success: { status: "SUCCESS", data: { name: "New Name" } },
@@ -28,19 +28,19 @@ describe("fetchDataReducer", () => {
     };
 
     it.each`
-        previousState              | message            | expectedNextState
-        ${previousState.loading}   | ${message.load}    | ${nextState.loading}
-        ${previousState.loading}   | ${message.success} | ${nextState.success}
-        ${previousState.loading}   | ${message.failure} | ${nextState.failed}
-        ${previousState.reloading} | ${message.load}    | ${nextState.reloading}
-        ${previousState.reloading} | ${message.success} | ${nextState.success}
-        ${previousState.reloading} | ${message.failure} | ${nextState.failed}
-        ${previousState.success}   | ${message.load}    | ${nextState.reloading}
-        ${previousState.success}   | ${message.success} | ${nextState.success}
-        ${previousState.success}   | ${message.failure} | ${nextState.failed}
-        ${previousState.failed}    | ${message.load}    | ${nextState.loading}
-        ${previousState.failed}    | ${message.success} | ${nextState.success}
-        ${previousState.failed}    | ${message.failure} | ${nextState.failed}
+        previousState               | message             | expectedNextState
+        ${previousStates.loading}   | ${messages.load}    | ${nextStates.loading}
+        ${previousStates.loading}   | ${messages.success} | ${nextStates.success}
+        ${previousStates.loading}   | ${messages.failure} | ${nextStates.failed}
+        ${previousStates.reloading} | ${messages.load}    | ${nextStates.reloading}
+        ${previousStates.reloading} | ${messages.success} | ${nextStates.success}
+        ${previousStates.reloading} | ${messages.failure} | ${nextStates.failed}
+        ${previousStates.success}   | ${messages.load}    | ${nextStates.reloading}
+        ${previousStates.success}   | ${messages.success} | ${nextStates.success}
+        ${previousStates.success}   | ${messages.failure} | ${nextStates.failed}
+        ${previousStates.failed}    | ${messages.load}    | ${nextStates.loading}
+        ${previousStates.failed}    | ${messages.success} | ${nextStates.success}
+        ${previousStates.failed}    | ${messages.failure} | ${nextStates.failed}
     `("should move to correct next state", ({ previousState, message, expectedNextState }) => {
         expect(fetchDataReducer(previousState, message)).toEqual(expectedNextState);
     });

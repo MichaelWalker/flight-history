@@ -1,7 +1,8 @@
 import type { Reducer } from "react";
 import { useCallback, useReducer } from "react";
 import { useLatestOnlyAsyncCall } from "./useLatestOnlyAsyncCall";
-import { FetchDataMessage, fetchDataReducer } from "./fetchDataReducer";
+import type { FetchDataMessage} from "./fetchDataReducer";
+import { fetchDataReducer } from "./fetchDataReducer";
 
 export type FetchDataState<TData> =
     | { status: "LOADING" }

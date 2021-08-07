@@ -8,7 +8,7 @@ export async function runActionAndWaitForAsyncActionsToComplete(
     });
 }
 
-export function quickResolve<T>(callback: () => T): Promise<T> {
+export async function quickResolve<T>(callback: () => T): Promise<T> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(callback());
@@ -16,8 +16,8 @@ export function quickResolve<T>(callback: () => T): Promise<T> {
     });
 }
 
-export function quickReject<T>(callback: () => T): Promise<T> {
-    return new Promise((_, reject) => {
+export async function quickReject<T>(callback: () => T): Promise<T> {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             reject(callback());
         }, 0);
@@ -26,7 +26,7 @@ export function quickReject<T>(callback: () => T): Promise<T> {
 
 export class WrappedPromise<T> {
     private readonly promise: Promise<T>;
-    private resolved: boolean = false;
+    private resolved = false;
     private result: T | undefined;
 
     constructor(promise: Promise<T>) {

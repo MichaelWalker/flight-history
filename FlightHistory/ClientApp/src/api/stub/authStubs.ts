@@ -6,7 +6,7 @@ import { stubToken } from "../../models/token.testdata";
 
 export let signedInUser: User | null = stubUser;
 
-export function setSignedInUser(user: User | null) {
+export function setSignedInUser(user: User | null): void {
     signedInUser = user;
 }
 

@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import type { FC } from "react";
+import React from "react";
 import { useUniqueId } from "../../../../hooks/useUniqueId";
 import styles from "./PageSizeOption.module.scss";
 

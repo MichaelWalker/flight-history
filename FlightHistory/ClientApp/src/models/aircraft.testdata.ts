@@ -1,4 +1,4 @@
-import { Aircraft } from "./aircraft";
+import type { Aircraft } from "./aircraft";
 
 export const stubAircraft: Aircraft = {
     id: 1,

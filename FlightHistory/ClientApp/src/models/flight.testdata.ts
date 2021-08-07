@@ -1,4 +1,4 @@
-import { Flight } from "./flight";
+import type { Flight } from "./flight";
 import { stubAirportList, stubAirport, stubAirport2 } from "./airport.testdata";
 import { stubAirlineList, stubAirline } from "./airline.testdata";
 import { stubAircraft, stubAircraftList } from "./aircraft.testdata";

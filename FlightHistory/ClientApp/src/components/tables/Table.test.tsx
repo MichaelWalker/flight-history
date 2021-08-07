@@ -1,8 +1,10 @@
-import React, { FC, ReactElement } from "react";
-import { Header, Table } from "./Table";
-import { ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
+import type { FC, ReactElement } from "react";
+import React from "react";
+import type { Header } from "./Table";
+import { Table } from "./Table";
+import type { ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
 import { TextTableCell } from "./cells/TextTableCell";
-import { fireEvent, getByLabelText, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 
 interface TestItem {
     id: number;

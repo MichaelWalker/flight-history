@@ -1,5 +1,6 @@
-import React, { FC, FunctionComponent } from "react";
-import { Pagination } from "../../../api/apiHelpers";
+import type { FunctionComponent } from "react";
+import React from "react";
+import type { Pagination } from "../../../api/apiHelpers";
 import { getNewPagination } from "./pageSizeHelper";
 import styles from "./PageSizeControls.module.scss";
 import { useUniqueId } from "../../../hooks/useUniqueId";

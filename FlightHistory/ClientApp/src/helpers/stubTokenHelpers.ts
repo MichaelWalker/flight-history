@@ -1,4 +1,4 @@
-import { User } from "../models/user";
+import type { User } from "../models/user";
 
 export function generateTestAccessToken(user: User, expiresInMinutes?: number): string {
     const header = btoa(JSON.stringify({ typ: "JWT", alg: "HS512" }));

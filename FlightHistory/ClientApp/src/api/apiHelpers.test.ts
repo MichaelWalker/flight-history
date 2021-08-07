@@ -1,7 +1,6 @@
 import { getAccessToken } from "../helpers/tokenHelper";
 import * as requests from "./requests";
 import { anonymousPost, get, getList, post, toURL } from "./apiHelpers";
-import { makeAuthenticatedRequest } from "./requests";
 import { generateTestAccessToken } from "../helpers/stubTokenHelpers";
 
 describe("apiHelpers", () => {
