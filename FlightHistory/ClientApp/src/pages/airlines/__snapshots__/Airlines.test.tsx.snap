@@ -199,6 +199,32 @@ exports[`Airlines Page matches snapshot 1`] = `
                     </a>
                   </td>
                 </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/airlines/3"
+                    >
+                      Virgin Atlantic
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/airlines/4"
+                    >
+                      Flybe
+                    </a>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

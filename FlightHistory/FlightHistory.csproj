@@ -98,11 +98,17 @@
       <TypeScriptCompile Include="ClientApp\src\icons\NextPageIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\PreviousPageIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\index.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\models\aircraft.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\aircraft.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\airline.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\airline.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\airport.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\airport.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\flight.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\flight.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\token.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\token.ts" />
+      <TypeScriptCompile Include="ClientApp\src\models\user.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\user.ts" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.tsx" />

@@ -8,6 +8,7 @@
         "start:prod:sample": "export USE_SAMPLE_DATA=true && export USE_CONSOLE_LOGGING=true && webpack serve --config webpack/prod.config.js",
         "start:dev:sample": "export USE_SAMPLE_DATA=true && export USE_CONSOLE_LOGGING=true && webpack serve --config webpack/dev.config.js --hot",
         "test": "jest --maxWorkers=1",
+        "test:update-snapshots": "jest --maxWorkers=1 --updateSnapshot",
         "test:coverage": "jest --maxWorkers=1 --coverage",
         "prettier:write": "prettier --write .",
         "prettier:check": "prettier --check .",
@@ -16,7 +17,6 @@
         "profile": "webpack --config webpack/prod.config.js --profile --json > dist/profile.json && webpack-bundle-analyzer dist/profile.json"
     },
     "dependencies": {
-        "date-fns": "2.22.1",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-router-dom": "5.2.0",

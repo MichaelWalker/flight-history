@@ -214,6 +214,42 @@ exports[`AircraftPage matches snapshot 1`] = `
                     A319
                   </td>
                 </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/aircraft/3"
+                    >
+                      D-ABYS
+                    </a>
+                  </td>
+                  <td
+                    class="textCell"
+                  >
+                    747
+                  </td>
+                </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/aircraft/4"
+                    >
+                      LX-LGG
+                    </a>
+                  </td>
+                  <td
+                    class="textCell"
+                  >
+                    A320
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

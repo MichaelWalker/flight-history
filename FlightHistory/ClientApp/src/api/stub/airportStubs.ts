@@ -1,12 +1,7 @@
-import type { StubApiResponse} from "./stubApiResponse";
+import type { StubApiResponse } from "./stubApiResponse";
 import { stubItemList } from "./stubApiResponse";
 import { toURL } from "../apiHelpers";
-import type { Airport } from "../../models/airport";
-
-export const airports: Airport[] = [
-    { id: 1, name: "London Heathrow", code: "LHR" },
-    { id: 2, name: "London Gatwick", code: "LGW" },
-];
+import { stubAirportList } from "../../models/airport.testdata";
 
 export const AirportStubs: StubApiResponse[] = [
     {
@@ -14,7 +9,7 @@ export const AirportStubs: StubApiResponse[] = [
         method: "GET",
         getResponseBody: (urlString: string): Response => {
             const url = toURL(urlString);
-            const page = stubItemList(url, airports);
+            const page = stubItemList(url, stubAirportList);
             return new Response(JSON.stringify(page));
         },
     },

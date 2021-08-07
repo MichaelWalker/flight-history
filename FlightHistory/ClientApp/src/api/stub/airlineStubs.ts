@@ -1,12 +1,7 @@
-import type { StubApiResponse} from "./stubApiResponse";
+import type { StubApiResponse } from "./stubApiResponse";
 import { stubItemList } from "./stubApiResponse";
 import { toURL } from "../apiHelpers";
-import type { Airline } from "../../models/airline";
-
-export const airlines: Airline[] = [
-    { id: 1, name: "British Airways" },
-    { id: 2, name: "EasyJet" },
-];
+import { stubAirlineList } from "../../models/airline.testdata";
 
 export const AirlineStubs: StubApiResponse[] = [
     {
@@ -14,7 +9,7 @@ export const AirlineStubs: StubApiResponse[] = [
         method: "GET",
         getResponseBody: (urlString: string): Response => {
             const url = toURL(urlString);
-            const page = stubItemList(url, airlines);
+            const page = stubItemList(url, stubAirlineList);
             return new Response(JSON.stringify(page));
         },
     },

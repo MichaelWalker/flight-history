@@ -214,6 +214,42 @@ exports[`Airports Page matches snapshot 1`] = `
                     LGW
                   </td>
                 </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/aircraft/3"
+                    >
+                      Bristol
+                    </a>
+                  </td>
+                  <td
+                    class="textCell"
+                  >
+                    BST
+                  </td>
+                </tr>
+                <tr
+                  class="tableRow"
+                >
+                  <td
+                    class="linkCell"
+                  >
+                    <a
+                      href="/api/aircraft/4"
+                    >
+                      Liverpool
+                    </a>
+                  </td>
+                  <td
+                    class="textCell"
+                  >
+                    LVP
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

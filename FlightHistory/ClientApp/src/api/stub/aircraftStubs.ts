@@ -1,12 +1,7 @@
-import type { StubApiResponse} from "./stubApiResponse";
+import type { StubApiResponse } from "./stubApiResponse";
 import { stubItemList } from "./stubApiResponse";
 import { toURL } from "../apiHelpers";
-import type { Aircraft } from "../../models/aircraft";
-
-export const aircraft: Aircraft[] = [
-    { id: 1, registration: "VP-BWX", model: "767" },
-    { id: 2, registration: "VP-BDN", model: "A319" },
-];
+import { stubAircraftList } from "../../models/aircraft.testdata";
 
 export const AircraftStubs: StubApiResponse[] = [
     {
@@ -14,7 +9,7 @@ export const AircraftStubs: StubApiResponse[] = [
         method: "GET",
         getResponseBody: (urlString: string): Response => {
             const url = toURL(urlString);
-            const page = stubItemList(url, aircraft);
+            const page = stubItemList(url, stubAircraftList);
             return new Response(JSON.stringify(page));
         },
     },
