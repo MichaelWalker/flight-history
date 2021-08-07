@@ -16,28 +16,27 @@ export const TableHeader: FunctionComponent<TableHeaderProps> = ({
     setSort,
     sortBy,
 }) => {
-    const [sortDirection, setSortDirection] = useState<SortDirection>("ASC");
-    const isSortEnabled = !!sortBy;
-    const isCurrentSort = isSortEnabled && currentSort?.sortBy === sortBy;
+    const isCurrentSort = !!sortBy && currentSort?.sortBy === sortBy;
 
-    function onClick() {
-        if (!sortBy) {
-            return;
-        }
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const initialSortDirection = isCurrentSort ? currentSort!.sortDirection : "ASC";
 
+    const [sortDirection, setSortDirection] = useState<SortDirection>(initialSortDirection);
+
+    function onClick(sortName: string) {
         if (!isCurrentSort) {
-            setSort({ sortBy, sortDirection });
+            setSort({ sortBy: sortName, sortDirection });
         } else {
             const newSortDirection = sortDirection === "ASC" ? "DESC" : "ASC";
             setSortDirection(newSortDirection);
-            setSort({ sortBy, sortDirection: newSortDirection });
+            setSort({ sortBy: sortName, sortDirection: newSortDirection });
         }
     }
 
-    if (isSortEnabled) {
+    if (sortBy) {
         return (
             <th className={styles.tableHeader}>
-                <button type="button" onClick={onClick}>
+                <button type="button" onClick={() => onClick(sortBy)}>
                     {displayName}
                 </button>
             </th>
