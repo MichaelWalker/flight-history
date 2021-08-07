@@ -14,7 +14,7 @@ import { Logger } from "../../helpers/logger";
 const FAILURE_RATE = 0;
 
 // The fake API can add delays to all requests. This setting represents the delay in milliseconds.
-const RESPONSE_TIME = 200;
+const RESPONSE_TIME = 0;
 
 export interface StubApiResponse {
     method: "GET" | "POST" | "DELETE";

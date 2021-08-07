@@ -3,5 +3,5 @@ import { stubUser } from "./user.testdata";
 import { Token } from "./token";
 
 export const stubToken: Token = {
-    token: generateTestAccessToken(stubUser),
+    token: generateTestAccessToken(stubUser, 5),
 };

@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { UserContext, UserContextProvider } from "./UserContext";
 import { render, waitFor } from "@testing-library/react";
-import { AuthClient } from "../api/authClient";
 import { getAccessToken } from "../helpers/tokenHelper";
-import { User } from "../models/user";
-import { generateTestAccessToken } from "../helpers/stubTokenHelpers";
+import {
+    mockSuccessfulRefreshToken,
+    mockUnsuccessfulRefreshToken,
+} from "../helpers/testHelpers/mockHelpers";
+import { App } from "../app/App";
 
 const TestComponent = () => {
     const { loading, currentUser } = useContext(UserContext);
@@ -18,25 +20,12 @@ const TestComponent = () => {
 };
 
 describe("User Context", () => {
-    let mockRefreshToken: jest.SpyInstance;
-
-    function mockRefreshTokenImplementation(accessToken: string | null): void {
-        mockRefreshToken = jest.spyOn(AuthClient, "refreshToken").mockImplementation(() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    getAccessToken().set(accessToken);
-                    resolve();
-                }, 0);
-            });
-        });
-    }
-
     beforeEach(() => {
         getAccessToken().set(null);
     });
 
     afterEach(() => {
-        mockRefreshToken.mockRestore();
+        jest.resetAllMocks();
     });
 
     afterAll(() => {
@@ -44,12 +33,7 @@ describe("User Context", () => {
     });
 
     it("should refresh user data on initial load", async () => {
-        mockRefreshTokenImplementation(
-            generateTestAccessToken({
-                name: "Mike Walker",
-                email: "mike.walker@test.com",
-            }),
-        );
+        mockSuccessfulRefreshToken();
 
         const { getByText } = render(
             <UserContextProvider>
@@ -66,26 +50,8 @@ describe("User Context", () => {
         });
     });
 
-    it("should handle access token being set to null", async () => {
-        mockRefreshTokenImplementation(null);
-
-        const { getByText } = render(
-            <UserContextProvider>
-                <TestComponent />
-            </UserContextProvider>,
-        );
-
-        expect(getByText("loading: true")).toBeInTheDocument();
-        expect(getByText("user: Not Set")).toBeInTheDocument();
-
-        await waitFor(() => {
-            expect(getByText("loading: false")).toBeInTheDocument();
-            expect(getByText("user: Not Set")).toBeInTheDocument();
-        });
-    });
-
     it("should handle failure to fetch user data", async () => {
-        mockRefreshToken = jest.spyOn(AuthClient, "refreshToken").mockRejectedValue("Oh No!");
+        mockUnsuccessfulRefreshToken();
 
         const { getByText } = render(
             <UserContextProvider>

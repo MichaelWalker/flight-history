@@ -10,6 +10,7 @@ exports[`SignIn Page matches snapshot 1`] = `
     >
       <h1
         class="title"
+        data-testid="page-title"
       >
         Sign In
       </h1>

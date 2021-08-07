@@ -1,13 +1,14 @@
 import type { StubApiResponse } from "./stubApiResponse";
 import type { User } from "../../models/user";
 import { generateTestAccessToken } from "../../helpers/stubTokenHelpers";
+import { stubUser } from "../../models/user.testdata";
+import { stubToken } from "../../models/token.testdata";
 
-const TestUser = {
-    name: "User",
-    email: "user@sample.com",
-};
+export let signedInUser: User | null = stubUser;
 
-let signedInUser: User | null = TestUser;
+export function setSignedInUser(user: User | null) {
+    signedInUser = user;
+}
 
 export const AuthStubs: StubApiResponse[] = [
     {
@@ -27,10 +28,10 @@ export const AuthStubs: StubApiResponse[] = [
                 };
             }
 
-            signedInUser = TestUser;
+            signedInUser = stubUser;
             return new Response(
                 JSON.stringify({
-                    token: generateTestAccessToken(TestUser, 5),
+                    token: stubToken,
                 }),
             );
         },

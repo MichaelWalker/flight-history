@@ -2,8 +2,7 @@
 import type { FunctionComponent } from "react";
 import React, { createContext, useEffect, useState } from "react";
 import { getAccessToken, getCurrentUser } from "../helpers/tokenHelper";
-import { Api } from "../api/apiClient";
-import { get } from "../api/apiHelpers";
+import { AuthClient } from "../api/authClient";
 
 interface UserContextProps {
     loading: boolean;
@@ -29,8 +28,7 @@ export const UserContextProvider: FunctionComponent = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        Api.auth
-            .refreshToken()
+        AuthClient.refreshToken()
             .catch(() => {
                 /* Do nothing - user will be shown the sign in page */
             })

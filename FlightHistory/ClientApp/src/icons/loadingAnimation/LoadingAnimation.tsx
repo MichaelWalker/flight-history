@@ -20,6 +20,7 @@ export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ siz
             className={`${styles.loadingAnimation} ${sizeClass()}`}
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
+            data-testid={"loading-animation"}
         >
             <circle
                 className={styles.outerCircle}

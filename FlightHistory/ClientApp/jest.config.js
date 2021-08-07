@@ -2,7 +2,13 @@ export default {
     preset: "ts-jest",
     testEnvironment: "jsdom",
     collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
-    coveragePathIgnorePatterns: ["global.d.ts", "src/helpers/globals.ts"],
+    coveragePathIgnorePatterns: [
+        "global.d.ts",
+        "src/index.tsx",
+        "src/helpers/globals.ts",
+        "src/helpers/logger.ts",
+        "src/api/fetch.ts",
+    ],
     coverageDirectory: "./jest/coverage",
     coverageThreshold: {
         global: {

@@ -4,7 +4,7 @@ import { EmailInput, PasswordInput } from "../../components/forms/Input";
 import styles from "./SignInPage.module.scss";
 import { Form } from "../../components/forms/Form";
 import type { ApiError } from "../../api/requests";
-import { Api } from "../../api/apiClient";
+import { AuthClient } from "../../api/authClient";
 
 export const SignInPage: FunctionComponent = () => {
     const [email, setEmail] = useState("");
@@ -22,13 +22,15 @@ export const SignInPage: FunctionComponent = () => {
     }
 
     async function signIn(): Promise<void> {
-        return Api.auth.signIn(email, password);
+        return AuthClient.signIn(email, password);
     }
 
     return (
         <main className={styles.main}>
             <section className={styles.section}>
-                <h1 className={styles.title}>Sign In</h1>
+                <h1 data-testid={"page-title"} className={styles.title}>
+                    Sign In
+                </h1>
                 <Form
                     buttonText={"Sign In"}
                     apiRequest={signIn}

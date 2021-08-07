@@ -1,10 +1,10 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import type { Header} from "../tables/Table";
+import type { Header } from "../tables/Table";
 import { Table } from "../tables/Table";
-import { Api } from "../../api/apiClient";
 import type { Airline } from "../../models/airline";
 import { LinkTableCell } from "../tables/cells/LinkTableCell";
+import { AirlineClient } from "../../api/airlineClient";
 
 const headers: Header[] = [{ displayName: "name", sortName: "name" }];
 
@@ -17,5 +17,5 @@ function renderRow(airline: Airline) {
 }
 
 export const AirlinesTable: FunctionComponent = () => {
-    return <Table fetchItems={Api.airlines.list} renderRow={renderRow} headers={headers} />;
+    return <Table fetchItems={AirlineClient.list} renderRow={renderRow} headers={headers} />;
 };

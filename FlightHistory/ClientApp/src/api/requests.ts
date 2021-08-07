@@ -1,6 +1,6 @@
 import { accessTokenAppearsValid } from "../helpers/tokenHelper";
-import { Api } from "./apiClient";
 import { fetch } from "./fetch";
+import { AuthClient } from "./authClient";
 
 export class ApiError extends Error {
     status: number;
@@ -13,14 +13,14 @@ export class ApiError extends Error {
 
 export async function makeAuthenticatedRequest<T>(url: string, options: RequestInit): Promise<T> {
     if (!accessTokenAppearsValid()) {
-        await Api.auth.refreshToken();
+        await AuthClient.refreshToken();
     }
 
     try {
         return await makeRequest(url, options);
     } catch (exception) {
         if (exception.status === 401) {
-            await Api.auth.refreshToken();
+            await AuthClient.refreshToken();
             return makeRequest(url, options);
         }
 

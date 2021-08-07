@@ -3,7 +3,6 @@ import * as fetch from "./fetch";
 import * as tokenHelper from "../helpers/tokenHelper";
 import { AuthClient } from "./authClient";
 import { ApiError, makeAuthenticatedRequest, makeRequest } from "./requests";
-import { Api } from "./apiClient";
 
 interface TestItem {
     id: number;
@@ -14,8 +13,6 @@ describe("requests", () => {
     const mockFetch = jest.spyOn(fetch, "fetch");
     const mockAccessTokenAppearsValid = jest.spyOn(tokenHelper, "accessTokenAppearsValid");
     const mockRefreshToken = jest.spyOn(AuthClient, "refreshToken");
-
-    Api.auth = AuthClient;
 
     const options = {};
     const successResponse = () => new Response(JSON.stringify({ id: 1, name: "Mike" }));

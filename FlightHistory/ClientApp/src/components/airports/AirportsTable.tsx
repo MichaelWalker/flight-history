@@ -1,11 +1,11 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import type { Header} from "../tables/Table";
+import type { Header } from "../tables/Table";
 import { Table } from "../tables/Table";
-import { Api } from "../../api/apiClient";
 import { LinkTableCell } from "../tables/cells/LinkTableCell";
 import { TextTableCell } from "../tables/cells/TextTableCell";
 import type { Airport } from "../../models/airport";
+import { AirportsClient } from "../../api/airportsClient";
 
 const headers: Header[] = [
     { displayName: "name", sortName: "name" },
@@ -22,5 +22,5 @@ function renderRow(airports: Airport) {
 }
 
 export const AirportsTable: FunctionComponent = () => {
-    return <Table fetchItems={Api.airports.list} renderRow={renderRow} headers={headers} />;
+    return <Table fetchItems={AirportsClient.list} renderRow={renderRow} headers={headers} />;
 };

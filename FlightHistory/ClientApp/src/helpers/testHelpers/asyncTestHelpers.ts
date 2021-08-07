@@ -8,6 +8,22 @@ export async function runActionAndWaitForAsyncActionsToComplete(
     });
 }
 
+export function quickResolve<T>(callback: () => T): Promise<T> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(callback());
+        }, 0);
+    });
+}
+
+export function quickReject<T>(callback: () => T): Promise<T> {
+    return new Promise((_, reject) => {
+        setTimeout(() => {
+            reject(callback());
+        }, 0);
+    });
+}
+
 export class WrappedPromise<T> {
     private readonly promise: Promise<T>;
     private resolved: boolean = false;
