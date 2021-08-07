@@ -73,8 +73,12 @@
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelper.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\fetchDataReducer.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\fetchDataReducer.ts" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useIsMounted.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.ts" />
