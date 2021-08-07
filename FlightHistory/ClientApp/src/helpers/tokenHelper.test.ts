@@ -1,5 +1,5 @@
 import { getAccessToken, accessTokenAppearsValid, getCurrentUser } from "./tokenHelper";
-import { generateTestAccessToken } from "./testHelper";
+import { generateTestAccessToken } from "./stubTokenHelpers";
 
 describe("token helper", () => {
     describe("getCurrentUser", () => {

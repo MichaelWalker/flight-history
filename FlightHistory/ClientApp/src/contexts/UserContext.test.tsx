@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { UserContext, UserContextProvider } from "./UserContext";
 import { render, waitFor } from "@testing-library/react";
 import { AuthClient } from "../api/authClient";
-import { generateTestAccessToken } from "../helpers/testHelper";
 import { getAccessToken } from "../helpers/tokenHelper";
 import { User } from "../models/user";
+import { generateTestAccessToken } from "../helpers/stubTokenHelpers";
 
 const TestComponent = () => {
     const { loading, currentUser } = useContext(UserContext);

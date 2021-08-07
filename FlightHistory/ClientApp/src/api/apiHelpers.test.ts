@@ -1,8 +1,8 @@
 import { getAccessToken } from "../helpers/tokenHelper";
 import * as requests from "./requests";
-import { generateTestAccessToken } from "../helpers/testHelper";
 import { anonymousPost, get, getList, post, toURL } from "./apiHelpers";
 import { makeAuthenticatedRequest } from "./requests";
+import { generateTestAccessToken } from "../helpers/stubTokenHelpers";
 
 describe("apiHelpers", () => {
     const mockMakeRequest = jest.spyOn(requests, "makeRequest");

@@ -1,6 +1,6 @@
 import type { StubApiResponse } from "./stubApiResponse";
-import { generateTestAccessToken } from "../../helpers/testHelper";
 import type { User } from "../../models/user";
+import { generateTestAccessToken } from "../../helpers/stubTokenHelpers";
 
 const TestUser = {
     name: "User",

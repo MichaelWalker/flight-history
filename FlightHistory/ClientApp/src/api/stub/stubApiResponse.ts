@@ -6,6 +6,7 @@ import { AirlineStubs } from "./airlineStubs";
 import { AircraftStubs } from "./aircraftStubs";
 import { AirportStubs } from "./airportStubs";
 import { FlightStubs } from "./flightStubs";
+import { Logger } from "../../helpers/logger";
 
 // Sets the proportion of calls to the fake API that will be simulated to fail.
 // 0 => no calls will ever fail
@@ -80,7 +81,7 @@ function getMockResponse(urlString: string, options: RequestInit): Response {
 }
 
 export async function stubFetch(url: string, options: RequestInit): Promise<Response> {
-    console.info(`${options.method} request to ${url}`);
+    Logger.info(`${options.method} request to ${url}`);
     const response = getMockResponse(url, options);
     return new Promise((resolve) => {
         setTimeout(() => {

@@ -1,6 +1,6 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import type { Header} from "../tables/Table";
+import type { Header } from "../tables/Table";
 import { Table } from "../tables/Table";
 import { Api } from "../../api/apiClient";
 import { LinkTableCell } from "../tables/cells/LinkTableCell";
@@ -16,7 +16,7 @@ function renderRow(aircraft: Aircraft) {
     return (
         <>
             <LinkTableCell text={aircraft.registration} to={`/api/aircraft/${aircraft.id}`} />
-            <TextTableCell text={aircraft.registration} />
+            <TextTableCell text={aircraft.model} />
         </>
     );
 }

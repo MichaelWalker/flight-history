@@ -19,6 +19,7 @@ export default {
         }),
         new webpack.DefinePlugin({
             USE_SAMPLE_DATA: process.env.USE_SAMPLE_DATA || false,
+            USE_CONSOLE_LOGGING: process.env.USE_CONSOLE_LOGGING || false,
         }),
     ],
     resolve: {

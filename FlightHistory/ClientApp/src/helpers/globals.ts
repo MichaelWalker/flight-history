@@ -8,3 +8,7 @@ export function getNextIdCounter() {
 export function useSampleData() {
     return USE_SAMPLE_DATA;
 }
+
+export function useConsoleLogging() {
+    return USE_CONSOLE_LOGGING;
+}

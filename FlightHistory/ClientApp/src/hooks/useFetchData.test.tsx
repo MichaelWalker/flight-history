@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { useFetchData } from "./useFetchData";
-import { runActionAndWaitForAsyncActionsToComplete } from "../helpers/testHelper";
+import { runActionAndWaitForAsyncActionsToComplete } from "../helpers/testHelpers/asyncTestHelpers";
 
 describe("useFetchData", () => {
     it("starts in the loading state even before loading is triggered", () => {

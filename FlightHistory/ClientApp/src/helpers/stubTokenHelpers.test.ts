@@ -1,4 +1,4 @@
-import { generateTestAccessToken } from "./testHelper";
+import { generateTestAccessToken } from "./stubTokenHelpers";
 
 describe("testHelper", () => {
     it("should generate valid token", () => {

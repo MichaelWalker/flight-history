@@ -1,8 +1,10 @@
 import * as useIsMounted from "./useIsMounted";
 import { renderHook } from "@testing-library/react-hooks";
 import { useLatestOnlyAsyncCall } from "./useLatestOnlyAsyncCall";
-import { runActionAndWaitForAsyncActionsToComplete, WrappedPromise } from "../helpers/testHelper";
-import mock = jest.mock;
+import {
+    runActionAndWaitForAsyncActionsToComplete,
+    WrappedPromise,
+} from "../helpers/testHelpers/asyncTestHelpers";
 
 describe("useLatestOnlyAsyncCall", () => {
     const item = { name: "Mike" };

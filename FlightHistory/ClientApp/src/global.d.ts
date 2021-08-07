@@ -6,3 +6,4 @@ declare module "*.module.scss" {
 }
 
 declare var USE_SAMPLE_DATA: boolean;
+declare var USE_CONSOLE_LOGGING: boolean;

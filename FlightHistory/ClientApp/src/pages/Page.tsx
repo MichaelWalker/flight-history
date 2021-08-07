@@ -19,7 +19,9 @@ export const Page: FunctionComponent<PageProps> = ({ children, title }) => {
             </div>
             <div className={styles.pageContent}>
                 <header className={styles.header}>
-                    <h1 className={styles.title}>{title}</h1>
+                    <h1 data-testid="page-title" className={styles.title}>
+                        {title}
+                    </h1>
                 </header>
                 <main className={styles.main}>{children}</main>
             </div>
