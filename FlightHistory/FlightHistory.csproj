@@ -106,13 +106,19 @@
       <TypeScriptCompile Include="ClientApp\src\models\user.ts" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\Airlines.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\Airports.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\Dashboard.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\Flights.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\NotFound.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\airlines\Airlines.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\airlines\Airlines.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\airports\Airports.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\airports\Airports.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\dashboard\Dashboard.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\dashboard\Dashboard.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\flights\Flights.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\flights\Flights.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\notFound\NotFound.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\notFound\NotFound.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\Page.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\pages\SignInPage.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\signIn\SignInPage.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\pages\signIn\SignInPage.tsx" />
     </ItemGroup>
 
     <ItemGroup>

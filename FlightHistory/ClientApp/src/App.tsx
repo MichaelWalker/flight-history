@@ -1,16 +1,16 @@
 ﻿import type { FunctionComponent } from "react";
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { FlightsPage } from "./pages/Flights";
-import { AirportsPage } from "./pages/Airports";
-import { NotFoundPage } from "./pages/NotFound";
-import { DashboardPage } from "./pages/Dashboard";
 import { UserContext, UserContextProvider } from "./contexts/UserContext";
-import { SignInPage } from "./pages/SignInPage";
 import "./styles/reset.scss";
-import { AirlinesPage } from "./pages/Airlines";
+import { AirlinesPage } from "./pages/airlines/Airlines";
 import { LoadingAnimation } from "./icons/loadingAnimation/LoadingAnimation";
 import { AircraftPage } from "./pages/aircraft/Aircraft";
+import { SignInPage } from "./pages/signIn/SignInPage";
+import { DashboardPage } from "./pages/dashboard/Dashboard";
+import { FlightsPage } from "./pages/flights/Flights";
+import { AirportsPage } from "./pages/airports/Airports";
+import { NotFoundPage } from "./pages/notFound/NotFound";
 
 export const App: FunctionComponent = () => {
     return (

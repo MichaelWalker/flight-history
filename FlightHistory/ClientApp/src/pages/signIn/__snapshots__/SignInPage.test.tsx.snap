@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignIn Page matches snapshot 1`] = `
+<div>
+  <main
+    class="main"
+  >
+    <section
+      class="section"
+    >
+      <h1
+        class="title"
+      >
+        Sign In
+      </h1>
+      <form>
+        <label
+          class="field"
+        >
+          <span
+            class="label"
+          >
+            Email
+          </span>
+          <input
+            class="input"
+            required=""
+            type="email"
+            value=""
+          />
+        </label>
+        <label
+          class="field"
+        >
+          <span
+            class="label"
+          >
+            Password
+          </span>
+          <input
+            class="input"
+            required=""
+            type="password"
+            value=""
+          />
+        </label>
+        <button
+          class="button"
+          disabled=""
+          type="submit"
+        >
+          Sign In
+        </button>
+        <div
+          class="errorMessage"
+        />
+      </form>
+    </section>
+  </main>
+</div>
+`;
