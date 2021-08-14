@@ -1,6 +1,5 @@
 import type { ReactElement } from "react";
 import React, { useCallback, useEffect, useState } from "react";
-import { TableHeader } from "./tableHeader/TableHeader";
 import { TableRow } from "./tableRow/TableRow";
 import type { Item, ItemListResponse, Pagination, Sort } from "../../api/apiHelpers";
 import styles from "./Table.module.scss";
@@ -8,6 +7,7 @@ import { useFetchData } from "../../hooks/useFetchData";
 import { TableOverlay } from "./tableOverlay/TableOverlay";
 import { PageControls } from "./pageControls/PageControls";
 import { PageSizeControls } from "./pageSizeControls/PageSizeControls";
+import { TableHeader } from "./tableHeader/TableHeader";
 
 export interface Header {
     displayName: string;
@@ -64,19 +64,8 @@ export function Table<T extends Item>({
         <>
             <div className={styles.tableContainer}>
                 <table className={styles.table}>
-                    <thead>
-                        <tr>
-                            {headers.map((header) => (
-                                <TableHeader
-                                    {...header}
-                                    key={header.displayName}
-                                    currentSort={sort}
-                                    setSort={setSort}
-                                />
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <TableHeader headers={headers} sort={sort} setSort={setSort} />
+                    <tbody data-testid="table-body">
                         {items().map((item) => (
                             <TableRow key={item.id} item={item} renderRow={renderRow} />
                         ))}

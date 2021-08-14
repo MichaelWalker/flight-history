@@ -96,7 +96,7 @@ describe("PageControls", () => {
 
         it("should move you to first page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText, getByTitle } = render(
+            const { getByText, getByLabelText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -105,7 +105,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByTitle("First Page"));
+            fireEvent.click(getByLabelText("First Page"));
 
             waitFor(() => {
                 expect(getByText("Page 1 of 5")).toBeInTheDocument();
@@ -114,7 +114,7 @@ describe("PageControls", () => {
 
         it("should move you to previous page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText, getByTitle } = render(
+            const { getByText, getByLabelText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -123,16 +123,16 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByTitle("Previous Page"));
+            fireEvent.click(getByLabelText("Previous Page"));
 
             waitFor(() => {
-                expect(getByText("Page 2 of 5")).toBeInTheDocument();
+                expect(getByLabelText("Page 2 of 5")).toBeInTheDocument();
             });
         });
 
         it("should move you to next page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText, getByTitle } = render(
+            const { getByText, getByLabelText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -141,16 +141,16 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByTitle("Next Page"));
+            fireEvent.click(getByLabelText("Next Page"));
 
             waitFor(() => {
-                expect(getByText("Page 4 of 5")).toBeInTheDocument();
+                expect(getByLabelText("Page 4 of 5")).toBeInTheDocument();
             });
         });
 
         it("should move you to last page", () => {
             const pagination = { page: 3, pageSize: 20 };
-            const { getByText, getByTitle } = render(
+            const { getByText, getByLabelText } = render(
                 <PageControls
                     pagination={pagination}
                     setPagination={mockSetPagination}
@@ -159,7 +159,7 @@ describe("PageControls", () => {
             );
 
             expect(getByText("Page 3 of 5")).toBeInTheDocument();
-            fireEvent.click(getByTitle("Last Page"));
+            fireEvent.click(getByLabelText("Last Page"));
 
             waitFor(() => {
                 expect(getByText("Page 5 of 5")).toBeInTheDocument();

@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import React from "react";
 import type { RenderResult } from "@testing-library/react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 export function renderWithRouter(component: ReactElement): RenderResult {
@@ -9,5 +9,6 @@ export function renderWithRouter(component: ReactElement): RenderResult {
 }
 
 export async function waitForTableToHaveResults(): Promise<void> {
-    await waitFor(() => expect(screen.getAllByRole("row").length).toBeGreaterThan(1));
+    const table = screen.getByTestId("table-body");
+    await waitFor(() => expect(within(table).getAllByRole("row").length).toBeGreaterThan(0));
 }

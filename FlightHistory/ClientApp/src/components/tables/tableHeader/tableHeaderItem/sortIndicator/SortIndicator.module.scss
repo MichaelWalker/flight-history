@@ -1,0 +1,32 @@
+@import 'src/styles/common';
+
+@mixin sortIcon {
+  display: inline-block;
+  height: 1.125rem;
+  margin-left: $spacing-xs;
+  transition: $transition-quick;
+}
+
+.ascending {
+  @include sortIcon;
+}
+
+.descending {
+  @include sortIcon;
+  transform: rotate(180deg);
+}
+
+.sortable {
+  @include sortIcon;
+  
+  svg {
+    transition: $transition-quick;
+    opacity: 0.3;
+  }
+}
+
+button:hover, button:focus, button:focus-within {
+  .sortable svg {
+    opacity: 1;
+  }
+}

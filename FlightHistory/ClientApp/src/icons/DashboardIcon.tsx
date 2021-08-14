@@ -2,11 +2,12 @@
 import React from "react";
 import styles from "./Icons.module.scss";
 
+// https://fonts.google.com/icons?selected=Material%20Icons%20Round%3Adashboard%3A
 export const DashboardIcon: FunctionComponent = () => {
     return (
         <svg className={styles.icon} viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+            <path d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z" />
         </svg>
     );
 };

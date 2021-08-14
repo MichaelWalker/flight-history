@@ -136,7 +136,7 @@ $outlineShadow: $spacing-xxs $spacing-xxs $spacing-s var(--color-shadow);
 }
 
 @mixin tableHeaderFont {
-    @include _font(1.125rem, 2rem, 200);
+    @include _font(1.125rem, 2rem, 400);
     text-transform: capitalize;
 }
 

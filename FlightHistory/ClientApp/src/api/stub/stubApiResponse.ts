@@ -7,6 +7,7 @@ import { AircraftStubs } from "./aircraftStubs";
 import { AirportStubs } from "./airportStubs";
 import { FlightStubs } from "./flightStubs";
 import { Logger } from "../../helpers/logger";
+import { parseSort, stubSort } from "./stubSort";
 
 // Sets the proportion of calls to the fake API that will be simulated to fail.
 // 0 => no calls will ever fail
@@ -35,13 +36,14 @@ const stubResponses: StubApiResponse[] = [
 export function stubItemList<T extends Item>(url: URL, items: T[]): ItemListResponse<T> {
     const pageString = url.searchParams.get("page");
     const pageSizeString = url.searchParams.get("pageSize");
+    const sort = parseSort(url);
     const page = pageString ? parseInt(pageString) : 1;
     const pageSize = pageSizeString ? parseInt(pageSizeString) : 20;
 
     const start = (page - 1) * pageSize;
     const end = page * pageSize;
     return {
-        items: items.slice(start, end),
+        items: items.sort(stubSort(sort)).slice(start, end),
         count: items.length,
     };
 }

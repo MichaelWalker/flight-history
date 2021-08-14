@@ -1,47 +1,31 @@
-import type { FunctionComponent } from "react";
-import React, { useState } from "react";
-import type { Sort, SortDirection } from "../../../api/apiHelpers";
-import styles from "./TableHeader.module.scss";
+import type { FC } from "react";
+import React, { memo } from "react";
+import type { Header } from "../Table";
+import type { Sort } from "../../../api/apiHelpers";
+import { TableHeaderItem } from "./tableHeaderItem/TableHeaderItem";
 
 interface TableHeaderProps {
-    displayName: string;
+    headers: Header[];
+    sort: Sort | undefined;
     setSort: (sort: Sort) => void;
-    currentSort?: Sort;
-    sortBy?: string;
 }
 
-export const TableHeader: FunctionComponent<TableHeaderProps> = ({
-    displayName,
-    currentSort,
-    setSort,
-    sortBy,
-}) => {
-    const isCurrentSort = !!sortBy && currentSort?.sortBy === sortBy;
+export const TableHeader: FC<TableHeaderProps> = memo(({ headers, sort, setSort }) => {
+    return (
+        <thead>
+            <tr>
+                {headers.map((header) => (
+                    <TableHeaderItem
+                        displayName={header.displayName}
+                        sortBy={header.sortName}
+                        key={header.displayName}
+                        currentSort={sort}
+                        setSort={setSort}
+                    />
+                ))}
+            </tr>
+        </thead>
+    );
+});
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const initialSortDirection = isCurrentSort ? currentSort!.sortDirection : "ASC";
-
-    const [sortDirection, setSortDirection] = useState<SortDirection>(initialSortDirection);
-
-    function onClick(sortName: string) {
-        if (!isCurrentSort) {
-            setSort({ sortBy: sortName, sortDirection });
-        } else {
-            const newSortDirection = sortDirection === "ASC" ? "DESC" : "ASC";
-            setSortDirection(newSortDirection);
-            setSort({ sortBy: sortName, sortDirection: newSortDirection });
-        }
-    }
-
-    if (sortBy) {
-        return (
-            <th className={styles.tableHeader}>
-                <button type="button" onClick={() => onClick(sortBy)}>
-                    {displayName}
-                </button>
-            </th>
-        );
-    }
-
-    return <th className={styles.tableHeader}>{displayName}</th>;
-};
+TableHeader.displayName = "TableHeader";

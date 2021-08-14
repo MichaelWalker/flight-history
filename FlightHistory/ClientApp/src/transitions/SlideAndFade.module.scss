@@ -1,0 +1,39 @@
+@import 'src/styles/common';
+
+@mixin fadeAndSlide() {
+  transition: all ease $transition-quick;
+}
+
+.enter {
+  @include fadeAndSlide;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.enterActive {
+  @include fadeAndSlide;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.enterDone {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.exit {
+  @include fadeAndSlide;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.exitActive {
+  @include fadeAndSlide;
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.exitDone {
+  opacity: 0;
+  transform: translateX(50%);
+}

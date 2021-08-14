@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import React from "react";
 import type { RenderResult } from "@testing-library/react";
 import { fireEvent, render } from "@testing-library/react";
-import { TableHeader } from "./TableHeader";
+import { TableHeaderItem } from "./TableHeaderItem";
 
 function renderInTableHeaderRow(component: ReactElement): RenderResult {
     return render(
@@ -18,7 +18,7 @@ describe("TableHeader", () => {
     describe("with sortable field", () => {
         it("renders a clickable header", () => {
             const { getByRole } = renderInTableHeaderRow(
-                <TableHeader
+                <TableHeaderItem
                     displayName={"Name"}
                     sortBy={"name"}
                     currentSort={undefined}
@@ -32,7 +32,7 @@ describe("TableHeader", () => {
         it("sets the sort to this field if not previously selected", () => {
             const setSort = jest.fn();
             const { getByText } = renderInTableHeaderRow(
-                <TableHeader
+                <TableHeaderItem
                     displayName={"Name"}
                     sortBy={"name"}
                     currentSort={{ sortBy: "otherField", sortDirection: "ASC" }}
@@ -48,7 +48,7 @@ describe("TableHeader", () => {
         it("toggles sort direction to DESC if set to ASC", () => {
             const setSort = jest.fn();
             const { getByText } = renderInTableHeaderRow(
-                <TableHeader
+                <TableHeaderItem
                     displayName={"Name"}
                     sortBy={"name"}
                     currentSort={{ sortBy: "name", sortDirection: "ASC" }}
@@ -64,7 +64,7 @@ describe("TableHeader", () => {
         it("toggles sort direction to ASC if set to DESC", () => {
             const setSort = jest.fn();
             const { getByText } = renderInTableHeaderRow(
-                <TableHeader
+                <TableHeaderItem
                     displayName={"Name"}
                     sortBy={"name"}
                     currentSort={{ sortBy: "name", sortDirection: "DESC" }}
@@ -81,7 +81,7 @@ describe("TableHeader", () => {
     describe("with non-sortable field", () => {
         it("renders a non-clickable header", () => {
             const { queryAllByRole, getByText } = renderInTableHeaderRow(
-                <TableHeader
+                <TableHeaderItem
                     displayName={"Name"}
                     sortBy={undefined}
                     currentSort={undefined}

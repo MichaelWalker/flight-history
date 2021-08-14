@@ -9,3 +9,11 @@
     padding-right: $spacing-m;
     color: var(--color-highlight);
 }
+
+.sortButton {
+    @include focusable;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    align-items: center;
+}

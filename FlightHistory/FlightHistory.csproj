@@ -33,6 +33,8 @@
       <TypeScriptCompile Include="ClientApp\src\api\stub\flightStubs.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\stub\stubApiResponse.ts" />
       <TypeScriptCompile Include="ClientApp\src\api\authClient.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\stub\stubSort.test.ts" />
+      <TypeScriptCompile Include="ClientApp\src\api\stub\stubSort.ts" />
       <TypeScriptCompile Include="ClientApp\src\app\App.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\app\App.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\aircraft\AircraftTable.tsx" />
@@ -56,8 +58,10 @@
       <TypeScriptCompile Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\Table.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\TableHeader.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\TableHeader.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\tableHeaderItem\sortIndicator\SortIndicator.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\tableHeaderItem\TableHeaderItem.test.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\tables\tableHeader\tableHeaderItem\TableHeaderItem.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableRow\TableRow.tsx" />
@@ -98,6 +102,8 @@
       <TypeScriptCompile Include="ClientApp\src\icons\loadingAnimation\LoadingAnimation.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\NextPageIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\PreviousPageIcon.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\icons\SortableIcon.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\icons\SortDirectionIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\index.tsx" />
       <TypeScriptCompile Include="ClientApp\src\models\aircraft.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\aircraft.ts" />
@@ -126,6 +132,7 @@
       <TypeScriptCompile Include="ClientApp\src\pages\Page.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\signIn\SignInPage.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\signIn\SignInPage.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.tsx" />
     </ItemGroup>
 
     <ItemGroup>
@@ -156,7 +163,8 @@
       <Content Include="ClientApp\src\components\tables\pageSizeControls\PageSizeControls.module.scss" />
       <Content Include="ClientApp\src\components\tables\pageSizeControls\pageSizeOption\PageSizeOption.module.scss" />
       <Content Include="ClientApp\src\components\tables\Table.module.scss" />
-      <Content Include="ClientApp\src\components\tables\tableHeader\TableHeader.module.scss" />
+      <Content Include="ClientApp\src\components\tables\tableHeader\tableHeaderItem\sortIndicator\SortIndicator.module.scss" />
+      <Content Include="ClientApp\src\components\tables\tableHeader\tableHeaderItem\TableHeaderItem.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.module.scss" />
       <Content Include="ClientApp\src\components\tables\tableRow\TableRow.module.scss" />
       <Content Remove="ClientApp\jest\coverage\**" />
