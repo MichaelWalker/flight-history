@@ -101,6 +101,7 @@
       <TypeScriptCompile Include="ClientApp\src\icons\FlightIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\icons.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\icons\LastPageIcon.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\icons\loadingAnimation\loadingAnimation.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\icons\loadingAnimation\LoadingAnimation.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\NextPageIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\PreviousPageIcon.tsx" />

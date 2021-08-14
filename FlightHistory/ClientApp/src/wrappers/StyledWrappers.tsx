@@ -34,6 +34,10 @@ export const Svg = styled.svg<StyledElementProps>`
     ${(p) => p.css}
 `;
 
+export const Circle = styled.circle<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
 export const Link = styled(ReactRouterLink)<StyledElementProps>`
     ${(p) => p.css}
 `;

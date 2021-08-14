@@ -1,29 +1,23 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import styles from "./LoadingAnimation.module.scss";
+import { Circle, Svg } from "../../wrappers/StyledWrappers";
+import { IconSize } from "./loadingAnimation.styles";
+import * as styles from "./loadingAnimation.styles";
 
 interface LoadingAnimationProps {
-    size: "SMALL" | "LARGE";
+    size: IconSize;
 }
 
 export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ size }) => {
-    function sizeClass(): string {
-        switch (size) {
-            case "SMALL":
-                return styles.small;
-            case "LARGE":
-                return styles.large;
-        }
-    }
     return (
-        <svg
-            className={`${styles.loadingAnimation} ${sizeClass()}`}
+        <Svg
+            css={styles.loadingAnimation(size)}
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
             data-testid={"loading-animation"}
         >
-            <circle
-                className={styles.outerCircle}
+            <Circle
+                css={styles.outerCircle}
                 cx="50"
                 cy="50"
                 r="32"
@@ -37,9 +31,9 @@ export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ siz
                     keyTimes="0;1"
                     values="0 50 50;360 50 50"
                 />
-            </circle>
-            <circle
-                className={styles.innerCircle}
+            </Circle>
+            <Circle
+                css={styles.innerCircle}
                 cx="50"
                 cy="50"
                 r="26"
@@ -54,7 +48,7 @@ export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ siz
                     keyTimes="0;1"
                     values="0 50 50;-360 50 50"
                 />
-            </circle>
-        </svg>
+            </Circle>
+        </Svg>
     );
 };
