@@ -1,8 +1,7 @@
 ﻿import type { FunctionComponent } from "react";
 import React from "react";
-import styles from "./Page.module.scss";
 import { Nav } from "../components/navigation/Nav";
-import { Link } from "react-router-dom";
+import { PageDiv, NavContainer, HomeLink, PageContent, Header, Title, Main } from "./page.styles";
 
 interface PageProps {
     title: string;
@@ -10,21 +9,17 @@ interface PageProps {
 
 export const Page: FunctionComponent<PageProps> = ({ children, title }) => {
     return (
-        <div className={styles.page}>
-            <div className={styles.navContainer}>
-                <Link to="/" className={styles.appName}>
-                    Flight History
-                </Link>
+        <PageDiv>
+            <NavContainer>
+                <HomeLink to="/">Flight History</HomeLink>
                 <Nav />
-            </div>
-            <div className={styles.pageContent}>
-                <header className={styles.header}>
-                    <h1 data-testid="page-title" className={styles.title}>
-                        {title}
-                    </h1>
-                </header>
-                <main className={styles.main}>{children}</main>
-            </div>
-        </div>
+            </NavContainer>
+            <PageContent>
+                <Header>
+                    <Title data-testid="page-title">{title}</Title>
+                </Header>
+                <Main>{children}</Main>
+            </PageContent>
+        </PageDiv>
     );
 };

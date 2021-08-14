@@ -48,13 +48,13 @@ exports[`App displays dashboard if user is signed in: app-loading 1`] = `
 exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
 <div>
   <div
-    class="page"
+    class="sc-bdnxRM jmOGtQ"
   >
     <div
-      class="navContainer"
+      class="sc-gtsrHT cZhGec"
     >
       <a
-        class="appName"
+        class="sc-dlnjwi hFcjpC"
         href="/"
       >
         Flight History
@@ -188,20 +188,20 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
       </nav>
     </div>
     <div
-      class="pageContent"
+      class="sc-hKFxyN duluTo"
     >
       <header
-        class="header"
+        class="sc-eCApnc rLCch"
       >
         <h1
-          class="title"
+          class="sc-jSFjdj irjRRh"
           data-testid="page-title"
         >
           Dashboard
         </h1>
       </header>
       <main
-        class="main"
+        class="sc-gKAaRy bOHuEs"
       >
         Hello!
       </main>

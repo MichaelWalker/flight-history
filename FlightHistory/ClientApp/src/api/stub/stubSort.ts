@@ -1,6 +1,7 @@
 import type { Sort, SortDirection } from "../apiHelpers";
 
-function hasOwnProperty<TObject extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/ban-types
+function hasOwnProperty<TObject extends {}>(
     object: TObject,
     prop: string,
 ): object is TObject & Record<string, unknown> {
@@ -44,11 +45,11 @@ function compareUnknowns(a: unknown, b: unknown, sortDirection: SortDirection): 
     return 0;
 }
 
-export function stubSort<T extends Record<string, unknown>>(
-    sort: Sort | undefined,
-): (a: T, b: T) => number {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function stubSort<T extends {}>(sort: Sort | undefined): (a: T, b: T) => number {
     if (!sort) {
-        return () => 0;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        return (a, b) => 0;
     }
 
     return (a, b) => {
