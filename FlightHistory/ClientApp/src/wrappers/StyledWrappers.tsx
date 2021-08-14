@@ -30,6 +30,10 @@ export const Section = styled.section<StyledElementProps>`
     ${(p) => p.css}
 `;
 
+export const Svg = styled.svg<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
 export const Link = styled(ReactRouterLink)<StyledElementProps>`
     ${(p) => p.css}
 `;
