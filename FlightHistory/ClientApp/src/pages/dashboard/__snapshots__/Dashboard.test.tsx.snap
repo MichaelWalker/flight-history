@@ -3,13 +3,13 @@
 exports[`Dashboard Page matches snapshot 1`] = `
 <div>
   <div
-    class="sc-bdnxRM ddUBBf"
+    class="sc-bdnxRM jopmEo"
   >
     <div
       class="sc-bdnxRM eXUoTH"
     >
       <a
-        class="sc-eCApnc iuUbwz"
+        class="sc-gKAaRy gZgJNG"
         css="
     ,
         font-size: ,1.25rem,;
@@ -169,7 +169,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
         </h1>
       </header>
       <main
-        class="sc-hKFxyN dNXgjV"
+        class="sc-eCApnc krkCEB"
       >
         Hello!
       </main>

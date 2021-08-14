@@ -12,6 +12,8 @@ export const SPACING = {
     LARGE: len(16),
 } as const;
 
+export const SECTION_SEPARATION = SPACING.LARGE;
+
 export const TRANSITIONS = {
     DEFAULT: `${DEFAULT_TRANSITION_TIME}ms`,
 };

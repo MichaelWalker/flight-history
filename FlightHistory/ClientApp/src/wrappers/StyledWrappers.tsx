@@ -18,7 +18,15 @@ export const H1 = styled.h1<StyledElementProps>`
     ${(p) => p.css}
 `;
 
+export const H2 = styled.h2<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
 export const Main = styled.main<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
+export const Section = styled.section<StyledElementProps>`
     ${(p) => p.css}
 `;
 

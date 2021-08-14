@@ -3,7 +3,7 @@ import React from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { DEFAULT_TRANSITION_TIME } from "../styles/constants.styles";
 import { slideAndFade } from "./SlideAndFade.styles";
-import { Div } from "../wrappers/StyledElements";
+import { Div } from "../wrappers/StyledWrappers";
 
 export interface SlideAndFadeProps {
     stateKey: string;

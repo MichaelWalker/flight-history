@@ -10,6 +10,7 @@ interface ColourPalette {
 }
 
 const WHITE = "#ffffff";
+const LIGHT_GREY = "#e1e1e2";
 const TEAL = "#3e8989";
 const GREEN = "#2cda9d";
 const DARK_GREEN = "#1a181b";
@@ -19,7 +20,7 @@ const DEFAULT_PALETTE = {
     primary: TEAL,
     secondary: GREEN,
     foreground: DARK_GREEN,
-    background: WHITE,
+    background: LIGHT_GREY,
     shadow: SHADOW,
 };
 
@@ -31,6 +32,7 @@ export const COLOUR_PALETTES = {
         foreground: WHITE,
         background: `linear-gradient(45deg, ${TEAL}, ${GREEN})`,
     },
+    CARD: { ...DEFAULT_PALETTE, background: WHITE },
 } as const;
 
 export const COLOURS = {

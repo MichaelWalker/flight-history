@@ -1,7 +1,7 @@
 ﻿import type { FunctionComponent } from "react";
 import React from "react";
 import { NavBar } from "../components/navigation/Nav";
-import { Div, Link, Header, H1, Main } from "../wrappers/StyledElements";
+import { Div, Link, Header, H1, Main } from "../wrappers/StyledWrappers";
 import * as styles from "./page.styles";
 
 interface PageProps {

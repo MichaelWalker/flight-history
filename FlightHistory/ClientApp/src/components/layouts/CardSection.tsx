@@ -1,6 +1,7 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import styles from "./CardSection.module.scss";
+import { H2, Section } from "../../wrappers/StyledWrappers";
+import * as styles from "./cardSection.styles";
 
 interface CardSectionProps {
     title: string;
@@ -8,9 +9,9 @@ interface CardSectionProps {
 
 export const CardSection: FunctionComponent<CardSectionProps> = ({ title, children }) => {
     return (
-        <section className={styles.cardSection}>
-            <h2 className={styles.sectionTitle}>{title}</h2>
+        <Section css={styles.cardSection}>
+            <H2 css={styles.sectionTitle}>{title}</H2>
             {children}
-        </section>
+        </Section>
     );
 };

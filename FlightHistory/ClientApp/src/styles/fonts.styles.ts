@@ -13,6 +13,7 @@ interface Font {
 export const FONTS = {
     MEDIUM: { size: 4, lineHeight: 6, fontWeight: 300, transform: "none" },
     PAGE_TITLE: { size: 4, lineHeight: 8, fontWeight: 500, transform: "uppercase" },
+    SECTION_TITLE: { size: 6, lineHeight: 8, fontWeight: 300, transform: "uppercase" },
     LOGO: { size: 5, lineHeight: 8, fontWeight: 300, transform: "uppercase" },
 } as const;
 
