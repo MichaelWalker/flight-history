@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
     COLOUR_PALETTES,
     COLOURS,
@@ -6,7 +6,6 @@ import {
     setColourPalette,
 } from "../styles/colours.styles";
 import { shadow } from "../styles/mixins.styles";
-import { Link } from "react-router-dom";
 import { font, FONTS } from "../styles/fonts.styles";
 import { len, SPACING } from "../styles/constants.styles";
 
@@ -15,7 +14,7 @@ const NAV_GUTTERS = SPACING.MEDIUM;
 const CONTENT_GUTTERS = SPACING.LARGE;
 const PAGE_TOP_MARGIN = SPACING.SMALL;
 
-export const PageDiv = styled.div`
+export const pageContainer = css`
     ${setColourPalette(COLOUR_PALETTES.MEDIUM)}
     background: ${COLOURS.BACKGROUND};
     display: flex;
@@ -24,7 +23,7 @@ export const PageDiv = styled.div`
     min-height: 100vh;
 `;
 
-export const NavContainer = styled.div`
+export const navContainer = css`
     ${setColourPalette(COLOUR_PALETTES.NAV)}
     ${shadow()}
     position: fixed;
@@ -40,14 +39,14 @@ export const NavContainer = styled.div`
     overflow: hidden;
 `;
 
-export const HomeLink = styled(Link)`
+export const homeLink = css`
     ${font(FONTS.LOGO)}
     margin: ${PAGE_TOP_MARGIN} ${NAV_GUTTERS} ${len(24)};
     padding-bottom: ${SPACING.SMALL};
     text-align: center;
 `;
 
-export const PageContent = styled.div`
+export const pageContent = css`
     position: fixed;
     left: ${NAV_WIDTH};
     top: 0;
@@ -56,18 +55,18 @@ export const PageContent = styled.div`
     overflow-y: auto;
 `;
 
-export const Header = styled.header`
+export const header = css`
     ${gradientBackground()}
     height: ${len(32)};
 `;
 
-export const Title = styled.h1`
+export const title = css`
     ${font(FONTS.PAGE_TITLE)}
     margin: ${PAGE_TOP_MARGIN} ${CONTENT_GUTTERS} 0;
     display: inline-block;
 `;
 
-export const Main = styled.main`
+export const main = css`
     padding: 0 ${CONTENT_GUTTERS} ${SPACING.LARGE};
     margin-top: -${SPACING.MEDIUM};
     display: inline-block;

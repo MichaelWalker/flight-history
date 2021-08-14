@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { TRANSITIONS } from "../styles/constants.styles";
 
-export const SlideAndFadeWrapper = styled.div`
+export const slideAndFade = css`
     .slide-and-fade-enter {
         opacity: 0;
         transform: translateX(-50%);

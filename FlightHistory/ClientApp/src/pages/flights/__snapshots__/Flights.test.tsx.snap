@@ -3,13 +3,26 @@
 exports[`Flights Page matches snapshot 1`] = `
 <div>
   <div
-    class="sc-bdnxRM jmOGtQ"
+    class="sc-bdnxRM ddUBBf"
   >
     <div
-      class="sc-gtsrHT cZhGec"
+      class="sc-bdnxRM eXUoTH"
     >
       <a
-        class="sc-dlnjwi hFcjpC"
+        class="sc-eCApnc iuUbwz"
+        css="
+    ,
+        font-size: ,1.25rem,;
+        line-height: ,2rem,;
+        font-weight: ,300,;
+        font-family: \\"Ubuntu\\", sans-serif;
+        color: ,var(--color-foreground),;
+        text-transform: ,uppercase,;
+    ,
+    margin: ,1rem, ,2rem, ,6rem,;
+    padding-bottom: ,1rem,;
+    text-align: center;
+"
         href="/"
       >
         Flight History
@@ -143,20 +156,20 @@ exports[`Flights Page matches snapshot 1`] = `
       </nav>
     </div>
     <div
-      class="sc-hKFxyN duluTo"
+      class="sc-bdnxRM UA-Dih"
     >
       <header
-        class="sc-eCApnc rLCch"
+        class="sc-gtsrHT eQLWfg"
       >
         <h1
-          class="sc-jSFjdj irjRRh"
+          class="sc-dlnjwi jTPWQM"
           data-testid="page-title"
         >
           Flights
         </h1>
       </header>
       <main
-        class="sc-gKAaRy bOHuEs"
+        class="sc-hKFxyN dNXgjV"
       >
         <section
           class="cardSection"
@@ -183,7 +196,7 @@ exports[`Flights Page matches snapshot 1`] = `
                     >
                       date
                       <div
-                        class="sc-iCoGMd gFqJIT"
+                        class="sc-bdnxRM bNDyhA"
                       >
                         <span
                           class="sortable"
@@ -213,7 +226,7 @@ exports[`Flights Page matches snapshot 1`] = `
                     >
                       source
                       <div
-                        class="sc-iCoGMd gFqJIT"
+                        class="sc-bdnxRM bNDyhA"
                       >
                         <span
                           class="sortable"
@@ -243,7 +256,7 @@ exports[`Flights Page matches snapshot 1`] = `
                     >
                       destination
                       <div
-                        class="sc-iCoGMd gFqJIT"
+                        class="sc-bdnxRM bNDyhA"
                       >
                         <span
                           class="sortable"
@@ -273,7 +286,7 @@ exports[`Flights Page matches snapshot 1`] = `
                     >
                       aircraft
                       <div
-                        class="sc-iCoGMd gFqJIT"
+                        class="sc-bdnxRM bNDyhA"
                       >
                         <span
                           class="sortable"
@@ -303,7 +316,7 @@ exports[`Flights Page matches snapshot 1`] = `
                     >
                       airline
                       <div
-                        class="sc-iCoGMd gFqJIT"
+                        class="sc-bdnxRM bNDyhA"
                       >
                         <span
                           class="sortable"

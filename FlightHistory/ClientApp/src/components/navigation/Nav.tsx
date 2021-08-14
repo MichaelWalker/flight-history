@@ -8,7 +8,7 @@ import { AirportIcon } from "../../icons/AirportIcon";
 import { AircraftIcon } from "../../icons/AircraftIcon";
 import { FlightIcon } from "../../icons/FlightIcon";
 
-export const Nav: FunctionComponent = () => {
+export const NavBar: FunctionComponent = () => {
     return (
         <nav className={styles.nav}>
             <NavItem to={"/"} icon={<DashboardIcon />}>

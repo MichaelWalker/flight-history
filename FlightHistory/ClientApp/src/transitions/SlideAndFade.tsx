@@ -2,7 +2,8 @@ import type { FC } from "react";
 import React from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { DEFAULT_TRANSITION_TIME } from "../styles/constants.styles";
-import { SlideAndFadeWrapper } from "./SlideAndFade.styles";
+import { slideAndFade } from "./SlideAndFade.styles";
+import { Div } from "../wrappers/StyledElements";
 
 export interface SlideAndFadeProps {
     stateKey: string;
@@ -10,7 +11,7 @@ export interface SlideAndFadeProps {
 
 export const SlideAndFade: FC<SlideAndFadeProps> = ({ stateKey, children }) => {
     return (
-        <SlideAndFadeWrapper>
+        <Div css={slideAndFade}>
             <SwitchTransition mode={"out-in"}>
                 <CSSTransition
                     key={stateKey}
@@ -20,6 +21,6 @@ export const SlideAndFade: FC<SlideAndFadeProps> = ({ stateKey, children }) => {
                     {children}
                 </CSSTransition>
             </SwitchTransition>
-        </SlideAndFadeWrapper>
+        </Div>
     );
 };
