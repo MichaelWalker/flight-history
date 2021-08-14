@@ -137,6 +137,7 @@
       <TypeScriptCompile Include="ClientApp\src\styles\constants.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\fonts.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\mixins.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.tsx" />
     </ItemGroup>
 
