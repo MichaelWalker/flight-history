@@ -4,6 +4,7 @@ import { stubAirportList } from "../../../models/airport.testdata";
 import { Form } from "../../../wrappers/StyledWrappers";
 import { Select } from "../../forms/select/Select";
 import { CardSection } from "../../layouts/CardSection";
+import * as styles from "./addFlightForm.styles";
 
 const options = stubAirportList.map((airport) => {
     return {
@@ -14,7 +15,7 @@ const options = stubAirportList.map((airport) => {
 
 export const AddFlightForm: FC = () => {
     return (
-        <CardSection title={"Add Flight"}>
+        <CardSection title={"Add Flight"} css={styles.addFlightSection}>
             <Form>
                 <Select options={options} />
             </Form>

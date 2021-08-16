@@ -2,6 +2,8 @@ import type { FlattenSimpleInterpolation } from "styled-components";
 import styled from "styled-components";
 import { Link as ReactRouterLink } from "react-router-dom";
 
+export type CSS = FlattenSimpleInterpolation;
+
 interface StyledElementProps {
     css?: FlattenSimpleInterpolation;
 }
