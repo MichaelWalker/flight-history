@@ -1,5 +1,4 @@
-import type { FlattenSimpleInterpolation } from "styled-components";
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 import { len } from "./constants.styles";
 import { COLOURS } from "./colours.styles";
 
@@ -17,12 +16,7 @@ export const FONTS = {
     LOGO: { size: 5, lineHeight: 8, fontWeight: 300, transform: "uppercase" },
 } as const;
 
-export function font({
-    size,
-    lineHeight,
-    fontWeight,
-    transform,
-}: Font): FlattenSimpleInterpolation {
+export function font({ size, lineHeight, fontWeight, transform }: Font): string {
     return css`
         font-size: ${len(size)};
         line-height: ${len(lineHeight)};

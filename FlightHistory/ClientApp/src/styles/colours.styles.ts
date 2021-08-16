@@ -1,5 +1,4 @@
-import type { FlattenSimpleInterpolation } from "styled-components";
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 
 interface ColourPalette {
     primary: string;
@@ -43,7 +42,7 @@ export const COLOURS = {
     SHADOW: "var(--color-shadow)",
 } as const;
 
-export function setColourPalette(palette: ColourPalette): FlattenSimpleInterpolation {
+export function setColourPalette(palette: ColourPalette): string {
     return css`
         --color-primary: ${palette.primary};
         --color-secondary: ${palette.secondary};
@@ -53,7 +52,7 @@ export function setColourPalette(palette: ColourPalette): FlattenSimpleInterpola
     `;
 }
 
-export function gradientBackground(): FlattenSimpleInterpolation {
+export function gradientBackground(): string {
     return css`
         ${setColourPalette(COLOUR_PALETTES.GRADIENT_BACKGROUND)}
         background: linear-gradient(45deg, ${COLOURS.PRIMARY}, ${COLOURS.SECONDARY});

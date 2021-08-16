@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 import { TRANSITIONS } from "../styles/constants.styles";
 
 export const slideAndFade = css`

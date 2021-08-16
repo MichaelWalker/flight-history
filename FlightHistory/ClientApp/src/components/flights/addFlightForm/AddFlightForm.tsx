@@ -1,10 +1,9 @@
 import type { FC } from "react";
-import React, { useState } from "react";
-import { Airport } from "../../../models/airport";
+import React from "react";
+import type { Airport } from "../../../models/airport";
 import { stubAirportList } from "../../../models/airport.testdata";
-import { Form } from "../../../wrappers/StyledWrappers";
-import { EmailInput } from "../../forms/Input";
-import { Select, SelectOption } from "../../forms/select/Select";
+import type { SelectOption } from "../../forms/select/Select";
+import { Select } from "../../forms/select/Select";
 import { CardSection } from "../../layouts/CardSection";
 import * as styles from "./addFlightForm.styles";
 
@@ -15,7 +14,7 @@ const options = stubAirportList.map((airport) => {
     };
 });
 
-function getOptions(search: string): Promise<SelectOption<Airport>[]> {
+async function getOptions(search: string): Promise<SelectOption<Airport>[]> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(
@@ -29,10 +28,10 @@ function getOptions(search: string): Promise<SelectOption<Airport>[]> {
 
 export const AddFlightForm: FC = () => {
     return (
-        <CardSection title={"Add Flight"} css={styles.addFlightSection}>
-            <Form>
+        <CardSection title={"Add Flight"} className={styles.addFlightSection}>
+            <form>
                 <Select label="Source Airport" loadOptions={getOptions} />
-            </Form>
+            </form>
         </CardSection>
     );
 };

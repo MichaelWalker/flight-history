@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 import {
     COLOUR_PALETTES,
     COLOURS,

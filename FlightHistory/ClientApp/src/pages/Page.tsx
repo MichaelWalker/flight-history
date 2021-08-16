@@ -1,7 +1,7 @@
 ﻿import type { FunctionComponent } from "react";
 import React from "react";
 import { NavBar } from "../components/navigation/Nav";
-import { Div, Link, Header, H1, Main } from "../wrappers/StyledWrappers";
+import { Link } from "react-router-dom";
 import * as styles from "./page.styles";
 
 interface PageProps {
@@ -10,21 +10,21 @@ interface PageProps {
 
 export const Page: FunctionComponent<PageProps> = ({ children, title }) => {
     return (
-        <Div css={styles.pageContainer}>
-            <Div css={styles.navContainer}>
-                <Link css={styles.homeLink} to="/">
+        <div className={styles.pageContainer}>
+            <div className={styles.navContainer}>
+                <Link className={styles.homeLink} to="/">
                     Flight History
                 </Link>
                 <NavBar />
-            </Div>
-            <Div css={styles.pageContent}>
-                <Header css={styles.header}>
-                    <H1 css={styles.title} data-testid="page-title">
+            </div>
+            <div className={styles.pageContent}>
+                <header className={styles.header}>
+                    <h1 className={styles.title} data-testid="page-title">
                         {title}
-                    </H1>
-                </Header>
-                <Main css={styles.main}>{children}</Main>
-            </Div>
-        </Div>
+                    </h1>
+                </header>
+                <main className={styles.main}>{children}</main>
+            </div>
+        </div>
     );
 };

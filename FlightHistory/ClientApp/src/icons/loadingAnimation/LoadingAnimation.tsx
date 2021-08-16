@@ -1,6 +1,5 @@
 import type { FunctionComponent } from "react";
 import React from "react";
-import { Circle, Svg } from "../../wrappers/StyledWrappers";
 import type { IconSize } from "./loadingAnimation.styles";
 import * as styles from "./loadingAnimation.styles";
 
@@ -10,14 +9,14 @@ interface LoadingAnimationProps {
 
 export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ size }) => {
     return (
-        <Svg
-            css={styles.loadingAnimation(size)}
+        <svg
+            className={styles.loadingAnimation(size)}
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
             data-testid={"loading-animation"}
         >
-            <Circle
-                css={styles.outerCircle}
+            <circle
+                className={styles.outerCircle}
                 cx="50"
                 cy="50"
                 r="32"
@@ -31,9 +30,9 @@ export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ siz
                     keyTimes="0;1"
                     values="0 50 50;360 50 50"
                 />
-            </Circle>
-            <Circle
-                css={styles.innerCircle}
+            </circle>
+            <circle
+                className={styles.innerCircle}
                 cx="50"
                 cy="50"
                 r="26"
@@ -48,7 +47,7 @@ export const LoadingAnimation: FunctionComponent<LoadingAnimationProps> = ({ siz
                     keyTimes="0;1"
                     values="0 50 50;-360 50 50"
                 />
-            </Circle>
-        </Svg>
+            </circle>
+        </svg>
     );
 };

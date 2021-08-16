@@ -1,5 +1,4 @@
-import type { FlattenSimpleInterpolation } from "styled-components";
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 import { COLOURS } from "../../styles/colours.styles";
 import { len } from "../../styles/constants.styles";
 
@@ -13,7 +12,7 @@ function getSize(size: IconSize): string {
     }
 }
 
-function circle(color: string): FlattenSimpleInterpolation {
+function circle(color: string): string {
     return css`
         stroke-width: 5;
         stroke: ${color};
@@ -22,7 +21,7 @@ function circle(color: string): FlattenSimpleInterpolation {
     `;
 }
 
-export function loadingAnimation(size: IconSize): FlattenSimpleInterpolation {
+export function loadingAnimation(size: IconSize): string {
     return css`
         margin: auto;
         display: block;

@@ -1,15 +1,14 @@
-import type { FlattenSimpleInterpolation } from "styled-components";
-import { css } from "styled-components";
+import { css } from "@emotion/css";
 import { COLOUR_PALETTES, COLOURS, setColourPalette } from "./colours.styles";
 import { len, SPACING } from "./constants.styles";
 
-export function shadow(): FlattenSimpleInterpolation {
+export function shadow(): string {
     return css`
         box-shadow: ${len(1)} ${len(1)} ${len(2)} ${COLOURS.SHADOW};
     `;
 }
 
-export function card(): FlattenSimpleInterpolation {
+export function card(): string {
     return css`
         ${setColourPalette(COLOUR_PALETTES.CARD)}
         ${shadow()}

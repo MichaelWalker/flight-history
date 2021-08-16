@@ -1,10 +1,9 @@
-import { css, FlattenSimpleInterpolation } from "styled-components";
+import { css } from "@emotion/css";
 import { SECTION_SEPARATION, SPACING } from "../../styles/constants.styles";
 import { font, FONTS } from "../../styles/fonts.styles";
 import { card } from "../../styles/mixins.styles";
-import { CSS } from "../../wrappers/StyledWrappers";
 
-export function cardSection(extraCss?: CSS) {
+export function cardSection(extraCss?: string): string {
     return css`
         ${card()}
         margin-bottom: ${SECTION_SEPARATION};

@@ -3,26 +3,13 @@
 exports[`Dashboard Page matches snapshot 1`] = `
 <div>
   <div
-    class="sc-bdnxRM jopmEo"
+    class="css-12flfc4"
   >
     <div
-      class="sc-bdnxRM eXUoTH"
+      class="css-1s5ftkt"
     >
       <a
-        class="sc-pNWdM bKbszN"
-        css="
-    ,
-        font-size: ,1.25rem,;
-        line-height: ,2rem,;
-        font-weight: ,300,;
-        font-family: \\"Ubuntu\\", sans-serif;
-        color: ,var(--color-foreground),;
-        text-transform: ,uppercase,;
-    ,
-    margin: ,1rem, ,2rem, ,6rem,;
-    padding-bottom: ,1rem,;
-    text-align: center;
-"
+        class="css-nil78o"
         href="/"
       >
         Flight History
@@ -39,7 +26,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-iCoGMd iJrxon"
+              class="css-1g5fb6s"
               viewBox="0 0 24 24"
             >
               <path
@@ -61,7 +48,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-iCoGMd iJrxon"
+              class="css-1g5fb6s"
               viewBox="0 0 24 24"
             >
               <g>
@@ -87,7 +74,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-iCoGMd iJrxon"
+              class="css-1g5fb6s"
               viewBox="0 0 24 24"
             >
               <g>
@@ -115,7 +102,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-iCoGMd iJrxon"
+              class="css-1g5fb6s"
               viewBox="0 0 24 24"
             >
               <path
@@ -137,7 +124,7 @@ exports[`Dashboard Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-iCoGMd iJrxon"
+              class="css-1g5fb6s"
               viewBox="0 0 24 24"
             >
               <rect
@@ -156,20 +143,20 @@ exports[`Dashboard Page matches snapshot 1`] = `
       </nav>
     </div>
     <div
-      class="sc-bdnxRM UA-Dih"
+      class="css-11duela"
     >
       <header
-        class="sc-gtsrHT eQLWfg"
+        class="css-1aekbpj"
       >
         <h1
-          class="sc-dlnjwi jTPWQM"
+          class="css-jflnc0"
           data-testid="page-title"
         >
           Dashboard
         </h1>
       </header>
       <main
-        class="sc-eCApnc krkCEB"
+        class="css-1nkno5c"
       >
         Hello!
       </main>

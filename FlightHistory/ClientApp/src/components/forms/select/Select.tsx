@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 import AsyncSelect from "react-select/async";
-import { Label, Span } from "../../../wrappers/StyledWrappers";
 import * as styles from "./select.styles";
 
 export interface SelectOption<T> {
@@ -15,9 +15,9 @@ interface SelectProps<T> {
 
 export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement {
     return (
-        <Label>
-            <Span css={styles.label}>{label}</Span>
+        <label>
+            <span className={styles.label}>{label}</span>
             <AsyncSelect loadOptions={loadOptions} />
-        </Label>
+        </label>
     );
 }
