@@ -40,6 +40,8 @@
       <TypeScriptCompile Include="ClientApp\src\components\aircraft\AircraftTable.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\airlines\AirlinesTable.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\airports\AirportsTable.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\addFlightForm.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\AddFlightForm.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\FlightsTable.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
@@ -120,6 +122,7 @@
       <TypeScriptCompile Include="ClientApp\src\models\token.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\user.testdata.ts" />
       <TypeScriptCompile Include="ClientApp\src\models\user.ts" />
+      <TypeScriptCompile Include="ClientApp\src\pages\addFlight\AddFlight.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\aircraft\Aircraft.tsx" />
       <TypeScriptCompile Include="ClientApp\src\pages\airlines\Airlines.test.tsx" />

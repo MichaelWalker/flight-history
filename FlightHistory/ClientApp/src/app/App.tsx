@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { UserContext, UserContextProvider } from "../contexts/UserContext";
 import "../styles/reset.scss";
+import { AddFlight } from "../pages/addFlight/AddFlight";
 import { AirlinesPage } from "../pages/airlines/Airlines";
 import { LoadingAnimation } from "../icons/loadingAnimation/LoadingAnimation";
 import { AircraftPage } from "../pages/aircraft/Aircraft";
@@ -40,6 +41,9 @@ const AppContent: FunctionComponent = () => {
             </Route>
             <Route path={"/flights"} exact={true}>
                 <FlightsPage />
+            </Route>
+            <Route path={"/flights/add"} exact={true}>
+                <AddFlight />
             </Route>
             <Route path={"/airports"} exact={true}>
                 <AirportsPage />

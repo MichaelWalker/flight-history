@@ -3,13 +3,13 @@
 exports[`App displays dashboard if user is signed in: app-loading 1`] = `
 <div>
   <svg
-    class="sc-gKAaRy iMvhJB"
+    class="sc-iCoGMd iVMlpp"
     data-testid="loading-animation"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 100 100"
   >
     <circle
-      class="sc-iCoGMd iEiTVC"
+      class="sc-fujyAs hlqtOr"
       cx="50"
       cy="50"
       r="32"
@@ -25,7 +25,7 @@ exports[`App displays dashboard if user is signed in: app-loading 1`] = `
       />
     </circle>
     <circle
-      class="sc-iCoGMd nHcLQ"
+      class="sc-fujyAs dgZGXJ"
       cx="50"
       cy="50"
       r="26"
@@ -54,7 +54,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
       class="sc-bdnxRM eXUoTH"
     >
       <a
-        class="sc-fujyAs JsHRD"
+        class="sc-pNWdM bKbszN"
         css="
     ,
         font-size: ,1.25rem,;
@@ -84,7 +84,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <path
@@ -106,7 +106,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <g>
@@ -132,7 +132,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <g>
@@ -160,7 +160,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <path
@@ -182,7 +182,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <rect
@@ -226,13 +226,13 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
 exports[`App displays sign in page if user is not signed in: app-loading 1`] = `
 <div>
   <svg
-    class="sc-gKAaRy iMvhJB"
+    class="sc-iCoGMd iVMlpp"
     data-testid="loading-animation"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 100 100"
   >
     <circle
-      class="sc-iCoGMd iEiTVC"
+      class="sc-fujyAs hlqtOr"
       cx="50"
       cy="50"
       r="32"
@@ -248,7 +248,7 @@ exports[`App displays sign in page if user is not signed in: app-loading 1`] = `
       />
     </circle>
     <circle
-      class="sc-iCoGMd nHcLQ"
+      class="sc-fujyAs dgZGXJ"
       cx="50"
       cy="50"
       r="26"

@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
 import React from "react";
 import { Circle, Svg } from "../../wrappers/StyledWrappers";
-import { IconSize } from "./loadingAnimation.styles";
+import type { IconSize } from "./loadingAnimation.styles";
 import * as styles from "./loadingAnimation.styles";
 
 interface LoadingAnimationProps {

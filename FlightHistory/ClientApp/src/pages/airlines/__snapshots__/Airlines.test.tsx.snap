@@ -9,7 +9,7 @@ exports[`Airlines Page matches snapshot 1`] = `
       class="sc-bdnxRM eXUoTH"
     >
       <a
-        class="sc-fujyAs JsHRD"
+        class="sc-pNWdM bKbszN"
         css="
     ,
         font-size: ,1.25rem,;
@@ -39,7 +39,7 @@ exports[`Airlines Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <path
@@ -61,7 +61,7 @@ exports[`Airlines Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <g>
@@ -87,7 +87,7 @@ exports[`Airlines Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <g>
@@ -115,7 +115,7 @@ exports[`Airlines Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <path
@@ -137,7 +137,7 @@ exports[`Airlines Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="sc-gKAaRy sJbFD"
+              class="sc-iCoGMd iJrxon"
               viewBox="0 0 24 24"
             >
               <rect
@@ -175,7 +175,7 @@ exports[`Airlines Page matches snapshot 1`] = `
           class="sc-jSFjdj fYNrOP"
         >
           <h2
-            class="sc-hKFxyN emEeii"
+            class="sc-hKFxyN bQYfIC"
           >
             Airlines
           </h2>
@@ -202,7 +202,7 @@ exports[`Airlines Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="sc-gKAaRy sJbFD"
+                            class="sc-iCoGMd iJrxon"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -371,7 +371,7 @@ exports[`Airlines Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="sc-gKAaRy sJbFD"
+                  class="sc-iCoGMd iJrxon"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -392,7 +392,7 @@ exports[`Airlines Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="sc-gKAaRy sJbFD"
+                  class="sc-iCoGMd iJrxon"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -420,7 +420,7 @@ exports[`Airlines Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="sc-gKAaRy sJbFD"
+                  class="sc-iCoGMd iJrxon"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -440,7 +440,7 @@ exports[`Airlines Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="sc-gKAaRy sJbFD"
+                  class="sc-iCoGMd iJrxon"
                   viewBox="0 0 24 24"
                 >
                   <path

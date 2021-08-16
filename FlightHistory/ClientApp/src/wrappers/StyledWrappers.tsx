@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { FlattenSimpleInterpolation } from "styled-components";
+import type { FlattenSimpleInterpolation } from "styled-components";
+import styled from "styled-components";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 interface StyledElementProps {
@@ -27,6 +27,10 @@ export const Main = styled.main<StyledElementProps>`
 `;
 
 export const Section = styled.section<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
+export const Form = styled.form<StyledElementProps>`
     ${(p) => p.css}
 `;
 
