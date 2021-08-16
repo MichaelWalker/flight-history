@@ -12,6 +12,10 @@ export const Div = styled.div<StyledElementProps>`
     ${(p) => p.css}
 `;
 
+export const Span = styled.span<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
 export const Header = styled.header<StyledElementProps>`
     ${(p) => p.css}
 `;
@@ -33,6 +37,10 @@ export const Section = styled.section<StyledElementProps>`
 `;
 
 export const Form = styled.form<StyledElementProps>`
+    ${(p) => p.css}
+`;
+
+export const Label = styled.label<StyledElementProps>`
     ${(p) => p.css}
 `;
 

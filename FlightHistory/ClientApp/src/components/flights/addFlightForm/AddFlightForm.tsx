@@ -1,8 +1,9 @@
 import type { FC } from "react";
-import React from "react";
+import React, { useState } from "react";
 import { Airport } from "../../../models/airport";
 import { stubAirportList } from "../../../models/airport.testdata";
 import { Form } from "../../../wrappers/StyledWrappers";
+import { EmailInput } from "../../forms/Input";
 import { Select, SelectOption } from "../../forms/select/Select";
 import { CardSection } from "../../layouts/CardSection";
 import * as styles from "./addFlightForm.styles";
@@ -30,7 +31,7 @@ export const AddFlightForm: FC = () => {
     return (
         <CardSection title={"Add Flight"} css={styles.addFlightSection}>
             <Form>
-                <Select loadOptions={getOptions} />
+                <Select label="Source Airport" loadOptions={getOptions} />
             </Form>
         </CardSection>
     );
