@@ -43,7 +43,9 @@
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\addFlightForm.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\AddFlightForm.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\FlightsTable.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\form.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\input.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\select.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\Select.tsx" />

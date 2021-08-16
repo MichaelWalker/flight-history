@@ -1,6 +1,6 @@
 ﻿import type { FunctionComponent } from "react";
 import React from "react";
-import styles from "./Input.module.scss";
+import * as styles from "./input.styles";
 
 interface TextInputProps {
     value: string;

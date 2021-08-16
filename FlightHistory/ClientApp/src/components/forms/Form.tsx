@@ -1,7 +1,7 @@
 ﻿import type { FormEvent, ReactElement, ReactNode } from "react";
 import React, { useEffect, useState } from "react";
 import { SubmitButton } from "./SubmitButton";
-import styles from "./Form.module.scss";
+import * as styles from "./form.styles";
 import { CSSTransition } from "react-transition-group";
 import type { ApiError } from "../../api/requests";
 
