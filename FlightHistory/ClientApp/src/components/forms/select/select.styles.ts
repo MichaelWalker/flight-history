@@ -1,12 +1,44 @@
 import { css, CSSObject } from "@emotion/css";
 import { OptionProps } from "react-select";
-import { COLOUR_PALETTES, COLOURS, setColourPaletteObject } from "../../../styles/colours.styles";
-import { len, TRANSITIONS } from "../../../styles/constants.styles";
+import {
+    COLOUR_PALETTES,
+    COLOURS,
+    setColourPalette,
+    setColourPaletteObject,
+} from "../../../styles/colours.styles";
+import { len, SPACING, TRANSITIONS } from "../../../styles/constants.styles";
 import { font, fontObject, FONTS } from "../../../styles/fonts.styles";
 
-export const label = css`
-    ${font(FONTS.INPUT_LABEL_COLLAPSED)}
+export const selectContainer = css`
+    position: relative;
+    display: block;
+    padding-top: ${len(FONTS.INPUT_LABEL_COLLAPSED.lineHeight)};
+    margin-bottom: ${SPACING.MEDIUM};
 `;
+
+export function label(isCollapsed: boolean, isFocused: boolean): string {
+    const common = css`
+        ${setColourPalette(isFocused ? COLOUR_PALETTES.ACTIVE : COLOUR_PALETTES.LABEL)}
+        transition: all ease ${TRANSITIONS.DEFAULT};
+        position: absolute;
+        display: inline-block;
+        left: 0;
+    `;
+
+    if (isCollapsed) {
+        return css`
+            ${common}
+            ${font(FONTS.INPUT_LABEL_COLLAPSED)}
+            top: 0;
+        `;
+    }
+
+    return css`
+        ${common}
+        ${font(FONTS.INPUT_LABEL_EXPANDED)}
+        top: ${len(FONTS.INPUT_LABEL_COLLAPSED.lineHeight)};
+    `;
+}
 
 export const dropdownIndicator = css`
     width: ${len(6)};
@@ -16,7 +48,7 @@ export const dropdownIndicator = css`
 export const control = (): CSSObject => {
     return {
         position: "relative",
-        minHeight: len(9),
+        minHeight: len(FONTS.INPUT.lineHeight),
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-between",
@@ -35,7 +67,7 @@ export const control = (): CSSObject => {
 export const input = () => {
     return {
         ...setColourPaletteObject(COLOUR_PALETTES.DEFAULT),
-        ...fontObject(FONTS.DEFAULT),
+        ...fontObject(FONTS.INPUT),
     };
 };
 
@@ -56,7 +88,7 @@ export const singleValue = (base: CSSObject) => {
     return {
         ...base,
         ...setColourPaletteObject(COLOUR_PALETTES.DEFAULT),
-        ...fontObject(FONTS.DEFAULT),
+        ...fontObject(FONTS.INPUT),
         marginLeft: 0,
     };
 };

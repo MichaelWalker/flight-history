@@ -11,6 +11,7 @@ interface ColourPalette {
 
 const WHITE = "#ffffff";
 const LIGHT_GREY = "#e1e1e2";
+const DARK_GREY = "#686868";
 const TEAL = "#3e8989";
 const GREEN = "#2cda9d";
 const DARK_GREEN = "#1a181b";
@@ -34,6 +35,7 @@ export const COLOUR_PALETTES = {
     },
     CARD: { ...DEFAULT_PALETTE, background: WHITE },
     ACTIVE: { ...DEFAULT_PALETTE, foreground: TEAL },
+    LABEL: { ...DEFAULT_PALETTE, foreground: DARK_GREY },
 } as const;
 
 export const COLOURS = {

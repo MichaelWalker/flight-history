@@ -31,6 +31,7 @@ export const AddFlightForm: FC = () => {
         <CardSection title={"Add Flight"} className={styles.addFlightSection}>
             <form>
                 <Select label="Source Airport" loadOptions={getOptions} />
+                <Select label="Destination Airport" loadOptions={getOptions} />
             </form>
         </CardSection>
     );

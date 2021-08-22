@@ -1,5 +1,5 @@
 import type { FC, ReactElement } from "react";
-import React from "react";
+import React, { useState } from "react";
 import { Styles } from "react-select";
 import AsyncSelect from "react-select/async";
 import { ExpandMoreIcon } from "../../../icons/ExpandMoreIcon";
@@ -24,6 +24,10 @@ const DropdownIndicator: FC = () => {
 };
 
 export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement {
+    const [isFocused, setIsFocused] = useState(false);
+    const [value, setValue] = useState<T | null>(null);
+    const collapsedLabel = isFocused || Boolean(value);
+
     const selectStyles: Styles<T, false, any> = {
         control: styles.control,
         indicatorSeparator: styles.indicatorSeparator,
@@ -36,8 +40,8 @@ export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement 
     };
 
     return (
-        <label>
-            <span className={styles.label}>{label}</span>
+        <label className={styles.selectContainer}>
+            <span className={styles.label(collapsedLabel, isFocused)}>{label}</span>
             <AsyncSelect
                 loadOptions={loadOptions}
                 styles={selectStyles}
@@ -48,6 +52,9 @@ export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement 
                 noOptionsMessage={({ inputValue }) =>
                     inputValue ? "No results" : "Search by name or code"
                 }
+                onChange={(newValue) => setValue(newValue)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
             />
         </label>
     );
