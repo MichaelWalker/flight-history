@@ -15,7 +15,7 @@ const CONTENT_GUTTERS = SPACING.LARGE;
 const PAGE_TOP_MARGIN = SPACING.SMALL;
 
 export const pageContainer = css`
-    ${setColourPalette(COLOUR_PALETTES.MEDIUM)}
+    ${setColourPalette(COLOUR_PALETTES.DEFAULT)}
     background: ${COLOURS.BACKGROUND};
     display: flex;
     align-items: center;

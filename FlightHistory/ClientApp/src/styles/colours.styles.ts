@@ -1,4 +1,5 @@
-import { css } from "@emotion/css";
+import { css, CSSObject } from "@emotion/css";
+import { rgba } from "./helpers";
 
 interface ColourPalette {
     primary: string;
@@ -24,7 +25,7 @@ const DEFAULT_PALETTE = {
 };
 
 export const COLOUR_PALETTES = {
-    MEDIUM: DEFAULT_PALETTE,
+    DEFAULT: DEFAULT_PALETTE,
     NAV: { ...DEFAULT_PALETTE, foreground: WHITE, background: DARK_GREEN },
     GRADIENT_BACKGROUND: {
         ...DEFAULT_PALETTE,
@@ -32,6 +33,7 @@ export const COLOUR_PALETTES = {
         background: `linear-gradient(45deg, ${TEAL}, ${GREEN})`,
     },
     CARD: { ...DEFAULT_PALETTE, background: WHITE },
+    ACTIVE: { ...DEFAULT_PALETTE, foreground: TEAL },
 } as const;
 
 export const COLOURS = {
@@ -40,16 +42,22 @@ export const COLOURS = {
     FOREGROUND: "var(--color-foreground)",
     BACKGROUND: "var(--color-background)",
     SHADOW: "var(--color-shadow)",
+    BACKGROUND_SELECTED: "var(--color-background-selected)",
 } as const;
 
+export function setColourPaletteObject(palette: ColourPalette): CSSObject {
+    return {
+        "--color-primary": palette.primary,
+        "--color-secondary": palette.secondary,
+        "--color-foreground": palette.foreground,
+        "--color-background": palette.background,
+        "--color-shadow": palette.shadow,
+        "--color-background-selected": rgba(palette.primary, 0.3),
+    };
+}
+
 export function setColourPalette(palette: ColourPalette): string {
-    return css`
-        --color-primary: ${palette.primary};
-        --color-secondary: ${palette.secondary};
-        --color-foreground: ${palette.foreground};
-        --color-background: ${palette.background};
-        --color-shadow: ${palette.shadow};
-    `;
+    return css(setColourPaletteObject(palette));
 }
 
 export function gradientBackground(): string {

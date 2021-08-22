@@ -14,15 +14,20 @@ export const FONTS = {
     PAGE_TITLE: { size: 4, lineHeight: 8, fontWeight: 500, transform: "uppercase" },
     SECTION_TITLE: { size: 6, lineHeight: 8, fontWeight: 300, transform: "none" },
     LOGO: { size: 5, lineHeight: 8, fontWeight: 300, transform: "uppercase" },
+    INPUT_LABEL_COLLAPSED: { size: 3, lineHeight: 3, fontWeight: 300, transform: "uppercase" },
 } as const;
 
-export function font({ size, lineHeight, fontWeight, transform }: Font): string {
-    return css`
-        font-size: ${len(size)};
-        line-height: ${len(lineHeight)};
-        font-weight: ${fontWeight};
-        font-family: "Ubuntu", sans-serif;
-        color: ${COLOURS.FOREGROUND};
-        text-transform: ${transform};
-    `;
+export function fontObject({ size, lineHeight, fontWeight, transform }: Font) {
+    return {
+        fontSize: len(size),
+        lineHeight: len(lineHeight),
+        fontWeight: fontWeight,
+        fontFamily: '"Ubuntu", sans-serif',
+        color: COLOURS.FOREGROUND,
+        textTransform: transform,
+    };
+}
+
+export function font(props: Font): string {
+    return css(fontObject(props));
 }
