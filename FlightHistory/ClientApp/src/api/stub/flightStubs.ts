@@ -9,7 +9,7 @@ export const FlightStubs: StubApiResponse[] = [
         method: "GET",
         getResponseBody: (urlString: string): Response => {
             const url = toURL(urlString);
-            const page = stubItemList(url, stubFlightList);
+            const page = stubItemList(url, stubFlightList, ["date"]);
             return new Response(JSON.stringify(page));
         },
     },

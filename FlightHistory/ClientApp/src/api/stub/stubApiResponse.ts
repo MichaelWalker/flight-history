@@ -33,18 +33,37 @@ const stubResponses: StubApiResponse[] = [
     ...FlightStubs,
 ];
 
-export function stubItemList<T extends Item>(url: URL, items: T[]): ItemListResponse<T> {
+function searchFilter<T>(searchInput: string, searchFields: Array<keyof T>): (item: T) => boolean {
+    return (item) => {
+        return searchFields.some((key) => {
+            return `${item[key]}`.toLowerCase().includes(searchInput.toLowerCase());
+        });
+    };
+}
+
+export function stubItemList<T extends Item>(
+    url: URL,
+    items: T[],
+    searchFields: Array<keyof T>,
+): ItemListResponse<T> {
     const pageString = url.searchParams.get("page");
     const pageSizeString = url.searchParams.get("pageSize");
     const sort = parseSort(url);
     const page = pageString ? parseInt(pageString) : 1;
     const pageSize = pageSizeString ? parseInt(pageSizeString) : 20;
+    const searchInput = url.searchParams.get("search") || "";
 
     const start = (page - 1) * pageSize;
     const end = page * pageSize;
+
+    const returnedItems = items
+        .filter(searchFilter(searchInput, searchFields))
+        .sort(stubSort(sort))
+        .slice(start, end);
+
     return {
-        items: items.sort(stubSort(sort)).slice(start, end),
-        count: items.length,
+        items: returnedItems,
+        count: returnedItems.length,
     };
 }
 

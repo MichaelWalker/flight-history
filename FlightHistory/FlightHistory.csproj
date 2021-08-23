@@ -47,6 +47,7 @@
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\input.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\select\airportSelect\AirportSelect.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\select.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\Select.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\SubmitButton.tsx" />
