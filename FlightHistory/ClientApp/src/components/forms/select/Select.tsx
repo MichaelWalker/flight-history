@@ -1,7 +1,8 @@
 import type { FC, ReactElement } from "react";
 import React, { useState } from "react";
-import { Styles } from "react-select";
+import { CommonProps, Styles } from "react-select";
 import AsyncSelect from "react-select/async";
+import { ClearIcon } from "../../../icons/ClearIcon";
 import { ExpandMoreIcon } from "../../../icons/ExpandMoreIcon";
 import * as styles from "./select.styles";
 
@@ -15,8 +16,8 @@ export type LoadOptions<T> = (search: string) => Promise<SelectOption<T>[]>;
 interface SelectProps<T> {
     label: string;
     loadOptions: LoadOptions<T>;
-    value: T | null;
-    setValue: (value: T | null) => void;
+    option: SelectOption<T> | null;
+    setOption: (option: SelectOption<T> | null) => void;
 }
 
 const DropdownIndicator: FC = () => {
@@ -27,9 +28,17 @@ const DropdownIndicator: FC = () => {
     );
 };
 
-export function Select<T>({ label, loadOptions, value, setValue }: SelectProps<T>): ReactElement {
+const ClearIndicator: FC<CommonProps<any, any>> = (props) => {
+    return (
+        <button className={styles.clearIndicator} onClick={props.clearValue} aria-label={"Clear"}>
+            <ClearIcon />
+        </button>
+    );
+};
+
+export function Select<T>({ label, loadOptions, option, setOption }: SelectProps<T>): ReactElement {
     const [isFocused, setIsFocused] = useState(false);
-    const collapsedLabel = isFocused || Boolean(value);
+    const collapsedLabel = isFocused || Boolean(option);
 
     const selectStyles: Styles<SelectOption<T>, false, any> = {
         control: styles.control,
@@ -50,14 +59,17 @@ export function Select<T>({ label, loadOptions, value, setValue }: SelectProps<T
                 styles={selectStyles}
                 placeholder=""
                 components={{
-                    DropdownIndicator: DropdownIndicator,
+                    DropdownIndicator,
+                    ClearIndicator,
                 }}
                 noOptionsMessage={({ inputValue }) =>
                     inputValue ? "No results" : "Search by name or code"
                 }
-                onChange={(newValue: SelectOption<T>) => setValue(newValue.value)}
+                value={option}
+                onChange={(option) => setOption(option)}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
+                isClearable={true}
             />
         </label>
     );

@@ -45,6 +45,12 @@ export const dropdownIndicator = css`
     height: ${len(6)};
 `;
 
+export const clearIndicator = css`
+    width: ${len(5)};
+    height: ${len(5)};
+    background: transparent;
+`;
+
 export const control = (): CSSObject => {
     return {
         position: "relative",

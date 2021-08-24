@@ -29,18 +29,18 @@ function expectLabelIsCollapsedAndHighlighted() {
 }
 
 interface RenderSelectOptions {
-    value?: string | null;
-    setValue?: (value: string | null) => void;
+    option?: SelectOption<string> | null;
+    setOption?: (option: SelectOption<string> | null) => void;
     loadOptions?: LoadOptions<string>;
 }
 
 function renderSelect({
-    value = null,
-    setValue = jest.fn(),
+    option = null,
+    setOption = jest.fn(),
     loadOptions = sampleLoadOptions,
 }: RenderSelectOptions = {}): RenderResult {
     return render(
-        <Select label={"Label"} loadOptions={loadOptions} value={value} setValue={setValue} />,
+        <Select label={"Label"} loadOptions={loadOptions} option={option} setOption={setOption} />,
     );
 }
 
@@ -52,7 +52,7 @@ describe("The Select Component", () => {
         });
 
         it("has a collapsed label if input is not empty", () => {
-            renderSelect({ value: "1" });
+            renderSelect({ option: { label: "Option 1", value: "1" } });
             expectLabelIsExpanded();
         });
     });
@@ -101,8 +101,8 @@ describe("The Select Component", () => {
         });
 
         it("allows selecting a value", async () => {
-            const setValue = jest.fn();
-            renderSelect({ setValue });
+            const setOption = jest.fn();
+            renderSelect({ setOption });
 
             const input = screen.getByLabelText("Label") as HTMLSelectElement;
             userEvent.type(input, "Opt");
@@ -111,7 +111,17 @@ describe("The Select Component", () => {
                 userEvent.click(option1);
             });
 
-            expect(setValue).toHaveBeenCalledWith("1");
+            expect(setOption).toHaveBeenCalledWith({ label: "Option 1", value: "1" });
+        });
+
+        it("allows removing a value", async () => {
+            const setOption = jest.fn();
+            renderSelect({ option: { label: "Option 1", value: "1" }, setOption });
+
+            expect(screen.getByText("Option 1")).toBeInTheDocument();
+            userEvent.click(screen.getByLabelText("Clear"));
+
+            await waitFor(() => expect(setOption).toHaveBeenCalledWith(null));
         });
     });
 });
