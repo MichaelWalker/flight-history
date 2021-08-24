@@ -3,13 +3,13 @@
 exports[`Flights Page matches snapshot 1`] = `
 <div>
   <div
-    class="css-12flfc4"
+    class="css-opzq46"
   >
     <div
-      class="css-1s5ftkt"
+      class="css-1tyka62"
     >
       <a
-        class="css-nil78o"
+        class="css-dp7dt0"
         href="/"
       >
         Flight History
@@ -26,7 +26,7 @@ exports[`Flights Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <path
@@ -48,7 +48,7 @@ exports[`Flights Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <g>
@@ -74,7 +74,7 @@ exports[`Flights Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <g>
@@ -102,7 +102,7 @@ exports[`Flights Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <path
@@ -124,7 +124,7 @@ exports[`Flights Page matches snapshot 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <rect
@@ -146,10 +146,10 @@ exports[`Flights Page matches snapshot 1`] = `
       class="css-11duela"
     >
       <header
-        class="css-1aekbpj"
+        class="css-abbpvh"
       >
         <h1
-          class="css-jflnc0"
+          class="css-1cbqxq6"
           data-testid="page-title"
         >
           Flights
@@ -159,10 +159,10 @@ exports[`Flights Page matches snapshot 1`] = `
         class="css-1nkno5c"
       >
         <section
-          class="css-xkgt5d"
+          class="css-1lb05ph"
         >
           <h2
-            class="css-1cv2kcj"
+            class="css-omoex7"
           >
             Flights
           </h2>
@@ -189,7 +189,7 @@ exports[`Flights Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="css-1g5fb6s"
+                            class="css-zqj3wo"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -219,7 +219,7 @@ exports[`Flights Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="css-1g5fb6s"
+                            class="css-zqj3wo"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -249,7 +249,7 @@ exports[`Flights Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="css-1g5fb6s"
+                            class="css-zqj3wo"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -279,7 +279,7 @@ exports[`Flights Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="css-1g5fb6s"
+                            class="css-zqj3wo"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -309,7 +309,7 @@ exports[`Flights Page matches snapshot 1`] = `
                           class="sortable"
                         >
                           <svg
-                            class="css-1g5fb6s"
+                            class="css-zqj3wo"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -876,7 +876,7 @@ exports[`Flights Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="css-1g5fb6s"
+                  class="css-zqj3wo"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -897,7 +897,7 @@ exports[`Flights Page matches snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  class="css-1g5fb6s"
+                  class="css-zqj3wo"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -915,16 +915,17 @@ exports[`Flights Page matches snapshot 1`] = `
                 Page 
                 1
                  of 
-                7
+                1
               </span>
               <button
                 aria-label="Next Page"
                 class="button"
                 data-testid="next-page-button"
+                disabled=""
                 type="button"
               >
                 <svg
-                  class="css-1g5fb6s"
+                  class="css-zqj3wo"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -940,10 +941,11 @@ exports[`Flights Page matches snapshot 1`] = `
                 aria-label="Last Page"
                 class="button"
                 data-testid="last-page-button"
+                disabled=""
                 type="button"
               >
                 <svg
-                  class="css-1g5fb6s"
+                  class="css-zqj3wo"
                   viewBox="0 0 24 24"
                 >
                   <path

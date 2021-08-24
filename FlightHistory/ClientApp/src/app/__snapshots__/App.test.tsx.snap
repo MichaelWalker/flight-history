@@ -48,13 +48,13 @@ exports[`App displays dashboard if user is signed in: app-loading 1`] = `
 exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
 <div>
   <div
-    class="css-12flfc4"
+    class="css-opzq46"
   >
     <div
-      class="css-1s5ftkt"
+      class="css-1tyka62"
     >
       <a
-        class="css-nil78o"
+        class="css-dp7dt0"
         href="/"
       >
         Flight History
@@ -71,7 +71,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <path
@@ -93,7 +93,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <g>
@@ -119,7 +119,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <g>
@@ -147,7 +147,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <path
@@ -169,7 +169,7 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
             class="iconContainer"
           >
             <svg
-              class="css-1g5fb6s"
+              class="css-zqj3wo"
               viewBox="0 0 24 24"
             >
               <rect
@@ -191,10 +191,10 @@ exports[`App displays dashboard if user is signed in: dashboard-page 1`] = `
       class="css-11duela"
     >
       <header
-        class="css-1aekbpj"
+        class="css-abbpvh"
       >
         <h1
-          class="css-jflnc0"
+          class="css-1cbqxq6"
           data-testid="page-title"
         >
           Dashboard
@@ -271,30 +271,30 @@ exports[`App displays sign in page if user is not signed in: sign-in-page 1`] = 
       </h1>
       <form>
         <label
-          class="field"
+          class="css-oeotp9"
         >
           <span
-            class="label"
+            class="css-ar6pse"
           >
             Email
           </span>
           <input
-            class="input"
+            class="css-1ielmxe"
             required=""
             type="email"
             value=""
           />
         </label>
         <label
-          class="field"
+          class="css-oeotp9"
         >
           <span
-            class="label"
+            class="css-ar6pse"
           >
             Password
           </span>
           <input
-            class="input"
+            class="css-1ielmxe"
             required=""
             type="password"
             value=""
@@ -308,7 +308,7 @@ exports[`App displays sign in page if user is not signed in: sign-in-page 1`] = 
           Sign In
         </button>
         <div
-          class="errorMessage"
+          class="css-1btb9lf"
         />
       </form>
     </section>

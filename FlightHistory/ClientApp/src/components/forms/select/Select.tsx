@@ -10,9 +10,13 @@ export interface SelectOption<T> {
     value: T;
 }
 
+export type LoadOptions<T> = (search: string) => Promise<SelectOption<T>[]>;
+
 interface SelectProps<T> {
     label: string;
-    loadOptions: (search: string) => Promise<SelectOption<T>[]>;
+    loadOptions: LoadOptions<T>;
+    value: T | null;
+    setValue: (value: T | null) => void;
 }
 
 const DropdownIndicator: FC = () => {
@@ -23,12 +27,11 @@ const DropdownIndicator: FC = () => {
     );
 };
 
-export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement {
+export function Select<T>({ label, loadOptions, value, setValue }: SelectProps<T>): ReactElement {
     const [isFocused, setIsFocused] = useState(false);
-    const [value, setValue] = useState<T | null>(null);
     const collapsedLabel = isFocused || Boolean(value);
 
-    const selectStyles: Styles<T, false, any> = {
+    const selectStyles: Styles<SelectOption<T>, false, any> = {
         control: styles.control,
         indicatorSeparator: styles.indicatorSeparator,
         input: styles.input,
@@ -52,7 +55,7 @@ export function Select<T>({ label, loadOptions }: SelectProps<T>): ReactElement 
                 noOptionsMessage={({ inputValue }) =>
                     inputValue ? "No results" : "Search by name or code"
                 }
-                onChange={(newValue) => setValue(newValue)}
+                onChange={(newValue: SelectOption<T>) => setValue(newValue.value)}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
             />

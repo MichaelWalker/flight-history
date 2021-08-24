@@ -5,6 +5,8 @@ import { Select, SelectOption } from "../Select";
 
 interface AirportSelectProps {
     label: string;
+    value: Airport | null;
+    setValue: (airport: Airport | null) => void;
 }
 
 async function getAirportOptions(searchInput: string): Promise<SelectOption<Airport>[]> {
@@ -15,6 +17,8 @@ async function getAirportOptions(searchInput: string): Promise<SelectOption<Airp
     );
 }
 
-export const AirportSelect: FC<AirportSelectProps> = ({ label }) => {
-    return <Select label={label} loadOptions={getAirportOptions} />;
+export const AirportSelect: FC<AirportSelectProps> = ({ label, value, setValue }) => {
+    return (
+        <Select label={label} value={value} setValue={setValue} loadOptions={getAirportOptions} />
+    );
 };

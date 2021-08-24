@@ -16,30 +16,30 @@ exports[`SignIn Page matches snapshot 1`] = `
       </h1>
       <form>
         <label
-          class="field"
+          class="css-oeotp9"
         >
           <span
-            class="label"
+            class="css-ar6pse"
           >
             Email
           </span>
           <input
-            class="input"
+            class="css-1ielmxe"
             required=""
             type="email"
             value=""
           />
         </label>
         <label
-          class="field"
+          class="css-oeotp9"
         >
           <span
-            class="label"
+            class="css-ar6pse"
           >
             Password
           </span>
           <input
-            class="input"
+            class="css-1ielmxe"
             required=""
             type="password"
             value=""
@@ -53,7 +53,7 @@ exports[`SignIn Page matches snapshot 1`] = `
           Sign In
         </button>
         <div
-          class="errorMessage"
+          class="css-1btb9lf"
         />
       </form>
     </section>

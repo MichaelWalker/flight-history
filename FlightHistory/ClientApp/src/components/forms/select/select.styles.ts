@@ -93,13 +93,6 @@ export const singleValue = (base: CSSObject) => {
     };
 };
 
-export const menu = (base: CSSObject) => {
-    return {
-        ...base,
-        background: "red",
-    };
-};
-
 export const loadingMessage = (base: CSSObject) => {
     return {
         ...base,
