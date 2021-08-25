@@ -4,8 +4,8 @@ import type { Aircraft } from "../models/aircraft";
 
 async function list(
     pagination: Pagination,
-    sort: Sort,
-    search: string,
+    sort?: Sort,
+    search?: string,
 ): Promise<ItemListResponse<Aircraft>> {
     return getList("/api/aircraft", pagination, sort, search);
 }

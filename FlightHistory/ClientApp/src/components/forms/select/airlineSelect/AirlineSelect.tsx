@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { AirlineClient } from "../../../../api/airlineClient";
-import { AirportsClient } from "../../../../api/airportsClient";
 import { Airline } from "../../../../models/airline";
 import { Select, SelectOption } from "../Select";
 
