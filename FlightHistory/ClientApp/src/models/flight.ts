@@ -10,3 +10,5 @@ export interface Flight {
     airline: Airline;
     date: string;
 }
+
+export type CreateFlight = Omit<Flight, "id">;

@@ -71,7 +71,7 @@ export function Select<T>({
 
     return (
         <label className={styles.selectContainer}>
-            <span className={styles.label(collapsedLabel, isFocused)}>{label}</span>
+            <span className={styles.selectLabel(collapsedLabel, isFocused)}>{label}</span>
             <AsyncSelect
                 loadOptions={loadOptions}
                 styles={selectStyles}

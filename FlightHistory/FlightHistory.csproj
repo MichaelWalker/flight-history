@@ -43,10 +43,14 @@
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\addFlightForm.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\AddFlightForm.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\FlightsTable.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\common.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\form.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\input.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\input\dateInput\DateInput.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\input\input.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\input\Input.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\aircraftSelect\AircraftSelect.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\airlineSelect\AirlineSelect.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\airportSelect\AirportSelect.tsx" />

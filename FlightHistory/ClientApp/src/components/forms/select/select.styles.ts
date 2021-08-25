@@ -8,36 +8,12 @@ import {
 } from "../../../styles/colours.styles";
 import { len, SPACING, TRANSITIONS } from "../../../styles/constants.styles";
 import { font, fontObject, FONTS } from "../../../styles/fonts.styles";
+import { formInputContainer, formLabel } from "../common.styles";
 
-export const selectContainer = css`
-    position: relative;
-    display: block;
-    padding-top: ${len(FONTS.INPUT_LABEL_COLLAPSED.lineHeight)};
-    margin-bottom: ${SPACING.MEDIUM};
-`;
+export const selectContainer = formInputContainer;
 
-export function label(isCollapsed: boolean, isFocused: boolean): string {
-    const common = css`
-        ${setColourPalette(isFocused ? COLOUR_PALETTES.ACTIVE : COLOUR_PALETTES.LABEL)}
-        transition: all ease ${TRANSITIONS.DEFAULT};
-        position: absolute;
-        display: inline-block;
-        left: 0;
-    `;
-
-    if (isCollapsed) {
-        return css`
-            ${common}
-            ${font(FONTS.INPUT_LABEL_COLLAPSED)}
-            top: 0;
-        `;
-    }
-
-    return css`
-        ${common}
-        ${font(FONTS.INPUT_LABEL_EXPANDED)}
-        top: ${len(FONTS.INPUT_LABEL_COLLAPSED.lineHeight)};
-    `;
+export function selectLabel(isCollapsed: boolean, isFocused: boolean): string {
+    return formLabel(isCollapsed, isFocused);
 }
 
 export const dropdownIndicator = css`
