@@ -19,6 +19,7 @@ interface SelectProps<T> {
     value: T | null;
     setValue: (value: T | null) => void;
     toOptionLabel: (item: T) => string;
+    helpText: string;
 }
 
 const DropdownIndicator: FC = () => {
@@ -54,6 +55,7 @@ export function Select<T>({
     value,
     setValue,
     toOptionLabel,
+    helpText,
 }: SelectProps<T>): ReactElement {
     const [isFocused, setIsFocused] = useState(false);
     const collapsedLabel = isFocused || value !== null;
@@ -80,9 +82,7 @@ export function Select<T>({
                     DropdownIndicator,
                     ClearIndicator,
                 }}
-                noOptionsMessage={({ inputValue }) =>
-                    inputValue ? "No results" : "Search by name or code"
-                }
+                noOptionsMessage={({ inputValue }) => (inputValue ? "No results" : helpText)}
                 value={toOption(value, toOptionLabel)}
                 onChange={(option) => setValue(fromOption(option))}
                 onFocus={() => setIsFocused(true)}

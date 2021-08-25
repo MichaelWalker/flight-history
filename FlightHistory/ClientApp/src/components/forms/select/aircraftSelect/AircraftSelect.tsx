@@ -25,6 +25,7 @@ export const AircraftSelect: FC<AircraftSelectProps> = ({ label, value, setValue
             setValue={setValue}
             loadOptions={getAircraftOptions}
             toOptionLabel={(aircraft) => aircraft.registration}
+            helpText={"Search by aircraft registration or model"}
         />
     );
 };

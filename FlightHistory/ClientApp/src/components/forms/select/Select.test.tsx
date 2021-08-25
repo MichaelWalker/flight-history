@@ -46,6 +46,7 @@ function renderSelect({
             value={value}
             setValue={setValue}
             toOptionLabel={(item) => `Option ${item}`}
+            helpText={"Search by name or code"}
         />,
     );
 }

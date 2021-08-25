@@ -25,6 +25,7 @@ export const AirlineSelect: FC<AirlineSelectProps> = ({ label, value, setValue }
             setValue={setValue}
             loadOptions={getAirlineOptions}
             toOptionLabel={(airline) => airline.name}
+            helpText={"Search by airline name"}
         />
     );
 };
