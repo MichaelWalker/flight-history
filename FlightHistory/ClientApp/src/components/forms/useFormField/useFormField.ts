@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export interface FormField<T> {
+interface FormField<T> {
     label: string;
     value: T | null;
     setValue: (value: T | null) => void;
@@ -8,13 +8,12 @@ export interface FormField<T> {
     validationError: string | null;
 }
 
-interface FieldOptions<T> {
-    initialValue?: T | null;
+interface RequiredFormField<T> extends FormField<T> {
+    validate: () => T;
 }
 
-interface FieldProps<T> {
-    label: string;
-    options?: FieldOptions<T>;
+interface FieldOptions<T> {
+    initialValue?: T | null;
 }
 
 export function useField<T>(label: string, options: FieldOptions<T> = {}): FormField<T> {
@@ -33,5 +32,24 @@ export function useField<T>(label: string, options: FieldOptions<T> = {}): FormF
         setValue,
         validate,
         validationError,
+    };
+}
+
+export function useRequiredField<T>(
+    label: string,
+    options: FieldOptions<T> = {},
+): RequiredFormField<T> {
+    const field = useField(label, options);
+
+    function validate(): T {
+        if (field.value === null || (typeof field === "string" && field === "")) {
+            throw Error("Cannot be null");
+        }
+        return field.value;
+    }
+
+    return {
+        ...field,
+        validate,
     };
 }
