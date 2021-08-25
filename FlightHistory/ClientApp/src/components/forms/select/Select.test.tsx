@@ -29,18 +29,24 @@ function expectLabelIsCollapsedAndHighlighted() {
 }
 
 interface RenderSelectOptions {
-    option?: SelectOption<string> | null;
-    setOption?: (option: SelectOption<string> | null) => void;
+    value?: string | null;
+    setValue?: (option: string | null) => void;
     loadOptions?: LoadOptions<string>;
 }
 
 function renderSelect({
-    option = null,
-    setOption = jest.fn(),
+    value = null,
+    setValue = jest.fn(),
     loadOptions = sampleLoadOptions,
 }: RenderSelectOptions = {}): RenderResult {
     return render(
-        <Select label={"Label"} loadOptions={loadOptions} option={option} setOption={setOption} />,
+        <Select
+            label={"Label"}
+            loadOptions={loadOptions}
+            value={value}
+            setValue={setValue}
+            toOptionLabel={(item) => `Option ${item}`}
+        />,
     );
 }
 
@@ -52,7 +58,7 @@ describe("The Select Component", () => {
         });
 
         it("has a collapsed label if input is not empty", () => {
-            renderSelect({ option: { label: "Option 1", value: "1" } });
+            renderSelect({ value: "1" });
             expectLabelIsExpanded();
         });
     });
@@ -101,8 +107,8 @@ describe("The Select Component", () => {
         });
 
         it("allows selecting a value", async () => {
-            const setOption = jest.fn();
-            renderSelect({ setOption });
+            const setValue = jest.fn();
+            renderSelect({ setValue });
 
             const input = screen.getByLabelText("Label") as HTMLSelectElement;
             userEvent.type(input, "Opt");
@@ -111,17 +117,17 @@ describe("The Select Component", () => {
                 userEvent.click(option1);
             });
 
-            expect(setOption).toHaveBeenCalledWith({ label: "Option 1", value: "1" });
+            expect(setValue).toHaveBeenCalledWith("1");
         });
 
         it("allows removing a value", async () => {
-            const setOption = jest.fn();
-            renderSelect({ option: { label: "Option 1", value: "1" }, setOption });
+            const setValue = jest.fn();
+            renderSelect({ value: "1", setValue });
 
             expect(screen.getByText("Option 1")).toBeInTheDocument();
             userEvent.click(screen.getByLabelText("Clear"));
 
-            await waitFor(() => expect(setOption).toHaveBeenCalledWith(null));
+            await waitFor(() => expect(setValue).toHaveBeenCalledWith(null));
         });
     });
 });

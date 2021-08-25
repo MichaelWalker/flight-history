@@ -9,17 +9,6 @@ interface AirportSelectProps {
     setValue: (airport: Airport | null) => void;
 }
 
-function toOption(airport: Airport | null): SelectOption<Airport> | null {
-    if (!airport) {
-        return null;
-    }
-    return { label: airport.name, value: airport };
-}
-
-function fromOption(option: SelectOption<Airport> | null): Airport | null {
-    return option ? option.value : null;
-}
-
 async function getAirportOptions(searchInput: string): Promise<SelectOption<Airport>[]> {
     return (await AirportsClient.list({ page: 1, pageSize: 5 }, undefined, searchInput)).items.map(
         (airport) => {
@@ -32,8 +21,9 @@ export const AirportSelect: FC<AirportSelectProps> = ({ label, value, setValue }
     return (
         <Select
             label={label}
-            option={toOption(value)}
-            setOption={(option) => setValue(fromOption(option))}
+            value={value}
+            setValue={setValue}
+            toOptionLabel={(airport) => airport.name}
             loadOptions={getAirportOptions}
         />
     );
