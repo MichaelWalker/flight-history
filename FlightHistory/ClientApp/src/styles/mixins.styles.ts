@@ -1,9 +1,9 @@
 import { css, CSSObject } from "@emotion/css";
-import { COLOUR_PALETTES, COLOURS, setColourPalette } from "./colours.styles";
+import { COLOUR_PALETTES, ColourPalette, COLOURS, setColourPalette } from "./colours.styles";
 import { len, SPACING } from "./constants.styles";
 
-const outlineBackgroundBand = `0 0 0 ${len(0.5)} ${COLOURS.BACKGROUND}`;
-const outlineHighlightBand = `0 0 0 ${len(1)} ${COLOURS.PRIMARY}`;
+const outlineBackgroundBand = (colour: string) => `0 0 0 ${len(0.5)} ${colour}`;
+const outlineHighlightBand = (colour: string) => `0 0 0 ${len(1)} ${colour}`;
 const boxShadow = `${len(1)} ${len(1)} ${len(2)} ${COLOURS.SHADOW}`;
 
 export function shadow(): string {
@@ -12,18 +12,22 @@ export function shadow(): string {
     `;
 }
 
-export function focusableObject(): CSSObject {
+export function focusableObject(
+    backgroundPalette: ColourPalette = COLOUR_PALETTES.CARD,
+): CSSObject {
     return {
         borderRadius: len(1),
         "&:focus, &:focus-within": {
             outline: "none",
-            boxShadow: `${outlineBackgroundBand}, ${outlineHighlightBand}`,
+            boxShadow: `${outlineBackgroundBand(
+                backgroundPalette.background,
+            )}, ${outlineHighlightBand(backgroundPalette.primary)}`,
         },
     };
 }
 
-export function focusable(): string {
-    return css(focusableObject());
+export function focusable(backgroundPalette: ColourPalette = COLOUR_PALETTES.CARD): string {
+    return css(focusableObject(backgroundPalette));
 }
 
 export function card(): string {

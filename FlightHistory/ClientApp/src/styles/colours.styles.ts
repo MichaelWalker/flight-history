@@ -1,7 +1,7 @@
 import { css, CSSObject } from "@emotion/css";
 import { rgba } from "./helpers";
 
-interface ColourPalette {
+export interface ColourPalette {
     primary: string;
     secondary: string;
     foreground: string;
@@ -16,6 +16,7 @@ const TEAL = "#3e8989";
 const GREEN = "#2cda9d";
 const DARK_GREEN = "#1a181b";
 const SHADOW = "rgba(0, 0, 0, 50%)";
+const TRANSPARENT = "transparent";
 
 const DEFAULT_PALETTE = {
     primary: TEAL,
@@ -24,9 +25,13 @@ const DEFAULT_PALETTE = {
     background: LIGHT_GREY,
     shadow: SHADOW,
 };
+const PRIMARY_PALETTE = { ...DEFAULT_PALETTE, foreground: WHITE, background: TEAL };
+const SECONDARY_PALETTE = { ...DEFAULT_PALETTE, foreground: TEAL, background: TRANSPARENT };
 
 export const COLOUR_PALETTES = {
     DEFAULT: DEFAULT_PALETTE,
+    PRIMARY: PRIMARY_PALETTE,
+    SECONDARY: SECONDARY_PALETTE,
     NAV: { ...DEFAULT_PALETTE, foreground: WHITE, background: DARK_GREEN },
     GRADIENT_BACKGROUND: {
         ...DEFAULT_PALETTE,
@@ -36,6 +41,8 @@ export const COLOUR_PALETTES = {
     CARD: { ...DEFAULT_PALETTE, background: WHITE },
     ACTIVE: { ...DEFAULT_PALETTE, foreground: TEAL },
     LABEL: { ...DEFAULT_PALETTE, foreground: DARK_GREY },
+    PRIMARY_ACTIVE: { ...PRIMARY_PALETTE, background: GREEN },
+    SECONDARY_ACTIVE: { ...SECONDARY_PALETTE, background: LIGHT_GREY },
 } as const;
 
 export const COLOURS = {

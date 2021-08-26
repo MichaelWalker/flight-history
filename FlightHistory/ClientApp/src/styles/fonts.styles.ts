@@ -20,6 +20,7 @@ export const FONTS = {
     INPUT: INPUT_FONT,
     INPUT_LABEL_COLLAPSED: { size: 3, lineHeight: 3, fontWeight: 300, transform: "uppercase" },
     INPUT_LABEL_EXPANDED: { ...INPUT_FONT, transform: "uppercase" },
+    BUTTON: { ...DEFAULT_FONT, fontWeight: 500, lineHeight: 10 },
 } as const;
 
 export function fontObject({ size, lineHeight, fontWeight, transform }: Font) {

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-type FormState = "READY" | "SUBMITTING" | "ERROR" | "SUCCESS";
+export type FormSubmitState = "READY" | "SUBMITTING" | "ERROR" | "SUCCESS";
 
 interface UseFormResponse<T> {
-    state: FormState;
+    state: FormSubmitState;
     onSubmit: (event: FormEvent) => void;
 }
 
@@ -36,7 +36,7 @@ export function useForm<T>(
     formValues: FormValueFields<T>,
     submitCallback: (formValues: T) => void,
 ): UseFormResponse<T> {
-    const [state, setState] = useState<FormState>("READY");
+    const [state, setState] = useState<FormSubmitState>("READY");
 
     function onSubmit(event: FormEvent) {
         event.preventDefault();

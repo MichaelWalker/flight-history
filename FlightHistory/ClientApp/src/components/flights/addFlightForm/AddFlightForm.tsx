@@ -4,6 +4,7 @@ import { Aircraft } from "../../../models/aircraft";
 import { Airline } from "../../../models/airline";
 import { Airport } from "../../../models/airport";
 import { CreateFlight } from "../../../models/flight";
+import { FormButtons } from "../../forms/formButtons/FormButtons";
 import { DateInput } from "../../forms/input/dateInput/DateInput";
 import { AircraftSelect } from "../../forms/select/aircraftSelect/AircraftSelect";
 import { AirlineSelect } from "../../forms/select/airlineSelect/AirlineSelect";
@@ -20,7 +21,7 @@ export const AddFlightForm: FC = () => {
     const aircraftField = useRequiredField<Aircraft>("Aircraft");
     const dateField = useRequiredField<string>("Departure Date");
 
-    const { onSubmit } = useForm<CreateFlight>(
+    const { onSubmit, state } = useForm<CreateFlight>(
         {
             source: { ...sourceField },
             destination: { ...destinationField },
@@ -41,7 +42,8 @@ export const AddFlightForm: FC = () => {
                 <AirlineSelect {...airlineField} />
                 <AircraftSelect {...aircraftField} />
                 <DateInput {...dateField} />
-                <button type="submit">Click Me</button>
+
+                <FormButtons returnTo={"/flights"} formSubmitStatus={state} />
             </form>
         </CardSection>
     );
