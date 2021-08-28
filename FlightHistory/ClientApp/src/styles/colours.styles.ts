@@ -10,7 +10,7 @@ export interface ColourPalette {
 }
 
 const WHITE = "#ffffff";
-const LIGHT_GREY = "#e1e1e2";
+const LIGHT_GREY = "#efefef";
 const DARK_GREY = "#686868";
 const TEAL = "#3e8989";
 const GREEN = "#2cda9d";
