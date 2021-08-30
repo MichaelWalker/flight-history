@@ -1,18 +1,8 @@
 import { css, CSSObject } from "@emotion/css";
 import { OptionProps } from "react-select";
-import {
-    COLOUR_PALETTES,
-    COLOURS,
-    setColourPalette,
-    setColourPaletteObject,
-} from "../../../styles/colours.styles";
+import { COLOUR_PALETTES, COLOURS, setColourPaletteObject } from "../../../styles/colours.styles";
 import { len, TRANSITIONS } from "../../../styles/constants.styles";
 import { fontObject, FONTS } from "../../../styles/fonts.styles";
-import { fieldContainer, label, validationError } from "../formField.styles";
-
-export const selectContainer = fieldContainer;
-export const selectLabel = label;
-export const selectValidationError = validationError;
 
 export const dropdownIndicator = css`
     width: ${len(6)};
@@ -33,8 +23,6 @@ export const control = (): CSSObject => {
         flexWrap: "wrap",
         justifyContent: "space-between",
         border: "none",
-        borderRadius: 0,
-        borderBottom: `1px solid ${COLOURS.FOREGROUND}`,
         boxShadow: "none",
         transition: `all ease ${TRANSITIONS.DEFAULT}`,
 
@@ -93,5 +81,13 @@ export const option = <T>(base: CSSObject, state: OptionProps<T, false, any>) =>
         ...fontObject(FONTS.DEFAULT),
         backgroundColor:
             state.isSelected || state.isFocused ? COLOURS.BACKGROUND_SELECTED : COLOURS.BACKGROUND,
+    };
+};
+
+export const menu = (base: CSSObject) => {
+    return {
+        ...base,
+        ...setColourPaletteObject(COLOUR_PALETTES.CARD),
+        zIndex: 2,
     };
 };

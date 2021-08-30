@@ -1,10 +1,11 @@
 import type { FC, ReactElement } from "react";
-import React, { useState } from "react";
+import React from "react";
 import { CommonProps, Styles } from "react-select";
 import AsyncSelect from "react-select/async";
 import { ClearIcon } from "../../../icons/ClearIcon";
 import { ExpandMoreIcon } from "../../../icons/ExpandMoreIcon";
-import { FormField } from "../useFormField/useFormField";
+import { FormField } from "../formField/FormField";
+import { FormFieldProps } from "../useFormField/useFormField";
 import * as styles from "./select.styles";
 
 export interface SelectOption<T> {
@@ -14,7 +15,7 @@ export interface SelectOption<T> {
 
 export type LoadOptions<T> = (search: string) => Promise<SelectOption<T>[]>;
 
-interface SelectProps<T> extends FormField<T> {
+interface SelectProps<T> extends FormFieldProps<T> {
     loadOptions: LoadOptions<T>;
     toOptionLabel: (item: T) => string;
     helpText: string;
@@ -47,19 +48,9 @@ function fromOption<T>(option: SelectOption<T> | null): T | null {
     return option ? option.value : null;
 }
 
-export function Select<T>({
-    label,
-    loadOptions,
-    value,
-    onChange,
-    toOptionLabel,
-    helpText,
-    validationError,
-    isFocused,
-    isLabelCollapsed,
-    onFocus,
-    onBlur,
-}: SelectProps<T>): ReactElement {
+export function Select<T>(props: SelectProps<T>): ReactElement {
+    const { loadOptions, helpText, value, toOptionLabel, onChange, onBlur, onFocus } = props;
+
     const selectStyles: Styles<SelectOption<T>, false, any> = {
         control: styles.control,
         indicatorSeparator: styles.indicatorSeparator,
@@ -69,11 +60,11 @@ export function Select<T>({
         option: styles.option,
         singleValue: styles.singleValue,
         valueContainer: styles.valueContainer,
+        menu: styles.menu,
     };
 
     return (
-        <label className={styles.selectContainer}>
-            <span className={styles.selectLabel(isLabelCollapsed, isFocused)}>{label}</span>
+        <FormField {...props}>
             <AsyncSelect
                 loadOptions={loadOptions}
                 styles={selectStyles}
@@ -89,9 +80,6 @@ export function Select<T>({
                 onBlur={onBlur}
                 isClearable={true}
             />
-            {validationError && (
-                <span className={styles.selectValidationError}>{validationError}</span>
-            )}
-        </label>
+        </FormField>
     );
 }

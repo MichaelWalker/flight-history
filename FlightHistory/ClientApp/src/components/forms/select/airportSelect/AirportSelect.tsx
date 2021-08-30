@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { AirportsClient } from "../../../../api/airportsClient";
 import { Airport } from "../../../../models/airport";
-import { FormField } from "../../useFormField/useFormField";
+import { FormFieldProps } from "../../useFormField/useFormField";
 import { Select, SelectOption } from "../Select";
 
 async function getAirportOptions(searchInput: string): Promise<SelectOption<Airport>[]> {
@@ -12,7 +12,7 @@ async function getAirportOptions(searchInput: string): Promise<SelectOption<Airp
     );
 }
 
-export const AirportSelect: FC<FormField<Airport>> = (props) => {
+export const AirportSelect: FC<FormFieldProps<Airport>> = (props) => {
     return (
         <Select
             {...props}

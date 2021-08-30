@@ -40,7 +40,7 @@ export const COLOUR_PALETTES = {
         background: `linear-gradient(45deg, ${TEAL}, ${GREEN})`,
     },
     CARD: { ...DEFAULT_PALETTE, background: WHITE },
-    ACTIVE: { ...DEFAULT_PALETTE, foreground: TEAL },
+    ACTIVE: { ...DEFAULT_PALETTE, foreground: TEAL, background: WHITE },
     LABEL: { ...DEFAULT_PALETTE, foreground: DARK_GREY },
     PRIMARY_ACTIVE: { ...PRIMARY_PALETTE, background: GREEN },
     SECONDARY_ACTIVE: { ...SECONDARY_PALETTE, background: LIGHT_GREY },

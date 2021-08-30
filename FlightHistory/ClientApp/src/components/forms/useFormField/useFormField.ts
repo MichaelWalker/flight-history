@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { isNotNullOrEmpty } from "../../../helpers/utils";
 
-export interface FormField<T> {
+export interface FormFieldProps<T> {
     label: string;
     value: T | null;
     onChange: (value: T | null) => void;
@@ -14,7 +14,7 @@ export interface FormField<T> {
     isFocused: boolean;
 }
 
-interface RequiredFormField<T> extends FormField<T> {
+interface RequiredFormField<T> extends FormFieldProps<T> {
     validate: () => T;
 }
 
@@ -22,7 +22,7 @@ interface FieldOptions<T> {
     initialValue?: T | null;
 }
 
-export function useFormField<T>(label: string, options: FieldOptions<T> = {}): FormField<T> {
+export function useFormField<T>(label: string, options: FieldOptions<T> = {}): FormFieldProps<T> {
     const { initialValue = null } = options;
 
     const [value, setValue] = useState(initialValue);

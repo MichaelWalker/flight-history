@@ -1,27 +1,19 @@
-import React, { FC, useState } from "react";
-import { FormField } from "../useFormField/useFormField";
-import * as styles from "../formField.styles";
+import React, { FC } from "react";
+import { FormField } from "../formField/FormField";
+import { FormFieldProps } from "../useFormField/useFormField";
+import * as styles from "./input.styles";
 
-interface InputProps extends FormField<string> {
+interface InputProps extends FormFieldProps<string> {
     type: "date";
 }
 
-export const Input: FC<InputProps> = ({
-    label,
-    value,
-    onChange,
-    validationError,
-    type,
-    isLabelCollapsed,
-    onFocus,
-    onBlur,
-    isFocused,
-}) => {
+export const Input: FC<InputProps> = (props) => {
+    const { type, value, onChange, onFocus, onBlur } = props;
+
     return (
-        <label className={styles.fieldContainer}>
-            <span className={styles.label(isLabelCollapsed, isFocused)}>{label}</span>
+        <FormField {...props}>
             <input
-                className={styles.input(isLabelCollapsed)}
+                className={styles.input}
                 type={type}
                 value={value ?? ""}
                 onChange={(event) => onChange(event.target.value)}
@@ -29,8 +21,6 @@ export const Input: FC<InputProps> = ({
                 onBlur={onBlur}
                 onClick={onFocus} // Cover for FF issue where date input fails to focus as expected.
             />
-            {/* TODO - Add some aria roles to this. */}
-            {validationError && <span className={styles.validationError}>{validationError}</span>}
-        </label>
+        </FormField>
     );
 };

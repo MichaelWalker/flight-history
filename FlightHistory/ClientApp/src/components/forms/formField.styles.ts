@@ -34,17 +34,15 @@ export const label = (isCollapsed: boolean, isFocused: boolean): string => {
     `;
 };
 
-export function input(labelIsCollapsed: boolean) {
+export function input() {
     return css`
         ${font(FONTS.INPUT)}
-        color: ${labelIsCollapsed ? COLOURS.FOREGROUND : COLOURS.BACKGROUND};
+        color: ${COLOURS.FOREGROUND};
         width: 100%;
         height: ${len(FONTS.INPUT.lineHeight)};
         border: none;
-        border-bottom: 1px solid ${COLOURS.FOREGROUND};
         outline: none;
         transition: all ease ${TRANSITIONS.DEFAULT};
-        display: block;
 
         &:focus-within {
             border-color: ${COLOURS.PRIMARY};
