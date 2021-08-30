@@ -6,15 +6,13 @@ import {
     setColourPalette,
     setColourPaletteObject,
 } from "../../../styles/colours.styles";
-import { len, SPACING, TRANSITIONS } from "../../../styles/constants.styles";
-import { font, fontObject, FONTS } from "../../../styles/fonts.styles";
-import { formInputContainer, formLabel } from "../common.styles";
+import { len, TRANSITIONS } from "../../../styles/constants.styles";
+import { fontObject, FONTS } from "../../../styles/fonts.styles";
+import { fieldContainer, label, validationError } from "../formField.styles";
 
-export const selectContainer = formInputContainer;
-
-export function selectLabel(isCollapsed: boolean, isFocused: boolean): string {
-    return formLabel(isCollapsed, isFocused);
-}
+export const selectContainer = fieldContainer;
+export const selectLabel = label;
+export const selectValidationError = validationError;
 
 export const dropdownIndicator = css`
     width: ${len(6)};

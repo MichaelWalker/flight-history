@@ -1,13 +1,8 @@
 import React, { FC } from "react";
 import { AircraftClient } from "../../../../api/aircraftClient";
 import { Aircraft } from "../../../../models/aircraft";
+import { FormField } from "../../useFormField/useFormField";
 import { Select, SelectOption } from "../Select";
-
-interface AircraftSelectProps {
-    label: string;
-    value: Aircraft | null;
-    setValue: (airport: Aircraft | null) => void;
-}
 
 async function getAircraftOptions(searchInput: string): Promise<SelectOption<Aircraft>[]> {
     return (await AircraftClient.list({ page: 1, pageSize: 5 }, undefined, searchInput)).items.map(
@@ -17,12 +12,10 @@ async function getAircraftOptions(searchInput: string): Promise<SelectOption<Air
     );
 }
 
-export const AircraftSelect: FC<AircraftSelectProps> = ({ label, value, setValue }) => {
+export const AircraftSelect: FC<FormField<Aircraft>> = (props) => {
     return (
         <Select
-            label={label}
-            value={value}
-            setValue={setValue}
+            {...props}
             loadOptions={getAircraftOptions}
             toOptionLabel={(aircraft) => aircraft.registration}
             helpText={"Search by aircraft registration or model"}

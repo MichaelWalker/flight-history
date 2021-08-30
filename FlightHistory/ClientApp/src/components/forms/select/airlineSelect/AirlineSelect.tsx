@@ -1,13 +1,8 @@
 import React, { FC } from "react";
 import { AirlineClient } from "../../../../api/airlineClient";
 import { Airline } from "../../../../models/airline";
+import { FormField } from "../../useFormField/useFormField";
 import { Select, SelectOption } from "../Select";
-
-interface AirlineSelectProps {
-    label: string;
-    value: Airline | null;
-    setValue: (airport: Airline | null) => void;
-}
 
 async function getAirlineOptions(searchInput: string): Promise<SelectOption<Airline>[]> {
     return (await AirlineClient.list({ page: 1, pageSize: 5 }, undefined, searchInput)).items.map(
@@ -17,12 +12,10 @@ async function getAirlineOptions(searchInput: string): Promise<SelectOption<Airl
     );
 }
 
-export const AirlineSelect: FC<AirlineSelectProps> = ({ label, value, setValue }) => {
+export const AirlineSelect: FC<FormField<Airline>> = (props) => {
     return (
         <Select
-            label={label}
-            value={value}
-            setValue={setValue}
+            {...props}
             loadOptions={getAirlineOptions}
             toOptionLabel={(airline) => airline.name}
             helpText={"Search by airline name"}

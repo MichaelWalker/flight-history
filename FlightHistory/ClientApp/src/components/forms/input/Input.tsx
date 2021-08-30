@@ -1,35 +1,36 @@
 import React, { FC, useState } from "react";
-import * as styles from "./input.styles";
+import { FormField } from "../useFormField/useFormField";
+import * as styles from "../formField.styles";
 
-interface InputProps {
-    label: string;
-    value: string | null;
-    setValue: (value: string | null) => void;
+interface InputProps extends FormField<string> {
     type: "date";
 }
 
-export const Input: FC<InputProps> = ({ label, value, setValue, type }) => {
-    const [isFocused, setIsFocused] = useState(false);
-
-    function labelIsCollapsed() {
-        if (isFocused) {
-            return true;
-        }
-
-        return value !== null && value.trim() !== "";
-    }
-
+export const Input: FC<InputProps> = ({
+    label,
+    value,
+    onChange,
+    validationError,
+    type,
+    isLabelCollapsed,
+    onFocus,
+    onBlur,
+    isFocused,
+}) => {
     return (
-        <label className={styles.container}>
-            <span className={styles.inputLabel(labelIsCollapsed(), isFocused)}>{label}</span>
+        <label className={styles.fieldContainer}>
+            <span className={styles.label(isLabelCollapsed, isFocused)}>{label}</span>
             <input
-                className={styles.input(labelIsCollapsed())}
+                className={styles.input(isLabelCollapsed)}
                 type={type}
                 value={value ?? ""}
-                onChange={(event) => setValue(event.target.value)}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
+                onChange={(event) => onChange(event.target.value)}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onClick={onFocus} // Cover for FF issue where date input fails to focus as expected.
             />
+            {/* TODO - Add some aria roles to this. */}
+            {validationError && <span className={styles.validationError}>{validationError}</span>}
         </label>
     );
 };

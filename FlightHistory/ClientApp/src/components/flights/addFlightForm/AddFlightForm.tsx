@@ -10,16 +10,16 @@ import { AircraftSelect } from "../../forms/select/aircraftSelect/AircraftSelect
 import { AirlineSelect } from "../../forms/select/airlineSelect/AirlineSelect";
 import { AirportSelect } from "../../forms/select/airportSelect/AirportSelect";
 import { useForm } from "../../forms/useForm/useForm";
-import { useRequiredField } from "../../forms/useFormField/useFormField";
+import { useRequiredFormField } from "../../forms/useFormField/useFormField";
 import { CardSection } from "../../layouts/CardSection";
 import * as styles from "./addFlightForm.styles";
 
 export const AddFlightForm: FC = () => {
-    const sourceField = useRequiredField<Airport>("Source Airport");
-    const destinationField = useRequiredField<Airport>("Destination Airport");
-    const airlineField = useRequiredField<Airline>("Airline");
-    const aircraftField = useRequiredField<Aircraft>("Aircraft");
-    const dateField = useRequiredField<string>("Departure Date");
+    const sourceField = useRequiredFormField<Airport>("Source Airport");
+    const destinationField = useRequiredFormField<Airport>("Destination Airport");
+    const airlineField = useRequiredFormField<Airline>("Airline");
+    const aircraftField = useRequiredFormField<Aircraft>("Aircraft");
+    const dateField = useRequiredFormField<string>("Departure Date");
 
     const { onSubmit, state } = useForm<CreateFlight>(
         {

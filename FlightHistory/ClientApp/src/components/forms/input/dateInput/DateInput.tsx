@@ -1,12 +1,7 @@
 import React, { FC } from "react";
+import { FormField } from "../../useFormField/useFormField";
 import { Input } from "../Input";
 
-interface DateInputProps {
-    label: string;
-    value: string | null;
-    setValue: (value: string | null) => void;
-}
-
-export const DateInput: FC<DateInputProps> = (props) => {
+export const DateInput: FC<FormField<string>> = (props) => {
     return <Input type="date" {...props} />;
 };

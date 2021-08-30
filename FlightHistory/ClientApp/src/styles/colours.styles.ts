@@ -15,6 +15,7 @@ const DARK_GREY = "#686868";
 const TEAL = "#3e8989";
 const GREEN = "#2cda9d";
 const DARK_GREEN = "#1a181b";
+const ERROR = "#bb0000";
 const SHADOW = "rgba(0, 0, 0, 50%)";
 const TRANSPARENT = "transparent";
 
@@ -43,6 +44,7 @@ export const COLOUR_PALETTES = {
     LABEL: { ...DEFAULT_PALETTE, foreground: DARK_GREY },
     PRIMARY_ACTIVE: { ...PRIMARY_PALETTE, background: GREEN },
     SECONDARY_ACTIVE: { ...SECONDARY_PALETTE, background: LIGHT_GREY },
+    ERROR_MESSAGE: { ...DEFAULT_PALETTE, foreground: ERROR, background: TRANSPARENT },
 } as const;
 
 export const COLOURS = {

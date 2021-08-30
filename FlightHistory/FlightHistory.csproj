@@ -46,7 +46,7 @@
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\addFlightForm.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\AddFlightForm.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\FlightsTable.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\forms\common.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\formField.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\form.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Form.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\formButtons\formButtons.styles.ts" />
@@ -54,7 +54,6 @@
       <TypeScriptCompile Include="ClientApp\src\components\forms\input.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\Input.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\input\dateInput\DateInput.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\forms\input\input.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\input\Input.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\aircraftSelect\AircraftSelect.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\airlineSelect\AirlineSelect.tsx" />
@@ -63,6 +62,7 @@
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\Select.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\select\Select.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\SubmitButton.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\forms\useFormField\useFormField.testhelpers.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\useFormField\useFormField.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\forms\useForm\useForm.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\layouts\cardSection.styles.ts" />
@@ -105,6 +105,7 @@
       <TypeScriptCompile Include="ClientApp\src\helpers\testHelpers\reactTestHelpers.tsx" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\helpers\tokenHelper.ts" />
+      <TypeScriptCompile Include="ClientApp\src\helpers\utils.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\fetchDataReducer.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\fetchDataReducer.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useFetchData.test.tsx" />

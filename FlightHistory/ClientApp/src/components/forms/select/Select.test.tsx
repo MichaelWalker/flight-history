@@ -1,6 +1,7 @@
 import { render, RenderResult, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import { LoadOptions, Select, SelectOption } from "./Select";
+import { stubFormField, StubFormFieldOptions } from "../useFormField/useFormField.testhelpers";
+import { Select, SelectOption } from "./Select";
 import userEvent from "@testing-library/user-event";
 
 function sampleLoadOptions(search: string): Promise<SelectOption<string>[]> {
@@ -12,41 +13,28 @@ function sampleLoadOptions(search: string): Promise<SelectOption<string>[]> {
     );
 }
 
+// TODO - find a better set of assertions for styles.
 function expectLabelIsCollapsed() {
-    expect(screen.getByText("Label").className).toBe("css-1vqa8ah");
+    expect(screen.getByText("Label").className).toBe("css-10z2f9h");
 }
 
 function expectLabelIsExpanded() {
-    expect(screen.getByText("Label").className).toBe("css-exi4rs");
-}
-
-function expectLabelIsExpandedAndHighlighted() {
-    expect(screen.getByText("Label").className).toBe("css-1vqa8ah");
+    expect(screen.getByText("Label").className).toBe("css-10z2f9h");
 }
 
 function expectLabelIsCollapsedAndHighlighted() {
-    expect(screen.getByText("Label").className).toBe("css-ixt891");
+    expect(screen.getByText("Label").className).toBe("css-17k49f");
 }
 
-interface RenderSelectOptions {
-    value?: string | null;
-    setValue?: (option: string | null) => void;
-    loadOptions?: LoadOptions<string>;
-}
+interface RenderOptions extends StubFormFieldOptions {}
 
-function renderSelect({
-    value = null,
-    setValue = jest.fn(),
-    loadOptions = sampleLoadOptions,
-}: RenderSelectOptions = {}): RenderResult {
+function renderSelect(options: RenderOptions = {}): RenderResult {
     return render(
         <Select
-            label={"Label"}
-            loadOptions={loadOptions}
-            value={value}
-            setValue={setValue}
+            {...stubFormField(options)}
             toOptionLabel={(item) => `Option ${item}`}
             helpText={"Search by name or code"}
+            loadOptions={sampleLoadOptions}
         />,
     );
 }
@@ -54,27 +42,24 @@ function renderSelect({
 describe("The Select Component", () => {
     describe("when unfocused", () => {
         it("has an expanded label if input is empty", () => {
-            renderSelect();
-            expectLabelIsCollapsed();
+            renderSelect({ isFocused: false });
+            expectLabelIsExpanded();
         });
 
         it("has a collapsed label if input is not empty", () => {
-            renderSelect({ value: "1" });
-            expectLabelIsExpanded();
+            renderSelect({ isFocused: false, value: "1" });
+            expectLabelIsCollapsed();
         });
     });
 
     describe("when focused", () => {
         it("has a collapsed label", async () => {
-            renderSelect();
-
-            expectLabelIsExpandedAndHighlighted();
-            userEvent.click(screen.getByLabelText("Label"));
-            await waitFor(expectLabelIsCollapsedAndHighlighted);
+            renderSelect({ isFocused: true });
+            expectLabelIsCollapsedAndHighlighted();
         });
 
         it("displays search instructions when search term is empty", async () => {
-            renderSelect();
+            renderSelect({ isFocused: true });
 
             userEvent.click(screen.getByLabelText("Label"));
             await waitFor(() =>
@@ -83,7 +68,7 @@ describe("The Select Component", () => {
         });
 
         it("displays search results when search finds options", async () => {
-            renderSelect();
+            renderSelect({ isFocused: true });
 
             const input = screen.getByLabelText("Label");
             userEvent.click(input);
@@ -95,7 +80,7 @@ describe("The Select Component", () => {
         });
 
         it("displays 'no results' message when search results are empty", async () => {
-            renderSelect();
+            renderSelect({ isFocused: true });
 
             const input = screen.getByLabelText("Label");
             userEvent.click(input);
@@ -108,8 +93,8 @@ describe("The Select Component", () => {
         });
 
         it("allows selecting a value", async () => {
-            const setValue = jest.fn();
-            renderSelect({ setValue });
+            const onChange = jest.fn();
+            renderSelect({ onChange, isFocused: true });
 
             const input = screen.getByLabelText("Label") as HTMLSelectElement;
             userEvent.type(input, "Opt");
@@ -118,17 +103,17 @@ describe("The Select Component", () => {
                 userEvent.click(option1);
             });
 
-            expect(setValue).toHaveBeenCalledWith("1");
+            expect(onChange).toHaveBeenCalledWith("1");
         });
 
         it("allows removing a value", async () => {
-            const setValue = jest.fn();
-            renderSelect({ value: "1", setValue });
+            const onChange = jest.fn();
+            renderSelect({ value: "1", onChange, isFocused: true });
 
             expect(screen.getByText("Option 1")).toBeInTheDocument();
             userEvent.click(screen.getByLabelText("Clear"));
 
-            await waitFor(() => expect(setValue).toHaveBeenCalledWith(null));
+            await waitFor(() => expect(onChange).toHaveBeenCalledWith(null));
         });
     });
 });

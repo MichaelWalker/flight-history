@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { isNotNullOrEmpty } from "../../../helpers/utils";
 
-interface FormField<T> {
+export interface FormField<T> {
     label: string;
     value: T | null;
-    setValue: (value: T | null) => void;
+    onChange: (value: T | null) => void;
+    onFocus: () => void;
+    onBlur: () => void;
     validate: () => T | null;
     validationError: string | null;
+    setValidationError: (message: string) => void;
+    isLabelCollapsed: boolean;
+    isFocused: boolean;
 }
 
 interface RequiredFormField<T> extends FormField<T> {
@@ -16,37 +22,63 @@ interface FieldOptions<T> {
     initialValue?: T | null;
 }
 
-export function useField<T>(label: string, options: FieldOptions<T> = {}): FormField<T> {
+export function useFormField<T>(label: string, options: FieldOptions<T> = {}): FormField<T> {
     const { initialValue = null } = options;
 
     const [value, setValue] = useState(initialValue);
+    const [isFocused, setIsFocused] = useState(false);
     const [validationError, setValidationError] = useState<string | null>(null);
+    const isLabelCollapsed = isFocused || isNotNullOrEmpty(value);
 
-    function validate(): T | null {
+    const onChange = useCallback(
+        (newValue: T | null) => {
+            setValidationError(null);
+            setValue(newValue);
+        },
+        [setValidationError, setValue],
+    );
+
+    const onFocus = useCallback(() => {
+        setIsFocused(true);
+    }, [setIsFocused]);
+
+    const onBlur = useCallback(() => {
+        setIsFocused(false);
+    }, [setIsFocused]);
+
+    const validate = useCallback((): T | null => {
         return value;
-    }
+    }, [value]);
 
     return {
         label,
         value,
-        setValue,
+        onChange,
+        onFocus,
+        onBlur,
         validate,
         validationError,
+        setValidationError,
+        isLabelCollapsed,
+        isFocused,
     };
 }
 
-export function useRequiredField<T>(
+export function useRequiredFormField<T>(
     label: string,
     options: FieldOptions<T> = {},
 ): RequiredFormField<T> {
-    const field = useField(label, options);
+    const field = useFormField(label, options);
+    const { value, setValidationError } = field;
 
-    function validate(): T {
-        if (field.value === null || (typeof field === "string" && field === "")) {
+    const validate = useCallback((): T => {
+        if (!isNotNullOrEmpty(value)) {
+            setValidationError(`${label} is required`);
             throw Error("Cannot be null");
         }
-        return field.value;
-    }
+
+        return value;
+    }, [value, setValidationError]);
 
     return {
         ...field,

@@ -2,16 +2,15 @@ import { css } from "@emotion/css";
 import { COLOUR_PALETTES, COLOURS, setColourPalette } from "../../styles/colours.styles";
 import { len, SPACING, TRANSITIONS } from "../../styles/constants.styles";
 import { font, FONTS } from "../../styles/fonts.styles";
-import { focusable } from "../../styles/mixins.styles";
 
-export const formInputContainer = css`
+export const fieldContainer = css`
     position: relative;
     display: block;
     padding-top: ${len(FONTS.INPUT_LABEL_COLLAPSED.lineHeight)};
     margin-bottom: ${SPACING.MEDIUM};
 `;
 
-export const formLabel = (isCollapsed: boolean, isFocused: boolean): string => {
+export const label = (isCollapsed: boolean, isFocused: boolean): string => {
     const common = css`
         ${setColourPalette(isFocused ? COLOUR_PALETTES.ACTIVE : COLOUR_PALETTES.LABEL)}
         transition: all ease ${TRANSITIONS.DEFAULT};
@@ -35,7 +34,7 @@ export const formLabel = (isCollapsed: boolean, isFocused: boolean): string => {
     `;
 };
 
-export function formInput(labelIsCollapsed: boolean) {
+export function input(labelIsCollapsed: boolean) {
     return css`
         ${font(FONTS.INPUT)}
         color: ${labelIsCollapsed ? COLOURS.FOREGROUND : COLOURS.BACKGROUND};
@@ -45,9 +44,15 @@ export function formInput(labelIsCollapsed: boolean) {
         border-bottom: 1px solid ${COLOURS.FOREGROUND};
         outline: none;
         transition: all ease ${TRANSITIONS.DEFAULT};
+        display: block;
 
         &:focus-within {
             border-color: ${COLOURS.PRIMARY};
         }
     `;
 }
+
+export const validationError = css`
+    ${font(FONTS.DEFAULT)}
+    ${setColourPalette(COLOUR_PALETTES.ERROR_MESSAGE)}
+`;

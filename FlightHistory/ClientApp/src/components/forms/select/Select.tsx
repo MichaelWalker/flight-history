@@ -4,6 +4,7 @@ import { CommonProps, Styles } from "react-select";
 import AsyncSelect from "react-select/async";
 import { ClearIcon } from "../../../icons/ClearIcon";
 import { ExpandMoreIcon } from "../../../icons/ExpandMoreIcon";
+import { FormField } from "../useFormField/useFormField";
 import * as styles from "./select.styles";
 
 export interface SelectOption<T> {
@@ -13,11 +14,8 @@ export interface SelectOption<T> {
 
 export type LoadOptions<T> = (search: string) => Promise<SelectOption<T>[]>;
 
-interface SelectProps<T> {
-    label: string;
+interface SelectProps<T> extends FormField<T> {
     loadOptions: LoadOptions<T>;
-    value: T | null;
-    setValue: (value: T | null) => void;
     toOptionLabel: (item: T) => string;
     helpText: string;
 }
@@ -53,13 +51,15 @@ export function Select<T>({
     label,
     loadOptions,
     value,
-    setValue,
+    onChange,
     toOptionLabel,
     helpText,
+    validationError,
+    isFocused,
+    isLabelCollapsed,
+    onFocus,
+    onBlur,
 }: SelectProps<T>): ReactElement {
-    const [isFocused, setIsFocused] = useState(false);
-    const collapsedLabel = isFocused || value !== null;
-
     const selectStyles: Styles<SelectOption<T>, false, any> = {
         control: styles.control,
         indicatorSeparator: styles.indicatorSeparator,
@@ -73,7 +73,7 @@ export function Select<T>({
 
     return (
         <label className={styles.selectContainer}>
-            <span className={styles.selectLabel(collapsedLabel, isFocused)}>{label}</span>
+            <span className={styles.selectLabel(isLabelCollapsed, isFocused)}>{label}</span>
             <AsyncSelect
                 loadOptions={loadOptions}
                 styles={selectStyles}
@@ -84,11 +84,14 @@ export function Select<T>({
                 }}
                 noOptionsMessage={({ inputValue }) => (inputValue ? "No results" : helpText)}
                 value={toOption(value, toOptionLabel)}
-                onChange={(option) => setValue(fromOption(option))}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
+                onChange={(option) => onChange(fromOption(option))}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 isClearable={true}
             />
+            {validationError && (
+                <span className={styles.selectValidationError}>{validationError}</span>
+            )}
         </label>
     );
 }
