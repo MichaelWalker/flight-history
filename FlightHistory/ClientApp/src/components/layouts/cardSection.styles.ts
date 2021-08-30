@@ -12,7 +12,13 @@ export function cardSection(extraCss?: string): string {
     `;
 }
 
+export const headingRow = css`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: ${SPACING.MEDIUM};
+`;
+
 export const sectionTitle = css`
     ${font(FONTS.SECTION_TITLE)}
-    margin-bottom: ${SPACING.MEDIUM};
 `;

@@ -10,6 +10,7 @@ const button = css`
     padding: 0 ${SPACING.MEDIUM};
     background: ${COLOURS.BACKGROUND};
     transition: all ease ${TRANSITIONS.DEFAULT};
+    display: inline-block;
 `;
 
 export const primaryButton = css`

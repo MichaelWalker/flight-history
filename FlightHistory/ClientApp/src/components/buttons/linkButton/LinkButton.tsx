@@ -6,6 +6,14 @@ interface LinkButtonProps {
     to: string;
 }
 
+export const PrimaryLinkButton: FC<LinkButtonProps> = ({ children, to }) => {
+    return (
+        <Link to={to} className={styles.primaryButton}>
+            {children}
+        </Link>
+    );
+};
+
 export const SecondaryLinkButton: FC<LinkButtonProps> = ({ children, to }) => {
     return (
         <Link to={to} className={styles.secondaryButton}>
