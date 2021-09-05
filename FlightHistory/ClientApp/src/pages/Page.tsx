@@ -2,6 +2,8 @@
 import React from "react";
 import { NavBar } from "../components/navigation/Nav";
 import { Link } from "react-router-dom";
+import { MODAL_ROOT_ID } from "../hooks/useModal";
+import { modalRoot } from "./page.styles";
 import * as styles from "./page.styles";
 
 interface PageProps {
@@ -25,6 +27,7 @@ export const Page: FunctionComponent<PageProps> = ({ children, title }) => {
                 </header>
                 <main className={styles.main}>{children}</main>
             </div>
+            <div className={styles.modalRoot} id={MODAL_ROOT_ID} />
         </div>
     );
 };

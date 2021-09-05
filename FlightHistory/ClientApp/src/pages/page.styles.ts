@@ -73,3 +73,7 @@ export const main = css`
     width: 100%;
     box-sizing: border-box;
 `;
+
+export const modalRoot = css`
+    z-index: 2;
+`;

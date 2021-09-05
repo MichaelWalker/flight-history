@@ -70,6 +70,9 @@
       <TypeScriptCompile Include="ClientApp\src\components\forms\useForm\useForm.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\layouts\cardSection.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\layouts\CardSection.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\modals\modalContainer\modalContainer.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\modals\modalContainer\ModalContainer.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\modals\modal\Modal.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\Nav.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\NavItem.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\SuccessIcon.tsx" />
@@ -116,6 +119,7 @@
       <TypeScriptCompile Include="ClientApp\src\hooks\useIsMounted.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useLatestOnlyAsyncCall.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\hooks\useModal.tsx" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\hooks\useUniqueId.ts" />
       <TypeScriptCompile Include="ClientApp\src\icons\AircraftIcon.tsx" />
@@ -170,8 +174,10 @@
       <TypeScriptCompile Include="ClientApp\src\styles\helpers.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\helpers.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\mixins.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\transitions\Fade.tsx" />
       <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\transitions\Transition.tsx" />
     </ItemGroup>
 
     <ItemGroup>
