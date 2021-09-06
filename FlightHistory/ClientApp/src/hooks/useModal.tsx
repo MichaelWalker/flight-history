@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 import { Modal } from "../components/modals/modal/Modal";
 import { ModalContainer } from "../components/modals/modalContainer/ModalContainer";
@@ -13,13 +13,25 @@ interface UseModalResult {
 export function useModal(): UseModalResult {
     const [isOpen, setIsOpen] = useState(false);
 
-    function openModal() {
+    const openModal = useCallback(() => {
         setIsOpen(true);
-    }
+        document.addEventListener("keydown", closeOnEscape);
+    }, [setIsOpen]);
 
-    function closeModal() {
+    const closeModal = useCallback(() => {
         setIsOpen(false);
-    }
+        document.removeEventListener("keydown", closeOnEscape);
+    }, [setIsOpen]);
+
+    const closeOnEscape = useCallback(
+        (event: KeyboardEvent) => {
+            console.log("keyboard event");
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        },
+        [closeModal],
+    );
 
     function renderInModal(modal: ReactNode): ReactNode {
         const rootElement = document.getElementById(MODAL_ROOT_ID);
@@ -28,7 +40,7 @@ export function useModal(): UseModalResult {
         }
 
         return createPortal(
-            <ModalContainer isOpen={isOpen}>
+            <ModalContainer isOpen={isOpen} closeModal={closeModal}>
                 <Modal closeModal={closeModal}>{modal}</Modal>
             </ModalContainer>,
             rootElement,
