@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { createPortal } from "react-dom";
 import { Modal } from "../components/modals/modal/Modal";
 import { ModalContainer } from "../components/modals/modalContainer/ModalContainer";
@@ -14,12 +14,10 @@ export function useModal(): UseModalResult {
     const [isOpen, setIsOpen] = useState(false);
 
     function openModal() {
-        console.log("opening modal");
         setIsOpen(true);
     }
 
     function closeModal() {
-        console.log("closing modal");
         setIsOpen(false);
     }
 
@@ -28,8 +26,6 @@ export function useModal(): UseModalResult {
         if (!rootElement) {
             return null;
         }
-
-        console.log("render in modal");
 
         return createPortal(
             <ModalContainer isOpen={isOpen}>

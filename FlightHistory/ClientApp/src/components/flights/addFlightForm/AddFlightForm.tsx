@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import React from "react";
+import { Logger } from "../../../helpers/logger";
 import { Aircraft } from "../../../models/aircraft";
 import { Airline } from "../../../models/airline";
 import { Airport } from "../../../models/airport";
@@ -30,7 +31,7 @@ export const AddFlightForm: FC = () => {
             date: { ...dateField },
         },
         (foo) => {
-            console.log("submitting", foo);
+            Logger.info("submitting", foo);
         },
     );
 

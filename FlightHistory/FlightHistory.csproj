@@ -72,6 +72,7 @@
       <TypeScriptCompile Include="ClientApp\src\components\layouts\CardSection.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\modals\modalContainer\modalContainer.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\modals\modalContainer\ModalContainer.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\components\modals\modal\modal.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\modals\modal\Modal.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\Nav.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\navigation\NavItem.tsx" />
@@ -174,7 +175,7 @@
       <TypeScriptCompile Include="ClientApp\src\styles\helpers.test.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\helpers.ts" />
       <TypeScriptCompile Include="ClientApp\src\styles\mixins.styles.ts" />
-      <TypeScriptCompile Include="ClientApp\src\transitions\Fade.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\transitions\FadeTransition.tsx" />
       <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.styles.ts" />
       <TypeScriptCompile Include="ClientApp\src\transitions\SlideAndFade.tsx" />
       <TypeScriptCompile Include="ClientApp\src\transitions\Transition.tsx" />

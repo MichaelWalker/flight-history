@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Fade } from "../../../transitions/Fade";
+import { FadeTransition } from "../../../transitions/FadeTransition";
+import { FadeUpTransition } from "../../../transitions/FadeUpTransition";
 import { modalContainer } from "./modalContainer.styles";
 
 interface ModalContainerProps {
@@ -8,8 +9,10 @@ interface ModalContainerProps {
 
 export const ModalContainer: FC<ModalContainerProps> = ({ isOpen, children }) => {
     return (
-        <Fade isRendered={isOpen}>
-            <div className={modalContainer}>{children}</div>
-        </Fade>
+        <FadeTransition isRendered={isOpen}>
+            <div className={modalContainer}>
+                <FadeUpTransition isRendered={isOpen}>{children}</FadeUpTransition>
+            </div>
+        </FadeTransition>
     );
 };

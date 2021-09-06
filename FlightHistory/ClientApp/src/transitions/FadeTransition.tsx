@@ -9,36 +9,30 @@ export interface FadeProps {
     isRendered: boolean;
 }
 
-export const Fade: FC<FadeProps> = ({ isRendered, children }) => {
+export const FadeTransition: FC<FadeProps> = ({ isRendered, children }) => {
     function styles(transitionStatus: TransitionStatus): string {
-        console.log("re-rendering", transitionStatus);
         switch (transitionStatus) {
             case "unmounted":
                 return css`
                     opacity: 0;
-                    background: yellow;
                 `;
             case "entering":
                 return css`
                     transition: all ease ${TRANSITIONS.DEFAULT};
                     opacity: 1;
-                    background: red;
                 `;
             case "entered":
                 return css`
                     opacity: 1;
-                    background: blue;
                 `;
             case "exiting":
                 return css`
                     transition: all ease ${TRANSITIONS.DEFAULT};
                     opacity: 0;
-                    background: green;
                 `;
             case "exited":
                 return css`
                     opacity: 0;
-                    background: orange;
                 `;
         }
     }
