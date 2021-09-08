@@ -41,6 +41,7 @@
       <TypeScriptCompile Include="ClientApp\src\components\airlines\AirlinesTable.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\airports\AirportsTable.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\buttons\button.styles.ts" />
+      <TypeScriptCompile Include="ClientApp\src\components\buttons\closeButton\CloseButton.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\buttons\linkButton\LinkButton.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\buttons\submitButton\SubmitButton.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\flights\addFlightForm\addFlightForm.styles.ts" />
@@ -127,6 +128,7 @@
       <TypeScriptCompile Include="ClientApp\src\icons\AirlineIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\AirportIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\ClearIcon.tsx" />
+      <TypeScriptCompile Include="ClientApp\src\icons\CloseIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\DashboardIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\ExpandMoreIcon.tsx" />
       <TypeScriptCompile Include="ClientApp\src\icons\FirstPageIcon.tsx" />

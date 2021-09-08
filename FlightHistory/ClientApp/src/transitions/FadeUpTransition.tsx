@@ -15,26 +15,20 @@ export const FadeUpTransition: FC<FadeProps> = ({ isRendered, children }) => {
             case "unmounted":
                 return css`
                     transform: translateY(${SPACING.LARGE});
-                    opacity: 0;
                 `;
             case "entering":
                 return css`
                     transition: all ease ${TRANSITIONS.DEFAULT};
-                    opacity: 1;
                 `;
             case "entered":
-                return css`
-                    opacity: 1;
-                `;
+                return css``;
             case "exiting":
                 return css`
                     transition: all ease ${TRANSITIONS.DEFAULT};
-                    opacity: 0;
                     transform: translateY(${SPACING.LARGE});
                 `;
             case "exited":
                 return css`
-                    opacity: 0;
                     transform: translateY(${SPACING.LARGE});
                 `;
         }

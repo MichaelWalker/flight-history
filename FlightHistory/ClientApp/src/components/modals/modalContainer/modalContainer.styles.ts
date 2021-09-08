@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 
 export const modalContainer = css`
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
 
     position: fixed;
     top: 0;

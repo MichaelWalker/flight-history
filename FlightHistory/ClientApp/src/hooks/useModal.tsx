@@ -10,7 +10,7 @@ interface UseModalResult {
     renderInModal: (modal: ReactNode) => ReactNode;
 }
 
-export function useModal(): UseModalResult {
+export function useModal(title: string): UseModalResult {
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = useCallback(() => {
@@ -25,7 +25,6 @@ export function useModal(): UseModalResult {
 
     const closeOnEscape = useCallback(
         (event: KeyboardEvent) => {
-            console.log("keyboard event");
             if (event.key === "Escape") {
                 closeModal();
             }
@@ -33,7 +32,7 @@ export function useModal(): UseModalResult {
         [closeModal],
     );
 
-    function renderInModal(modal: ReactNode): ReactNode {
+    function renderInModal(modalContents: ReactNode): ReactNode {
         const rootElement = document.getElementById(MODAL_ROOT_ID);
         if (!rootElement) {
             return null;
@@ -41,7 +40,9 @@ export function useModal(): UseModalResult {
 
         return createPortal(
             <ModalContainer isOpen={isOpen} closeModal={closeModal}>
-                <Modal closeModal={closeModal}>{modal}</Modal>
+                <Modal title={title} closeModal={closeModal}>
+                    {modalContents}
+                </Modal>
             </ModalContainer>,
             rootElement,
         );

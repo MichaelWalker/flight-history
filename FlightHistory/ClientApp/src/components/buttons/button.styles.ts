@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import { COLOUR_PALETTES, COLOURS, setColourPalette } from "../../styles/colours.styles";
-import { SPACING, TRANSITIONS } from "../../styles/constants.styles";
+import { len, SPACING, TRANSITIONS } from "../../styles/constants.styles";
 import { font, FONTS } from "../../styles/fonts.styles";
 import { focusable } from "../../styles/mixins.styles";
 
@@ -31,4 +31,11 @@ export const secondaryButton = css`
     &:focus-within &:active {
         ${setColourPalette(COLOUR_PALETTES.SECONDARY_ACTIVE)}
     }
+`;
+
+export const transparentButton = css`
+    ${focusable()}
+    background: ${COLOURS.BACKGROUND};
+    height: ${SPACING.MEDIUM};
+    width: ${SPACING.MEDIUM};
 `;

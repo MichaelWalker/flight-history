@@ -5,7 +5,7 @@ import { useModal } from "../../hooks/useModal";
 import { Page } from "../Page";
 
 export const AddFlight: FC = () => {
-    const { openModal, renderInModal } = useModal();
+    const { openModal, renderInModal } = useModal("Test Modal");
 
     return (
         <Page title={"Add Flight"}>
