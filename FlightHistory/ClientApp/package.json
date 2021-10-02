@@ -4,9 +4,9 @@
     "main": "/src/index.tsx",
     "license": "MIT",
     "scripts": {
-        "start:prod:asp": "echo Starting the development server && webpack serve --port %PORT% --config webpack/dev.config.js",
-        "start:prod:sample": "export USE_SAMPLE_DATA=true && export USE_CONSOLE_LOGGING=true && webpack serve --config webpack/prod.config.js",
-        "start:dev:sample": "export USE_SAMPLE_DATA=true && export USE_CONSOLE_LOGGING=true && webpack serve --config webpack/dev.config.js --hot",
+        "start:prod:asp": "echo Starting the development server&&webpack serve --port %PORT% --config webpack/dev.config.js",
+        "start:prod:sample": "set USE_SAMPLE_DATA=true&&set USE_CONSOLE_LOGGING=true&&webpack serve --config webpack/prod.config.js",
+        "start:dev:sample": "set USE_SAMPLE_DATA=true&&set USE_CONSOLE_LOGGING=true&&webpack serve --config webpack/dev.config.js --hot",
         "test": "jest --maxWorkers=1",
         "test:update-snapshots": "jest --maxWorkers=1 --updateSnapshot",
         "test:coverage": "jest --maxWorkers=1 --coverage",

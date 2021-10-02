@@ -95,7 +95,6 @@
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableOverlay\TableOverlay.tsx" />
       <TypeScriptCompile Include="ClientApp\src\components\tables\tableRow\TableRow.tsx" />
-      <TypeScriptCompile Include="ClientApp\src\components\TransitionRoute.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.test.tsx" />
       <TypeScriptCompile Include="ClientApp\src\contexts\UserContext.tsx" />
       <TypeScriptCompile Include="ClientApp\src\global.d.ts" />
